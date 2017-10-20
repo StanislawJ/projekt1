@@ -7,6 +7,12 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="style.css" media="all">
+	    <style type="text/css" xml:space="preserve">
+BODY, P,TD{ font-family: Arial,Verdana,Helvetica, sans-serif; font-size: 10pt }
+A{font-family: Arial,Verdana,Helvetica, sans-serif;}
+B {	font-family : Arial, Helvetica, sans-serif;	font-size : 12px;	font-weight : bold;}
+</style><script language="JavaScript" src="gen_validatorv4.js"
+    type="text/javascript" xml:space="preserve"></script>
 	
 	<title>Aukcjoner</title>
 	
@@ -68,7 +74,7 @@
         <ul  class="list-group">
           <li id="ground" class="list-group-item"> 
 			<div id="log">
-			<form action="register.php" method="POST">
+			<form action="register.php" method="POST" name="myform" id="myform">
 				
 				
 				<li class="list-group-item">
@@ -119,7 +125,52 @@
 					<input type="submit" value="Rejestruj"/>
 				</li>
 				
-			</form>
+			</form><script language="JavaScript" type="text/javascript"
+    xml:space="preserve">//<![CDATA[
+//You should create the validator only after the definition of the HTML form
+  var frmvalidator  = new Validator("myform");
+
+ frmvalidator.EnableMsgsTogether();
+ frmvalidator.addValidation("log_reg","req","Prosze podac login");
+  frmvalidator.addValidation("log_reg","maxlen=20",	"Maksymalna dlugosc to 20 znakow");
+  frmvalidator.addValidation("log_reg","alpha","Niepoprawny typ znakow w loginie");
+  
+  frmvalidator.addValidation("pass_reg","req","Prosze podac haslo");
+  frmvalidator.addValidation("pass_reg","maxlen=20","Maksymalna dlugosc to 20 znakow");
+  
+  frmvalidator.addValidation("pass_reg_repeat","req","Prosze powtorzyc haslo");
+  frmvalidator.addValidation("pass_reg_repeat","maxlen=20","Maksymalna dlugosc to 20 znakow");
+  
+   frmvalidator.addValidation("name","req","Prosze podac imie");
+  frmvalidator.addValidation("name","maxlen=30",	"Maksymalna dlugosc to 30 znakow");
+  frmvalidator.addValidation("name","alpha","Niepoprawny typ znakow");
+  
+     frmvalidator.addValidation("lastname","req","Prosze podac nazwisko");
+  frmvalidator.addValidation("lastname","maxlen=30",	"Maksymalna dlugosc to 30 znakow");
+  frmvalidator.addValidation("lastname","alpha","Niepoprawny typ znakow");
+  
+  frmvalidator.addValidation("email_reg","maxlen=50");
+  frmvalidator.addValidation("email_reg","req", "Prosze podac email");
+  frmvalidator.addValidation("email_reg","email");
+  
+     frmvalidator.addValidation("from","req","Prosze podac miasto");
+  frmvalidator.addValidation("from","maxlen=30",	"Maksymalna dlugosc to 30 znakow");
+  frmvalidator.addValidation("from","alpha","Niepoprawny typ znakow");
+  
+       frmvalidator.addValidation("street","req","Prosze podac ulice");
+  frmvalidator.addValidation("street","maxlen=30",	"Maksymalna dlugosc to 30 znakow");
+  frmvalidator.addValidation("street","alpha","Niepoprawny typ znakow");
+  
+  frmvalidator.addValidation("home_nr","req","Prosze podac nr domu");
+  frmvalidator.addValidation("home_nr","maxlen=5");
+  frmvalidator.addValidation("home_nr","numeric", "Niepoprawny typ znakow");
+  
+  frmvalidator.addValidation("phone_nr","req","Prosze podac nr domu");
+    frmvalidator.addValidation("phone_nr","maxlen=10");
+  frmvalidator.addValidation("phone_nr","numeric", "Niepoprawny typ znakow");
+  
+
+//]]></script>
 			</div>
 		  </li>
         </ul>
