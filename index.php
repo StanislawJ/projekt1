@@ -80,15 +80,39 @@
 				</li>
 				
 				<li class="list-group-item">
-					Email: <input type="text" name="email_reg"/>
-				</li>
-				
-				<li class="list-group-item">
 					hasło: <input type="password" name="pass_reg"/>
 				</li>
 				
 				<li class="list-group-item">
 					 powtórz hasło: <input type="password" name="pass_reg_repeat"/>
+				</li>
+				
+				<li class="list-group-item">
+					imie: <input type="text" name="imie"/>
+				</li>
+				
+				<li class="list-group-item">
+					nazwisko: <input type="text" name="email_reg"/>
+				</li>
+				
+				<li class="list-group-item">
+					Email: <input type="text" name="email_reg"/>
+				</li>
+				
+				<li class="list-group-item">
+					miejscowość: <input type="text" name="miejscowosc"/>
+				</li>
+				
+				<li class="list-group-item">
+					ulica: <input type="text" name="ulica"/>
+				</li>
+				
+				<li class="list-group-item">
+					nr domu: <input type="text" name="nr_domu"/>
+				</li>
+				
+				<li class="list-group-item">
+					telefon: <input type="text" name="telefon"/>
 				</li>
 				
 				<li class="list-group-item">
