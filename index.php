@@ -88,11 +88,11 @@
 				</li>
 				
 				<li class="list-group-item">
-					imie: <input type="text" name="imie"/>
+					imie: <input type="text" name="name"/>
 				</li>
 				
 				<li class="list-group-item">
-					nazwisko: <input type="text" name="email_reg"/>
+					nazwisko: <input type="text" name="lastname"/>
 				</li>
 				
 				<li class="list-group-item">
@@ -100,19 +100,19 @@
 				</li>
 				
 				<li class="list-group-item">
-					miejscowość: <input type="text" name="miejscowosc"/>
+					miejscowość: <input type="text" name="from"/>
 				</li>
 				
 				<li class="list-group-item">
-					ulica: <input type="text" name="ulica"/>
+					ulica: <input type="text" name="street"/>
 				</li>
 				
 				<li class="list-group-item">
-					nr domu: <input type="text" name="nr_domu"/>
+					nr domu: <input type="text" name="home_nr"/>
 				</li>
 				
 				<li class="list-group-item">
-					telefon: <input type="text" name="telefon"/>
+					telefon: <input type="text" name="phone_nr"/>
 				</li>
 				
 				<li class="list-group-item">
