@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 25 Paź 2017, 14:06
+-- Czas generowania: 25 Paź 2017, 14:56
 -- Wersja serwera: 10.1.26-MariaDB
 -- Wersja PHP: 7.1.9
 
@@ -21,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `aukcjoner`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `auction`
+--
+
+CREATE TABLE `auction` (
+  `ID_Aukcji` bigint(20) NOT NULL,
+  `nazwa` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `ID_kup` bigint(20) NOT NULL,
+  `ID_sprzed` bigint(20) NOT NULL,
+  `nr_zdj` int(20) NOT NULL,
+  `typ_aukcji` int(20) NOT NULL,
+  `data_zacz` date NOT NULL,
+  `kr_op` varchar(100) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `dl_op` varchar(1000) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `cena` decimal(10,2) NOT NULL,
+  `cena_pocz` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -53,6 +73,12 @@ INSERT INTO `users` (`ID`, `login`, `pass`, `name`, `lastname`, `email`, `from`,
 --
 
 --
+-- Indexes for table `auction`
+--
+ALTER TABLE `auction`
+  ADD PRIMARY KEY (`ID_Aukcji`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -61,6 +87,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT dla tabeli `auction`
+--
+ALTER TABLE `auction`
+  MODIFY `ID_Aukcji` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
