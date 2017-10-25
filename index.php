@@ -127,7 +127,6 @@ B {	font-family : Arial, Helvetica, sans-serif;	font-size : 12px;	font-weight : 
 				
 			</form><script language="JavaScript" type="text/javascript"
     xml:space="preserve">//<![CDATA[
-//You should create the validator only after the definition of the HTML form
   var frmvalidator  = new Validator("myform");
 
  frmvalidator.EnableMsgsTogether();
