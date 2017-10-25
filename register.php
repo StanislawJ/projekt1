@@ -15,8 +15,11 @@ $phone_nr = $_POST['phone_nr'];
 
 
 	
-echo $log."".$pass."".$phone_nr
+	require_once "connect.php";
+	$connecting = @new mysqli($host, $db_user, $db_password, $db_name);
 
-
+	$sql = "INSERT INTO `users` (`login`, `pass`, `name`, `lastname`, `email`, `from`, `street`, `home`, `phone`) 
+	VALUES ('".$log."', '".$pass."', '".$name."', '".$lastname."', '".$email."', '".$from."', '".$street."', '".$home_nr."', '".$phone_nr."');";
+	$rezultat = $connecting->query($sql);
 
 ?>
