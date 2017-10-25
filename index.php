@@ -161,11 +161,11 @@ B {	font-family : Arial, Helvetica, sans-serif;	font-size : 12px;	font-weight : 
   frmvalidator.addValidation("street","alpha","Niepoprawny typ znakow");
   
   frmvalidator.addValidation("home_nr","req","Prosze podac nr domu");
-  frmvalidator.addValidation("home_nr","maxlen=5");
-  frmvalidator.addValidation("home_nr","numeric", "Niepoprawny typ znakow");
+  frmvalidator.addValidation("home_nr","maxlen=10");
+  frmvalidator.addValidation("home_nr","alpha", "Niepoprawny typ znakow");
   
   frmvalidator.addValidation("phone_nr","req","Prosze podac nr domu");
-    frmvalidator.addValidation("phone_nr","maxlen=10");
+    frmvalidator.addValidation("phone_nr","maxlen=9");
   frmvalidator.addValidation("phone_nr","numeric", "Niepoprawny typ znakow");
   
 
