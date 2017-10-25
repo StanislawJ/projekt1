@@ -7,11 +7,7 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="style.css" media="all">
-	    <style type="text/css" xml:space="preserve">
-BODY, P,TD{ font-family: Arial,Verdana,Helvetica, sans-serif; font-size: 10pt }
-A{font-family: Arial,Verdana,Helvetica, sans-serif;}
-B {	font-family : Arial, Helvetica, sans-serif;	font-size : 12px;	font-weight : bold;}
-</style><script language="JavaScript" src="gen_validatorv4.js"
+	    <script language="JavaScript" src="gen_validatorv4.js"
     type="text/javascript" xml:space="preserve"></script>
 	
 	<title>Aukcjoner</title>
@@ -74,7 +70,7 @@ B {	font-family : Arial, Helvetica, sans-serif;	font-size : 12px;	font-weight : 
         <ul  class="list-group">
           <li id="ground" class="list-group-item"> 
 			<div id="log">
-			<form action="register.php" method="POST" name="myform" id="myform">
+			<form action="" method="POST" name="myform" id="myform">
 				
 				
 				<li class="list-group-item">
@@ -122,7 +118,7 @@ B {	font-family : Arial, Helvetica, sans-serif;	font-size : 12px;	font-weight : 
 				</li>
 				
 				<li class="list-group-item">
-					<input type="submit" value="Rejestruj"/>
+					<input type="submit" name="register" value="Rejestruj"/>
 				</li>
 				
 			</form><script language="JavaScript" type="text/javascript"
@@ -135,41 +131,46 @@ B {	font-family : Arial, Helvetica, sans-serif;	font-size : 12px;	font-weight : 
   frmvalidator.addValidation("log_reg","alpha","Niepoprawny typ znakow w loginie");
   
   frmvalidator.addValidation("pass_reg","req","Prosze podac haslo");
-  frmvalidator.addValidation("pass_reg","maxlen=20","Maksymalna dlugosc to 20 znakow");
+  frmvalidator.addValidation("pass_reg","maxlen=20","Maksymalna dlugosc to 20 znakow hasła");
   
   frmvalidator.addValidation("pass_reg_repeat","req","Prosze powtorzyc haslo");
-  frmvalidator.addValidation("pass_reg_repeat","maxlen=20","Maksymalna dlugosc to 20 znakow");
+  frmvalidator.addValidation("pass_reg_repeat","maxlen=20","Maksymalna dlugosc to 20 znakow hasła");
   
    frmvalidator.addValidation("name","req","Prosze podac imie");
-  frmvalidator.addValidation("name","maxlen=30",	"Maksymalna dlugosc to 30 znakow");
-  frmvalidator.addValidation("name","alpha","Niepoprawny typ znakow");
+  frmvalidator.addValidation("name","maxlen=30",	"Maksymalna dlugosc imienia to 30 znakow");
+  frmvalidator.addValidation("name","alpha","Niepoprawny typ znakow imienia");
   
      frmvalidator.addValidation("lastname","req","Prosze podac nazwisko");
-  frmvalidator.addValidation("lastname","maxlen=30",	"Maksymalna dlugosc to 30 znakow");
-  frmvalidator.addValidation("lastname","alpha","Niepoprawny typ znakow");
+  frmvalidator.addValidation("lastname","maxlen=30",	"Maksymalna dlugosc nazwiska to 30 znakow");
+  frmvalidator.addValidation("lastname","alpha","Niepoprawny typ znakow nazwiska");
   
   frmvalidator.addValidation("email_reg","maxlen=50");
   frmvalidator.addValidation("email_reg","req", "Prosze podac email");
-  frmvalidator.addValidation("email_reg","email");
+  frmvalidator.addValidation("email_reg","email" , "Niepoprawny typ znakow email'a");
   
      frmvalidator.addValidation("from","req","Prosze podac miasto");
-  frmvalidator.addValidation("from","maxlen=30",	"Maksymalna dlugosc to 30 znakow");
-  frmvalidator.addValidation("from","alpha","Niepoprawny typ znakow");
+  frmvalidator.addValidation("from","maxlen=30",	"Maksymalna dlugosc miasta to 30 znakow");
+  frmvalidator.addValidation("from","alpha","Niepoprawny typ znakow w mieście");
   
        frmvalidator.addValidation("street","req","Prosze podac ulice");
-  frmvalidator.addValidation("street","maxlen=30",	"Maksymalna dlugosc to 30 znakow");
-  frmvalidator.addValidation("street","alpha","Niepoprawny typ znakow");
+  frmvalidator.addValidation("street","maxlen=30",	"Maksymalna dlugosc nazwy ulicy to 30 znakow");
+  frmvalidator.addValidation("street","alpha","Niepoprawny typ znakow nazwy ulicy");
   
   frmvalidator.addValidation("home_nr","req","Prosze podac nr domu");
   frmvalidator.addValidation("home_nr","maxlen=10");
-  frmvalidator.addValidation("home_nr","alpha", "Niepoprawny typ znakow");
+ 
   
   frmvalidator.addValidation("phone_nr","req","Prosze podac nr domu");
     frmvalidator.addValidation("phone_nr","maxlen=9");
-  frmvalidator.addValidation("phone_nr","numeric", "Niepoprawny typ znakow");
+  frmvalidator.addValidation("phone_nr","numeric", "Niepoprawny typ znakow telefnu");
   
 
 //]]></script>
+
+
+
+
+
 			</div>
 		  </li>
         </ul>
@@ -189,6 +190,16 @@ B {	font-family : Arial, Helvetica, sans-serif;	font-size : 12px;	font-weight : 
 
 
 </div>
+
+
+<?php
+if(isset($_POST['register']))
+{
+
+	require_once('register.php');
+	
+}
+?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>
