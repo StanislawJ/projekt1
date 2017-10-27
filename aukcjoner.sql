@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 25 Paź 2017, 14:56
+-- Czas generowania: 27 Paź 2017, 09:29
 -- Wersja serwera: 10.1.26-MariaDB
 -- Wersja PHP: 7.1.9
 
@@ -29,12 +29,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `auction` (
-  `ID_Aukcji` bigint(20) NOT NULL,
+  `ID_Aukcji` int(20) NOT NULL,
   `nazwa` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
-  `ID_kup` bigint(20) NOT NULL,
-  `ID_sprzed` bigint(20) NOT NULL,
+  `ID_kup` int(20) NOT NULL,
+  `ID_sprzed` int(20) NOT NULL,
   `nr_zdj` int(20) NOT NULL,
-  `typ_aukcji` int(20) NOT NULL,
+  `typ` varchar(30) NOT NULL,
+  `kategoria` varchar(30) NOT NULL,
   `data_zacz` date NOT NULL,
   `kr_op` varchar(100) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
   `dl_op` varchar(1000) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
@@ -45,11 +46,47 @@ CREATE TABLE `auction` (
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `categories`
+--
+
+CREATE TABLE `categories` (
+  `kategoria` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `photos`
+--
+
+CREATE TABLE `photos` (
+  `ID_zdj` int(20) NOT NULL,
+  `zd_1` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `zd_2` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `zd_3` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `zd_4` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `zd_5` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `zd_6` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `type`
+--
+
+CREATE TABLE `type` (
+  `typ` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `users`
 --
 
 CREATE TABLE `users` (
-  `ID` bigint(20) NOT NULL,
+  `ID` int(20) NOT NULL,
   `login` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `pass` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `name` varchar(30) COLLATE utf8_polish_ci NOT NULL,
@@ -79,6 +116,24 @@ ALTER TABLE `auction`
   ADD PRIMARY KEY (`ID_Aukcji`);
 
 --
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`kategoria`);
+
+--
+-- Indexes for table `photos`
+--
+ALTER TABLE `photos`
+  ADD PRIMARY KEY (`ID_zdj`);
+
+--
+-- Indexes for table `type`
+--
+ALTER TABLE `type`
+  ADD PRIMARY KEY (`typ`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -92,13 +147,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `auction`
 --
 ALTER TABLE `auction`
-  MODIFY `ID_Aukcji` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Aukcji` int(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `ID_kat` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `photos`
+--
+ALTER TABLE `photos`
+  MODIFY `ID_zdj` int(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `type`
+--
+ALTER TABLE `type`
+  MODIFY `ID_ty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
