@@ -7,9 +7,7 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="style.css" media="all">
-	    <script language="JavaScript" src="gen_validatorv4.js"
-    type="text/javascript" xml:space="preserve"></script>
-	
+	<script language="JavaScript" src="gen_validatorv4.js" type="text/javascript" xml:space="preserve"></script>
 	<title>Aukcjoner</title>
 	
 	<?php
