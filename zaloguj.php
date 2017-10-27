@@ -28,7 +28,7 @@
 	$log = $_POST['log'];
 	$pass = $_POST['pass'];
 	
-	$sql = "SELECT * FROM `users` WHERE log LIKE '$log' AND pass LIKE '$pass'";
+	$sql = "SELECT * FROM `users` WHERE login LIKE '$log' AND pass LIKE '$pass'";
 	$rezultat = $connecting->query($sql);
 	
 	
