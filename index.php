@@ -119,14 +119,13 @@
 					<input type="submit" name="register" value="Rejestruj"/>
 				</li>
 				
-			</form><script language="JavaScript" type="text/javascript"
-    xml:space="preserve">//<![CDATA[
+			</form><script language="JavaScript" type="text/javascript" xml:space="preserve">//<![CDATA[
   var frmvalidator  = new Validator("myform");
 
- frmvalidator.EnableMsgsTogether();
- frmvalidator.addValidation("log_reg","req","Prosze podac login");
+  frmvalidator.EnableMsgsTogether();
+  frmvalidator.addValidation("log_reg","req","Prosze podac login");
   frmvalidator.addValidation("log_reg","maxlen=20",	"Maksymalna dlugosc to 20 znakow");
-  frmvalidator.addValidation("log_reg","alpha","Niepoprawny typ znakow w loginie");
+  frmvalidator.addValidation("log_reg","alphanumeric","Niepoprawny typ znakow w loginie");
   
   frmvalidator.addValidation("pass_reg","req","Prosze podac haslo");
   frmvalidator.addValidation("pass_reg","maxlen=20","Maksymalna dlugosc to 20 znakow hasła");
@@ -134,11 +133,11 @@
   frmvalidator.addValidation("pass_reg_repeat","req","Prosze powtorzyc haslo");
   frmvalidator.addValidation("pass_reg_repeat","maxlen=20","Maksymalna dlugosc to 20 znakow hasła");
   
-   frmvalidator.addValidation("name","req","Prosze podac imie");
+  frmvalidator.addValidation("name","req","Prosze podac imie");
   frmvalidator.addValidation("name","maxlen=30",	"Maksymalna dlugosc imienia to 30 znakow");
   frmvalidator.addValidation("name","alpha","Niepoprawny typ znakow imienia");
   
-     frmvalidator.addValidation("lastname","req","Prosze podac nazwisko");
+  frmvalidator.addValidation("lastname","req","Prosze podac nazwisko");
   frmvalidator.addValidation("lastname","maxlen=30",	"Maksymalna dlugosc nazwiska to 30 znakow");
   frmvalidator.addValidation("lastname","alpha","Niepoprawny typ znakow nazwiska");
   
@@ -146,20 +145,20 @@
   frmvalidator.addValidation("email_reg","req", "Prosze podac email");
   frmvalidator.addValidation("email_reg","email" , "Niepoprawny typ znakow email'a");
   
-     frmvalidator.addValidation("from","req","Prosze podac miasto");
+  frmvalidator.addValidation("from","req","Prosze podac miasto");
   frmvalidator.addValidation("from","maxlen=30",	"Maksymalna dlugosc miasta to 30 znakow");
   frmvalidator.addValidation("from","alpha","Niepoprawny typ znakow w mieście");
   
-       frmvalidator.addValidation("street","req","Prosze podac ulice");
+  frmvalidator.addValidation("street","req","Prosze podac ulice");
   frmvalidator.addValidation("street","maxlen=30",	"Maksymalna dlugosc nazwy ulicy to 30 znakow");
   frmvalidator.addValidation("street","alpha","Niepoprawny typ znakow nazwy ulicy");
   
   frmvalidator.addValidation("home_nr","req","Prosze podac nr domu");
   frmvalidator.addValidation("home_nr","maxlen=10");
+  frmvalidator.addValidation("log_reg","alphanumeric","Niepoprawny typ znakow w loginie");
  
-  
   frmvalidator.addValidation("phone_nr","req","Prosze podac nr domu");
-    frmvalidator.addValidation("phone_nr","maxlen=9");
+  frmvalidator.addValidation("phone_nr","maxlen=9");
   frmvalidator.addValidation("phone_nr","numeric", "Niepoprawny typ znakow telefnu");
   
 
