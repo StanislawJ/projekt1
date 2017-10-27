@@ -18,13 +18,13 @@ $phone_nr = $_POST['phone_nr'];
 	$sql = "SELECT * FROM `users` WHERE `login` LIKE '".$log."'";
 	$rezult = $connecting->query($sql);
 	
-	if($rezult->num_rows > 0)echo"login już jest zajęty";
-	else if($pass != $pass_rep) echo"hasla się różnią";
+	if($rezult->num_rows > 0)echo"<script>alert('login już jest zajęty')</script>";
+	else if($pass != $pass_rep) echo"<script>alert('hasła rużnią się')</script>";
 	else 
 		{
 			$sql = "SELECT * FROM `users` WHERE `email` LIKE '".$email."'";
 			$rezult = $connecting->query($sql);
-			if($rezult->num_rows > 0) echo"email jest już w użyciu";
+			if($rezult->num_rows > 0) echo"<script>alert('email jest już w użyciu')</script>";
 			else
 				{
 					$sql = "INSERT INTO `users` (`login`, `pass`, `name`, `lastname`, `email`, `from`, `street`, `home`, `phone`) 
