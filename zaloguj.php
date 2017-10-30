@@ -1,5 +1,6 @@
 <?php
 
+
 	session_start();
 
 	require_once "connect.php";
@@ -8,24 +9,24 @@
 	
 	if($connecting->connect_errno!=0)
 	{
-		echo "error<br/>".$connecting->connect_errno;
+		//echo "error<br/>".$connecting->connect_errno;
 	}
 	else 
 	{
-		echo "działa<br/>";
+		//echo "działa<br/>"; 
 	}
 	
 	
 	
 	if(isset($_SESSION['log']))
 	{
-		header("Location: aukcje.php");
+		
 		
 	}
 	else
 	{
 	
-	$log = $_POST['log'];
+	$log = $_POST['login'];
 	$pass = $_POST['pass'];
 	
 	$sql = "SELECT * FROM `users` WHERE login LIKE '$log' AND pass LIKE '$pass'";
@@ -36,17 +37,17 @@
 	{
 	
 		$table = $rezultat->fetch_array();
-		$_SESSION['username'] = $table['log'];
+		$_SESSION['username'] = $table['login'];
 		$_SESSION['log'] = 1;
 		
+	
 		
-		header("Location: aukcje.php");
-		
-		
+		echo "Zalogowano";
 		
 	}
-	else header("Location: index.php");
+	else echo "błędne dane logowania";
+
 	
 	}
-	mysqli_close();
+
 ?>
