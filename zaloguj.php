@@ -40,10 +40,6 @@
 		$_SESSION['username'] = $table['login'];
 		$_SESSION['log'] = 1;
 		
-	
-		
-		echo "Zalogowano";
-		
 	}
 	else echo "błędne dane logowania";
 

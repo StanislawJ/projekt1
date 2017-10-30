@@ -200,7 +200,7 @@ $( document ).ready(function() {
 						pass: $("#log_pass").val()
 						},
 				success: function(ret) {
-					alert(ret);
+					if(ret != "") alert(ret);
 					
 				},
 				
