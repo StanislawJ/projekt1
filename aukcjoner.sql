@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 30 Paź 2017, 21:22
+-- Czas generowania: 27 Paź 2017, 09:29
 -- Wersja serwera: 10.1.26-MariaDB
--- Wersja PHP: 7.0.22
+-- Wersja PHP: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,19 +29,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `auction` (
-  `ID_AUK` int(20) NOT NULL,
-  `nazwa` varchar(20) COLLATE utf8_polish_ci NOT NULL,
-  `ID_KUP` int(20) NOT NULL,
-  `ID_SPRZ` int(20) NOT NULL,
-  `ID_ZDJ` int(15) NOT NULL,
-  `typ` varchar(20) COLLATE utf8_polish_ci NOT NULL,
-  `kategoria` varchar(20) COLLATE utf8_polish_ci NOT NULL,
+  `ID_Aukcji` int(20) NOT NULL,
+  `nazwa` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `ID_kup` int(20) NOT NULL,
+  `ID_sprzed` int(20) NOT NULL,
+  `nr_zdj` int(20) NOT NULL,
+  `typ` varchar(30) NOT NULL,
+  `kategoria` varchar(30) NOT NULL,
   `data_zacz` date NOT NULL,
-  `kr_op` varchar(150) COLLATE utf8_polish_ci NOT NULL,
-  `dl_op` varchar(1200) COLLATE utf8_polish_ci NOT NULL,
+  `kr_op` varchar(100) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `dl_op` varchar(1000) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
   `cena` decimal(10,2) NOT NULL,
   `cena_pocz` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -50,8 +50,8 @@ CREATE TABLE `auction` (
 --
 
 CREATE TABLE `categories` (
-  `kategoria` varchar(20) COLLATE utf8_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `kategoria` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -60,24 +60,24 @@ CREATE TABLE `categories` (
 --
 
 CREATE TABLE `photos` (
-  `ID_ZDJ` int(15) NOT NULL,
-  `zd_1` varchar(20) COLLATE utf8_polish_ci NOT NULL,
-  `zd_2` varchar(20) COLLATE utf8_polish_ci NOT NULL,
-  `zd_3` varchar(20) COLLATE utf8_polish_ci NOT NULL,
-  `zd_4` varchar(20) COLLATE utf8_polish_ci NOT NULL,
-  `zd_5` varchar(20) COLLATE utf8_polish_ci NOT NULL,
-  `zd_6` varchar(20) COLLATE utf8_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+  `ID_zdj` int(20) NOT NULL,
+  `zd_1` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `zd_2` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `zd_3` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `zd_4` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `zd_5` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `zd_6` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `typy`
+-- Struktura tabeli dla tabeli `type`
 --
 
-CREATE TABLE `typy` (
-  `typ` varchar(20) COLLATE utf8_polish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+CREATE TABLE `type` (
+  `typ` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -86,17 +86,24 @@ CREATE TABLE `typy` (
 --
 
 CREATE TABLE `users` (
-  `ID` int(11) NOT NULL,
+  `ID` int(20) NOT NULL,
   `login` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `pass` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `name` varchar(30) COLLATE utf8_polish_ci NOT NULL,
   `lastname` varchar(30) COLLATE utf8_polish_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_polish_ci NOT NULL,
-  `city` varchar(30) COLLATE utf8_polish_ci NOT NULL,
+  `from` varchar(30) COLLATE utf8_polish_ci NOT NULL,
   `street` varchar(30) COLLATE utf8_polish_ci NOT NULL,
   `home` varchar(10) COLLATE utf8_polish_ci NOT NULL,
   `phone` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `users`
+--
+
+INSERT INTO `users` (`ID`, `login`, `pass`, `name`, `lastname`, `email`, `from`, `street`, `home`, `phone`) VALUES
+(1, 'borek', 'admin', 'boruś', 'boruśo', 'co2@op.pl', 'siedlce', 'kazia', '4', 987897989);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -106,12 +113,7 @@ CREATE TABLE `users` (
 -- Indexes for table `auction`
 --
 ALTER TABLE `auction`
-  ADD PRIMARY KEY (`ID_AUK`),
-  ADD KEY `kategoria_fk` (`kategoria`),
-  ADD KEY `typ_fk` (`typ`),
-  ADD KEY `ID_ZDJ_fk` (`ID_ZDJ`),
-  ADD KEY `ID_SPRZ_fk` (`ID_SPRZ`),
-  ADD KEY `ID_KUP_fk` (`ID_KUP`);
+  ADD PRIMARY KEY (`ID_Aukcji`);
 
 --
 -- Indexes for table `categories`
@@ -123,12 +125,12 @@ ALTER TABLE `categories`
 -- Indexes for table `photos`
 --
 ALTER TABLE `photos`
-  ADD PRIMARY KEY (`ID_ZDJ`);
+  ADD PRIMARY KEY (`ID_zdj`);
 
 --
--- Indexes for table `typy`
+-- Indexes for table `type`
 --
-ALTER TABLE `typy`
+ALTER TABLE `type`
   ADD PRIMARY KEY (`typ`);
 
 --
@@ -145,33 +147,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `auction`
 --
 ALTER TABLE `auction`
-  MODIFY `ID_AUK` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Aukcji` int(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `ID_kat` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `ID_ZDJ` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_zdj` int(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `type`
+--
+ALTER TABLE `type`
+  MODIFY `ID_ty` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Ograniczenia dla zrzutów tabel
---
-
---
--- Ograniczenia dla tabeli `auction`
---
-ALTER TABLE `auction`
-  ADD CONSTRAINT `ID_KUP_fk` FOREIGN KEY (`ID_KUP`) REFERENCES `users` (`ID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `ID_SPRZ_fk` FOREIGN KEY (`ID_SPRZ`) REFERENCES `users` (`ID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `ID_ZDJ_fk` FOREIGN KEY (`ID_ZDJ`) REFERENCES `photos` (`ID_ZDJ`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `kategoria_fk` FOREIGN KEY (`kategoria`) REFERENCES `categories` (`kategoria`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `typ_fk` FOREIGN KEY (`typ`) REFERENCES `typy` (`typ`) ON UPDATE CASCADE;
+  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

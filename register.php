@@ -9,7 +9,7 @@ $pass_rep = $_POST['pass_reg_repeat'];
 $name = $_POST['name'];
 $lastname = $_POST['lastname'];
 $email = $_POST['email_reg'];
-$city = $_POST['city'];
+$from = $_POST['from'];
 $street = $_POST['street'];
 $home_nr = $_POST['home_nr'];
 $phone_nr = $_POST['phone_nr'];
@@ -27,8 +27,8 @@ $phone_nr = $_POST['phone_nr'];
 			if($rezult->num_rows > 0) echo"<script>alert('email jest już w użyciu')</script>";
 			else
 				{
-					$sql = "INSERT INTO `users` (`login`, `pass`, `name`, `lastname`, `email`, `city`, `street`, `home`, `phone`) 
-					VALUES ('".$log."', '".$pass."', '".$name."', '".$lastname."', '".$email."', '".$city."', '".$street."', '".$home_nr."', '".$phone_nr."');";
+					$sql = "INSERT INTO `users` (`login`, `pass`, `name`, `lastname`, `email`, `from`, `street`, `home`, `phone`) 
+					VALUES ('".$log."', '".$pass."', '".$name."', '".$lastname."', '".$email."', '".$from."', '".$street."', '".$home_nr."', '".$phone_nr."');";
 					$rezult = $connecting->query($sql);
 				}
 		}
