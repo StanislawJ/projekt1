@@ -40,6 +40,8 @@
 		?>
 
 		<div id="content" >
+			<div id="kategorie"></div>
+			<div id="lista"></div>
 		</div>
 
 </div>

@@ -61,6 +61,26 @@
 
 }
 
+#kategorie
+{
+float:left;
+border-radius:5px;
+background-color:lightblue;
+width:20%;
+height: 100%;
+}
+
+#lista
+{
+  float:right;
+  border-radius:5px;
+  background-color:lightblue;
+  width:75%;
+  height: 100%;
+  margin-right: 2.5%;
+}
+
+
 
 #reg
 {
