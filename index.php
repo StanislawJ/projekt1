@@ -41,7 +41,11 @@
 
 		<div id="content" >
 			<div id="kategorie"></div>
-			<div id="lista"></div>
+
+
+			<div id="lista">
+					<?php require_once("lista_panel.php") ?>
+			</div>
 		</div>
 
 </div>
