@@ -26,7 +26,7 @@
 
 
 
-<div class="container">
+<div class="container-fluid">
 
 <!--_______________________________________________________wczytywanie paneli-->
 		<?php session_start();
@@ -39,7 +39,7 @@
 			}
 		?>
 
-		<div id="content" >
+		<div id="content"  >
 			<div id="kategorie"></div>
 
 
