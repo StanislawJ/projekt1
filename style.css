@@ -1,3 +1,8 @@
+body
+{
+  background-image: url(tlo/tlo.jpg);
+}
+
 .button {
      border-radius:4px;
     color: white;
@@ -56,15 +61,18 @@
 #content
 {
   float: left;
-	background-color:#222;
+	background-color: rgba(0,0,0,0.6);
 	border-radius:5px;
 	border-style:solid;
 	margin-top:25px;
 	padding-top:0px;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+  width: 100%;
 	text-align:center;
 
+
 }
+
 
 #kategorie
 {

@@ -40,11 +40,12 @@
 		?>
 
 		<div id="content"  >
-			<div id="kategorie"></div>
+			<div id="box">
+				<div id="kategorie"></div>
 
-
-			<div id="lista">
-					<?php require_once("lista_panel.php") ?>
+				<div id="lista">
+						<?php require_once("lista_panel.php") ?>
+				</div>
 			</div>
 		</div>
 
