@@ -1,6 +1,6 @@
 
 <!--______________________________________________panel logowania i przyciski-->
-	<div class="navbar navbar-inverse" id="log_nav">
+	<div class="navbar navbar-inverse" data-spy="affix" data-offset-top="0" id="log_nav">
       <div class="panel-heading">
         <h4 class="panel-title">
 
@@ -154,6 +154,3 @@
 
 	     </div>
 	   </div>
-
-
-	

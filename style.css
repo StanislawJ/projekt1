@@ -1,9 +1,13 @@
 body
 {
   background-image: url(tlo/tlo.jpg);
+  background-attachment: fixed;
 }
 
-.button {
+
+
+.button
+{
      border-radius:4px;
     color: white;
     padding: 8px 20px;
@@ -69,10 +73,18 @@ body
   border-bottom: 2px solid transparent;
   width: 100%;
 	text-align:center;
-
-
 }
 
+.affix {
+      top: 0;
+      width: 100%;
+      margin: 0;
+      z-index: 9999 !important;
+  }
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+  }
 
 #kategorie
 {
@@ -81,6 +93,8 @@ border-radius:5px;
 background-color:lightblue;
 width:20%;
 height: 500px;
+margin: 1%;
+margin-right: 0.5%;
 }
 
 #lista
@@ -88,9 +102,11 @@ height: 500px;
   float:right;
   border-radius:5px;
   background-color:lightblue;
-  width:75%;
+  width:76.5%;
   height: 100%;
-  margin-right: 2.5%;
+  margin-top: 1%;
+  margin-right: 1%;
+  margin-left: 0.5%;
 }
 
 .str
