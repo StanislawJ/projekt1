@@ -6,48 +6,83 @@ $sql = "SELECT * FROM `auction`";
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
 
-if($quantity%20!=0)
+/*_______________________________________________________________ilość stron */
+if($quantity%10!=0)
 {
-  $pages = ($quantity/20)+1;
+  $pages = ($quantity/10)+1;
 }
 else {
-  $pages = ($quantity/20);
+  $pages = ($quantity/10);
 }
-settype($pages, 'integer');
 
-echo $pages;
+settype($pages, 'integer');
+if(!isset($_SESSION['pages'])) $_SESSION['pages'] = $pages;
+if($_SESSION['pages'] != $pages) $_SESSION['pages'] = $pages;
+
+
+if(isset($_POST['nr']))
+{
+  setcookie('page',$_POST['nr'] , time() + (86400), "/");
+  $_COOKIE['page'] = $_POST['nr'];
+}
+else
+{
+  if(!isset($_COOKIE['page'])) $_COOKIE['page'] = 10;
+}
+
+
+
+
+
+
+
 
 if($rezult->num_rows == 0) echo"<script>document.write('BRAK WYNIKÓW')</script>";
 else
 {
 
 
-  while($tab = mysqli_fetch_assoc($rezult))
+  for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
       {
-
-        echo"<div class='item' id='".$tab['ID_AUK']."'>";
-        echo"<div id='img'></div>";
-        echo"<div id='text'>".$tab['kr_op']."</div>";
-        echo"<div id='cost'>".$tab['cena'].".zł - aukcja ".$tab["typ"]."</div>";
-        echo"</div>";
+        if(($k<$_COOKIE['page'])&&($k>=($_COOKIE['page']-10)))
+        {
+          echo"<div class='item' id='".$tab['ID_AUK']."'>";
+          echo"<div id='img'></div>";
+          echo"<div id='text'>".$tab['kr_op']."</div>";
+          echo"<div id='cost'>".$tab['cena'].".zł - aukcja ".$tab["typ"]."</div>";
+          echo"</div>";
+        }
       }
 
-
-
-
-
-
+for($i=1;$i<=$_SESSION['pages'];$i++)
+{
+echo "<button id='".$i."' class='str'>".$i."</button>";
+}
 
 
 
 }
 
-
-
-
-
-
-
-
-
  ?>
+ <script>
+ $(document).ready(function(){
+ $('.str').click(function(){
+
+   $.ajax({
+     type: "POST",
+     url: "Lista_panel.php",
+     data:	{
+         nr: $(this).attr("id")*10
+         },
+     success: function(ret) {
+       $('#lista').html(ret);
+                $('html, body').animate({scrollTop: 0}, 400);
+     },
+     error: function() {
+         alert( "Wystąpił błąd w połączniu :(");
+     },
+
+   });
+ });
+})
+ </script>
