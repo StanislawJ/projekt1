@@ -2,7 +2,23 @@
 require_once "connect.php";
 $connecting = @new mysqli($host, $db_user, $db_password, $db_name);
 
-$sql = "SELECT * FROM `auction`";
+
+if(isset($_POST['sear']))
+{
+  echo"<script>alert(".$_POST['sear'].")</script>";
+   $search = "`kr_op` LiKE '%".$_POST['sear']."%'" ;
+   setcookie('search',$search , time() + (86400), "/");
+
+
+}
+else
+{
+  if(!isset($_COOKIE['search'])) $_COOKIE['search'] = "`kr_op` LiKE '%%'";
+}
+
+
+
+$sql = "SELECT * FROM `auction` WHERE ".$_COOKIE['search']."";
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
 
@@ -37,7 +53,7 @@ else
 
 
 
-if($rezult->num_rows == 0) echo"<script>document.write('BRAK WYNIKÓW')</script>";
+if($rezult->num_rows == 0) echo"BRAK WYNIKÓW";
 else
 {
 
@@ -84,5 +100,6 @@ echo "<button id='".$i."' class='str'>".$i."</button>";
 
    });
  });
+
 })
  </script>
