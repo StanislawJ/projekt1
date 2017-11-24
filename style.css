@@ -58,7 +58,7 @@ body
 
 .in_sub
 {
-  width: 30%;
+  max-width: 300px;
   height: auto;
   margin:auto;
 }

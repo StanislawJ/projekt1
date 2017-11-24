@@ -8,3 +8,27 @@ echo "<button class='btn btn-primary' id='log'>Szukaj</button>";
 echo "</div>";
 echo "</div>";
 ?>
+
+
+<script>
+$(document).ready(function(){
+$('.str').click(function(){
+
+  $.ajax({
+    type: "POST",
+    url: "Lista_panel.php",
+    data:	{
+        nr: $(this).attr("id")*10
+        },
+    success: function(ret) {
+      $('#lista').html(ret);
+               $('html, body').animate({scrollTop: 0}, 400);
+    },
+    error: function() {
+        alert( "Wystąpił błąd w połączniu :(");
+    },
+
+  });
+});
+})
+</script>
