@@ -2,23 +2,51 @@
 require_once "connect.php";
 $connecting = @new mysqli($host, $db_user, $db_password, $db_name);
 
-
+/*_______________________________________________wyszukiwanie po krutkim opise*/
 if(isset($_POST['sear']))
 {
-  echo"<script>alert(".$_POST['sear'].")</script>";
    $search = "`kr_op` LiKE '%".$_POST['sear']."%'" ;
    setcookie('search',$search , time() + (86400), "/");
+}
+else
+{
+  if(!isset($_COOKIE['search'])) $_COOKIE['search'] = "`kr_op` LiKE '%' ";
+}
 
+
+
+/*____________________________________________________________kategoria główna*/
+
+
+if(isset($_POST['katG']))
+{
+   $katG = "and kategoria IN (SELECT pod_kategoria from categories_2 where kategoria LIKE '".$_POST['katG']."')";
+   setcookie('katG',$katG , time() + (86400), "/");
+   if(isset($_COOKIE['katU'])) $_COOKIE['katU'] = "marino";
 
 }
 else
 {
-  if(!isset($_COOKIE['search'])) $_COOKIE['search'] = "`kr_op` LiKE '%%'";
+  if(!isset($_COOKIE['katG'])) $_COOKIE['katG'] = "";
+}
+
+/*_______________________________________________________________pod kategoria*/
+if(isset($_POST['katU']))
+{
+   $katU = "and kategoria LIKE '".$_POST['katU']."'";
+   setcookie('katU',$katU , time() + (86400), "/");
+
+}
+else
+{
+  if(!isset($_COOKIE['katU'])) $_COOKIE['katU'] = "";
 }
 
 
 
-$sql = "SELECT * FROM `auction` WHERE ".$_COOKIE['search']."";
+
+$sql = "SELECT * FROM `auction` WHERE ".$_COOKIE['search']."".$_COOKIE['katU']."".$_COOKIE['katG']."";
+
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
 
@@ -50,16 +78,15 @@ else
 
 
 
-
-
-
 if($rezult->num_rows == 0) echo"BRAK WYNIKÓW";
 else
 {
 
 
+
   for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
       {
+
         if(($k<$_COOKIE['page'])&&($k>=($_COOKIE['page']-10)))
         {
           echo"<div class='item' id='".$tab['ID_AUK']."'>";

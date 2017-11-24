@@ -46,7 +46,9 @@
 					<?php require_once('search_panel.php') ?>
 				</div>
 
-				<div id="kategorie"></div>
+				<div id="kategorie">
+					<?php require_once("Kategorie_panel.php") ?>
+				</div>
 
 				<div id="lista">
 						<?php require_once("lista_panel.php") ?>
