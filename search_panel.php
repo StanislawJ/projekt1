@@ -7,5 +7,4 @@ echo "<input class='in_search' width='30px' placeholder='Search...' type='text' 
 echo "<button class='btn btn-primary' id='log'>Szukaj</button>";
 echo "</div>";
 echo "</div>";
-
 ?>
