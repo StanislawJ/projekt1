@@ -41,11 +41,17 @@
 
 		<div id="content"  >
 			<div id="box">
+
+				<div class="search_back">
+					<?php require_once('search_panel.php') ?>
+				</div>
+
 				<div id="kategorie"></div>
 
 				<div id="lista">
 						<?php require_once("lista_panel.php") ?>
 				</div>
+
 			</div>
 		</div>
 
@@ -75,6 +81,7 @@ $( document ).ready(function() {
 			});
 		});
 });
+
 
 
 

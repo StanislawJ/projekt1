@@ -1,11 +1,13 @@
 
 <!--______________________________________________panel logowania i przyciski-->
-	<div class="navbar navbar-inverse" data-spy="affix" data-offset-top="0" id="log_nav">
+
+	<div class="navbar navbar-inverse" id="log_nav">
       <div class="panel-heading">
         <h4 class="panel-title">
 
 				<div id="menu">
 				<div id="logo">AUKCJONER</div>
+
 				<button type="button" class="button2 button" href="#collapse1" data-toggle="collapse">zaloguj</button>
 				<button type="button" class="button2 button" href="#myModal" data-toggle="modal">zarejestruj</button>
 				</div>
@@ -15,7 +17,7 @@
         <ul class="list-group">
           <li class="list-group-item">
 			<div id="log">
-			<form >
+			<form method="post">
 				login: <input type="text" name="log"  id="log_name" autofocus/>
 				hasło: <input type="password" name="pass" id="log_pass"/>
 				<input type="submit" id="login"/>
