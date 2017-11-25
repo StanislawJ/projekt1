@@ -39,7 +39,7 @@ body
 {
   position: relative;
   float:left;
-  height: 45px;
+  min-height: 45px;
   margin: 1%;
   margin-top: 5px;
   margin-bottom: 6px;
@@ -50,7 +50,7 @@ body
 .search
 {
   width: 100%;
-  height: 45px;
+  min-height: 45px;
   border: solid 1px;
 }
 
@@ -63,9 +63,12 @@ body
 
 .sortC
 {
-  background-color: darkblue;
-  max-width: 300px;
-  height: 45px;
+  float: left;
+}
+
+.sortD
+{
+  min-width: 200px;
 }
 
 .btn
@@ -102,7 +105,7 @@ body
   background-color: #222222;
   position: relative;
   left:0;
-  height: 45px;
+  min-height: 45px;
   border: solid 1px;
       top: 0;
       width: 100%;

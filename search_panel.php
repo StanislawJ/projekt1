@@ -8,9 +8,19 @@ else $zaczep = 116;
     <input id='sear' class='in_search' width='30px' placeholder='Search...' type='text' name='search'>
     <button class='btn btn-primary' id='logg'>Szukaj</button>
   </div>
-  <div class="sortC">
-    
+
+  <div class="dropdown sortC">
+    <button class="sortD btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sortuj według ...
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#" id='cenaup'>cena-rosnąco</a></li>
+      <li><a href="#" id='cenadown'>cena-malejąco</a></li>
+      <li><a href="#">najnowsze</a></li>
+      <li><a href="#">najstarsze</a></li>
+    </ul>
   </div>
+
+
 </div>
 
 
