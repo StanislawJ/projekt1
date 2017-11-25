@@ -1,11 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 21 Lis 2017, 20:50
--- Wersja serwera: 10.1.26-MariaDB
--- Wersja PHP: 7.1.8
+-- Wersja serwera: 10.1.28-MariaDB
+-- Wersja PHP: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,21 +33,129 @@ CREATE TABLE `auction` (
   `ID_SPRZ` int(20) NOT NULL,
   `typ` varchar(20) COLLATE utf8_polish_ci NOT NULL,
   `kategoria` varchar(20) COLLATE utf8_polish_ci NOT NULL,
-  `data_zacz` date NOT NULL,
   `kr_op` varchar(150) COLLATE utf8_polish_ci NOT NULL,
   `dl_op` varchar(1200) COLLATE utf8_polish_ci NOT NULL,
   `cena` decimal(10,2) NOT NULL,
-  `cena_pocz` decimal(10,2) NOT NULL
+  `cena_pocz` decimal(10,2) NOT NULL,
+  `data_zacz` datetime NOT NULL,
+  `data_mod` datetime NOT NULL,
+  `data_zak` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Zrzut danych tabeli `auction`
 --
 
-INSERT INTO `auction` (`ID_AUK`, `ID_KUP`, `ID_SPRZ`, `typ`, `kategoria`, `data_zacz`, `kr_op`, `dl_op`, `cena`, `cena_pocz`) VALUES
-(5, 1, 2, 'klasyczna', 'laptopy', '2017-11-15', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00'),
-(6, 0, 2, 'klasyczna', 'motory', '0000-00-00', 'niema', 'ma dużo ', '10000.00', '0.00'),
-(7, 0, 2, 'licytacja', 'laptopy', '0000-00-00', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00');
+INSERT INTO `auction` (`ID_AUK`, `ID_KUP`, `ID_SPRZ`, `typ`, `kategoria`, `kr_op`, `dl_op`, `cena`, `cena_pocz`, `data_zacz`, `data_mod`, `data_zak`) VALUES
+(5, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(10, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(11, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(12, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(13, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(14, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(15, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(16, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(17, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(18, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(19, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(20, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(21, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(22, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(23, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(24, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(25, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(26, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(27, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(28, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(29, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(30, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(31, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(32, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(33, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(34, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(35, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(36, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(37, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(38, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(39, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(40, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(41, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(42, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(43, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(44, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(45, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(46, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(47, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(48, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(49, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(50, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(51, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(52, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(53, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(54, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(55, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(56, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(57, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(58, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(59, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(60, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(61, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(62, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(63, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(64, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(65, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(66, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(67, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(68, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(69, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(70, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(71, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(72, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(73, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(74, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(75, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(76, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(77, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(78, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(79, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(80, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(81, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(82, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(83, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(84, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(85, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(86, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(87, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(88, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(89, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(90, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(91, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(92, 0, 2, 'klasyczna', 'motory', 'niema', 'ma dużo ', '10000.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(93, 0, 2, 'licytacja', 'laptopy', 'asdf', 'asdfasdfasdfa', '59959.00', '0.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(94, 1, 2, 'klasyczna', 'laptopy', 'asdasdasdaa sdasdasdaasd asdasdaasdasdasdaa sdasdasdaasdasdasdaas dasdasdaasdasdasda asdasdasdaasdas dasdaasdasdasdaasdasda sdaasdasdasdaasdasdasdaaaa', 'asdfasdfasdfasfasfasfasfasfasdfasdf00000000000000000000000000000000000000000000000000', '5000.00', '0.00', '2017-11-15 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(95, 0, 0, 'klasyczna', 'samochody', 'boruś', 'asdfasdfasdfasdf', '5888.00', '667.00', '2017-11-19 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(96, 0, 0, 'licytacja', 'stacjonarne', 'pok', 'asdfas', '58888.00', '999.00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+--
+-- Wyzwalacze `auction`
+--
+DELIMITER $$
+CREATE TRIGGER `dodawanie` BEFORE INSERT ON `auction` FOR EACH ROW BEGIN
+SET NEW.data_zacz = now();
+SET NEW.data_zak = now() + INTERVAL 7 DAY;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `modyfikacja` BEFORE UPDATE ON `auction` FOR EACH ROW BEGIN
+SET NEW.data_mod = now();
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -66,7 +173,8 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`kategoria`) VALUES
 ('elektronika'),
-('motoryzacja');
+('motoryzacja'),
+('pokemony');
 
 -- --------------------------------------------------------
 
@@ -87,7 +195,9 @@ INSERT INTO `categories_2` (`pod_kategoria`, `kategoria`) VALUES
 ('laptopy', 'elektronika'),
 ('stacjonarne', 'elektronika'),
 ('motory', 'motoryzacja'),
-('samochody', 'motoryzacja');
+('samochody', 'motoryzacja'),
+('fire', 'pokemony'),
+('whater', 'pokemony');
 
 -- --------------------------------------------------------
 
@@ -182,12 +292,14 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `auction`
 --
 ALTER TABLE `auction`
-  MODIFY `ID_AUK` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_AUK` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- Ograniczenia dla zrzutów tabel
 --
