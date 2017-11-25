@@ -1,16 +1,20 @@
 <?php
 if(isset($_SESSION['log'])) $zaczep = 35;
 else $zaczep = 116;
-echo "<div class='search' data-spy='affix' data-offset-top='".$zaczep."'>";
-echo "<div class='in_sub'>";
-echo "<input id='sear' class='in_search' width='30px' placeholder='Search...' type='text' name='search'>";
-echo "<button class='btn btn-primary' id='logg'>Szukaj</button>";
-echo "</div>";
-echo "</div>";
 ?>
 
-<script>
+<div class='search' data-spy='affix' data-offset-top='<?php echo"$zaczep"; ?>'>
+  <div class='in_sub'>
+    <input id='sear' class='in_search' width='30px' placeholder='Search...' type='text' name='search'>
+    <button class='btn btn-primary' id='logg'>Szukaj</button>
+  </div>
+  <div class="sortC">
+    
+  </div>
+</div>
 
+
+<script>
 $('#sear').keyup(function(){
   $.ajax({
     type: "POST",

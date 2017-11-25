@@ -90,7 +90,7 @@ else
         if(($k<$_COOKIE['page'])&&($k>=($_COOKIE['page']-10)))
         {
           echo"<div class='item' id='".$tab['ID_AUK']."'>";
-          echo"<div id='img'></div>";
+          echo"<div id='img'><img id='icon' src='images/".$tab['ID_AUK']."1.jpg' alt='BRAK ZDJĘCIA'></div>";
           echo"<div id='text'>".$tab['kr_op']."</div>";
           echo"<div id='cost'>".$tab['cena'].".zł - aukcja ".$tab["typ"]."</div>";
           echo"</div>";
