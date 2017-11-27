@@ -188,20 +188,27 @@ overflow: hidden;
 {
   background-color: lightyellow;
   width:98%;
-  height:100px;
+  height:150px;
   margin:5px;
   border: solid 2px;
   float: left;
-  overflow: hidden;
 }
 
 #img
 {
   background-color: lightgrey;
-  width: 20%;
-  height: 100%;
-  border-right: solid 2px;
+  width: 200px;
+  height: 148px;
+  border: solid 2px;
   float: left;
+}
+
+#img:hover {
+    transform: scale(2.05,2.07);
+    transition-duration: 250ms;
+    position: relative;
+    z-index: 99;
+    box-shadow: 4px 4px 10px blue;
 }
 
 #icon
@@ -211,19 +218,24 @@ overflow: hidden;
   text-align: center;
 }
 
+
 #text
 {
+  position: relative;
   float: left;
   font-size: 15px;
-  width: 80%;
+  width: calc(100% - 200px);
   height: 75%;
   background-color: #6633CC;
   overflow: hidden;
   text-align: left;
-
 }
 
-
+#cost
+{
+  float:left;
+  width: calc(100% - 200px);
+}
 
 #reg
 {

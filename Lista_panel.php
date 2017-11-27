@@ -43,10 +43,22 @@ else
 }
 
 
+/*________________________________________________________sortowanie cena data*/
+if(isset($_POST['sort_by']))
+{
+   if($_POST['sort_by'] == "cenaup") $sort_by = "order by cena asc";
+   else if($_POST['sort_by'] == "cenadown") $sort_by = "order by cena desc";
+   else $sort_by = "order by data_zacz";
+   setcookie('sort_by',$sort_by, time() + (86400), "/");
+}
+else
+{
+  if(!isset($_COOKIE['sort_by'])) $_COOKIE['sort_by'] = "";
+}
 
 
-$sql = "SELECT * FROM `auction` WHERE ".$_COOKIE['search']."".$_COOKIE['katU']."".$_COOKIE['katG']."";
 
+$sql = "SELECT * FROM `auction` WHERE ".$_COOKIE['search']."".$_COOKIE['katU']."".$_COOKIE['katG']."".$_COOKIE['sort_by']."";
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
 

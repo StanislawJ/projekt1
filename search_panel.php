@@ -1,6 +1,8 @@
 <?php
 if(isset($_SESSION['log'])) $zaczep = 35;
 else $zaczep = 116;
+
+if(!isset($_SESSION['sort_by'])) $_SESSION['sort_by'] = "Sortuj według ...";
 ?>
 
 <div class='search' data-spy='affix' data-offset-top='<?php echo"$zaczep"; ?>'>
@@ -13,10 +15,9 @@ else $zaczep = 116;
     <button class="sortD btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sortuj według ...
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="#" id='cenaup'>cena-rosnąco</a></li>
-      <li><a href="#" id='cenadown'>cena-malejąco</a></li>
-      <li><a href="#">najnowsze</a></li>
-      <li><a href="#">najstarsze</a></li>
+      <li><a href="#" id='cenaup' class='sort_by' name='cena-rosnąco'>cena-rosnąco</a></li>
+      <li><a href="#" id='cenadown' class='sort_by' name='cena-malejąco'>cena-malejąco</a></li>
+      <li><a href="#" id='new' class='sort_by' name='najnowsze'>najnowsze</a></li>
     </ul>
   </div>
 
@@ -42,4 +43,22 @@ $('#sear').keyup(function(){
   });
 });
 
+
+$('.sort_by').click(function(){
+  alert('siema');
+    $.ajax({
+      type: "POST",
+      url: "Lista_panel.php",
+      data:	{
+          sort_by: $(this).attr('id')
+          },
+      success: function(ret) {
+        alert(ret);
+        $('#lista').load('Lista_panel.php');
+      },
+      error: function() {
+          alert( "Wystąpił błąd w połączniu :(");
+      },
+    });
+});
 </script>
