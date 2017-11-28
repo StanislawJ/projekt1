@@ -63,7 +63,6 @@ $sql = "SELECT * FROM `auction` WHERE ".$_COOKIE['search']."".$_COOKIE['type']."
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
 
-echo $sql;
 
 /*_______________________________________________________________ilość stron */
 if($quantity%10!=0)
@@ -112,7 +111,7 @@ else
         {
           echo"<div class='item' id='".$tab['ID_AUK']."'>";
           echo"<div id='img'><img id='icon' src='images/".$tab['ID_AUK']."1.jpg' alt='BRAK ZDJĘCIA'></div>";
-          echo"<div id='text'>".$tab['kr_op']."</div>";
+          echo"<div class='text' id='".$tab['ID_AUK']."'>".$tab['kr_op']."</div>";
           echo"<div id='dane'>";
           echo"<div id='cost'><p1>".$tab['cena'].".zł</p1> - aukcja ".$tab["typ"]."</div>";
           echo"<div id='data'>KONIEC:  ".$tab['data_zak']."</div>";
@@ -149,6 +148,16 @@ echo "<button id='".$i."' class='str'>".$i."</button>";
 
    });
  });
+
+})
+
+
+
+$('.text').click(function(){
+  window.location.href='aukcja/Aukcja.php';
+
+
+
 
 })
  </script>

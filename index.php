@@ -2,6 +2,9 @@
 <html lang="pl">
 <head>
 
+	<meta charset="utf-8">
+	<title></title>
+
 <!ikona przy nazwie strony>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 

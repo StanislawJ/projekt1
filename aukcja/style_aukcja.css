@@ -1,0 +1,46 @@
+body
+{
+  background-image: url('../tlo/tlo_aukcja.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+
+#container
+{
+  background-color: lightgreen;
+}
+
+.daneSP
+{
+  float: left;
+  background-color: blue;
+  min-height: 400px;
+  width:100%;
+
+}
+
+.dane_aukcji
+{
+  float: left;
+  background-color: red;
+  width:70%;
+  height: 400px;
+}
+
+.dane_osobowe
+{
+  float: left;
+  background-color: darkred;
+  width:30%;
+  height: 400px;
+}
+
+.content
+{
+  float: left;
+  background-color: lightblue;
+  min-height: 600px;
+  width:100%;
+}

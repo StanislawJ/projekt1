@@ -33,8 +33,9 @@ for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
 
 ?>
 
-    <div class="dropdown sortE">
-      <button class="sortF " type="button" data-toggle="dropdown">Sortuj według2 ...
+  <div class="sortE">
+    <div class="dropdown sortH">
+      <button class="sortF " type="button" data-toggle="dropdown">Typ aukcji ...
       <span class="caret"></span></button>
       <ul class="dropdown-menu">
         <?php
@@ -47,6 +48,7 @@ for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
         ?>
       </ul>
     </div>
+  </div>
 
 
 
@@ -56,17 +58,15 @@ for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
 
   </div>
 </div>
+<h4>Cena (zł)</h4>
 
 
-
-<input type='text' id='min_cena' class='min_max' placeholder='cena-min'/>
+<input type='text' id='min_cena' class='min_max' placeholder='od'/> -
+<input type='taxt' id='max_cena' class='min_max' placeholder='do'/>
 <br>
-<input type='taxt' id='max_cena' class='min_max' placeholder='cena-max'/>
-<br>
-<button class="dalej" id="dalej" >dalej</button>
+<button class="dalej" id="dalej" ><span>DALEJ</span></button>
 <br><br>
 <button class="kat_end" id="%" >reset</button>
-
 
 
 
@@ -147,7 +147,6 @@ $('.type_by').click(function(){
         type: $(this).attr('id')
         },
     success: function(ret) {
-      alert(ret);
       $('#lista').load('Lista_panel.php');
     },
     error: function() {
