@@ -90,7 +90,6 @@ $sql = "SELECT * FROM `auction` WHERE ".$_COOKIE['search']."".$_COOKIE['katU']."
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
 
-echo $sql;
 /*_______________________________________________________________ilość stron */
 if($quantity%10!=0)
 {

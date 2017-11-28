@@ -32,8 +32,32 @@ for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
     }
 
 ?>
+
+    <div class="dropdown sortC">
+      <button class="sortD btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sortuj według ...
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <?php
+        $sql = "SELECT * from typy";
+        $rezult = $connecting->query($sql);
+        for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
+        {
+          echo "<li><a href='#' id='".$tab['typ']."' class='type_by' name='typ'>".$tab['typ']."</a></li>";
+        }
+        ?>
+      </ul>
+    </div>
+
+
+
+
+
+
+
   </div>
 </div>
+
+
 
 <input type='text' id='min_cena' class='min_max' placeholder='cena-min'/>
 <br>
