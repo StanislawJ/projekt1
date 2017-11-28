@@ -71,6 +71,16 @@ body
 {
   min-width: 200px;
 }
+.sortE
+{
+text-align: center;
+}
+.sortF
+{
+  min-width: 200px;
+}
+
+
 
 .btn
 {
@@ -243,6 +253,7 @@ img {
     box-shadow: 4px 4px 10px blue;
     border: solid 2px;
 }
+
 
 
 

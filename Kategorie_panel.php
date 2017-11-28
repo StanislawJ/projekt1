@@ -33,8 +33,8 @@ for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
 
 ?>
 
-    <div class="dropdown sortC">
-      <button class="sortD btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sortuj według ...
+    <div class="dropdown sortE">
+      <button class="sortF " type="button" data-toggle="dropdown">Sortuj według2 ...
       <span class="caret"></span></button>
       <ul class="dropdown-menu">
         <?php
