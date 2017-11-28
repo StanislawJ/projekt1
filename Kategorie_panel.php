@@ -82,7 +82,8 @@ $('.kat_end').click(function(){
         katG: $(this).attr("id"),
         katU: "%",
         min: "",
-        max: ""
+        max: "",
+        type: "%"
         },
     success: function(ret) {
       $('#lista').load('Lista_panel.php');
@@ -138,8 +139,26 @@ $('.under_kat ').click(function(){
 });
 
 
+$('.type_by').click(function(){
+  $.ajax({
+    type: "POST",
+    url: "Lista_panel.php",
+    data:	{
+        type: $(this).attr('id')
+        },
+    success: function(ret) {
+      alert(ret);
+      $('#lista').load('Lista_panel.php');
+    },
+    error: function() {
+        alert( "Wystąpił błąd w połączniu :(");
+    },
+
+  });
+});
+
+
 $('.dalej').click(function(){
-  if($(this).attr('class') == "kat_end") min;
   $.ajax({
     type: "POST",
     url: "Lista_panel.php",
