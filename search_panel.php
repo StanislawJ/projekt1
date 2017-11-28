@@ -45,7 +45,6 @@ $('#sear').keyup(function(){
 
 
 $('.sort_by').click(function(){
-  alert('siema');
     $.ajax({
       type: "POST",
       url: "Lista_panel.php",
@@ -53,7 +52,6 @@ $('.sort_by').click(function(){
           sort_by: $(this).attr('id')
           },
       success: function(ret) {
-        alert(ret);
         $('#lista').load('Lista_panel.php');
       },
       error: function() {

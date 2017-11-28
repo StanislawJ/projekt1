@@ -34,18 +34,49 @@ for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
 ?>
   </div>
 </div>
+
+<input type='text' id='min_cena' class='min_max' placeholder='cena-min'/>
+<br>
+<input type='taxt' id='max_cena' class='min_max' placeholder='cena-max'/>
+<br>
+<button class="dalej" id="dalej" >dalej</button>
+<br><br>
 <button class="kat_end" id="%" >reset</button>
 
 
 
 
+
 <script>
+
 $('.kat_end').click(function(){
   $('#kategorie').load('Kategorie_panel.php');
+  $.ajax({
+    type: "POST",
+    url: "Lista_panel.php",
+    data:	{
+        katG: $(this).attr("id"),
+        katU: "%",
+        min: "",
+        max: ""
+        },
+    success: function(ret) {
+      $('#lista').load('Lista_panel.php');
+    },
+    error: function() {
+        alert( "Wystąpił błąd w połączniu :(");
+    },
+
+  });
 })
 
+
 $(document).ready(function(){
-$('.kat , .kat_end ').click(function(){
+
+
+
+
+$('.kat').click(function(){
   $.ajax({
     type: "POST",
     url: "Lista_panel.php",
@@ -63,12 +94,9 @@ $('.kat , .kat_end ').click(function(){
   });
 });
 
-})
-</script>
 
-<script>
-$(document).ready(function(){
-$('.under_kat , .kat_end ').click(function(){
+
+$('.under_kat ').click(function(){
   $.ajax({
     type: "POST",
     url: "Lista_panel.php",
@@ -84,6 +112,27 @@ $('.under_kat , .kat_end ').click(function(){
 
   });
 });
+
+
+$('.dalej').click(function(){
+  if($(this).attr('class') == "kat_end") min;
+  $.ajax({
+    type: "POST",
+    url: "Lista_panel.php",
+    data:	{
+        min: $('#min_cena').val(),
+        max: $('#max_cena').val()
+        },
+    success: function(ret) {
+      $('#lista').load('Lista_panel.php');
+    },
+    error: function() {
+        alert( "Wystąpił błąd w połączniu :(");
+    },
+
+  });
+});
+
 
 })
 </script>
