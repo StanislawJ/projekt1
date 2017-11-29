@@ -58,45 +58,12 @@
 </div>
 
 
-<script>
-$( document ).ready(function() {
-
-<!--__________________________________________________________ajax logowanie-->
-		$('#login').click(function(){
-			$.ajax({
-				type: "POST",
-				url: "zaloguj.php",
-				data:	{
-						login: $("#log_name").val(),
-						pass: $("#log_pass").val()
-						},
-				success: function(ret) {
-					if(ret != "") alert(ret);
-
-				},
-				error: function() {
-            alert( "Wystąpił błąd w połączniu :(");
-        },
-
-			});
-		});
-});
-
-
-
-
-</script>
-
-
-<!--_________________________________________________________plik rejestracji-->
 <?php
-	if(isset($_POST['register']))
-	{
-		require_once('register.php');
-	}
+    if(isset($_POST['register']))
+    {
+        require_once('register.php');
+    }
 ?>
-
-
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

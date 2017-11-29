@@ -172,3 +172,31 @@
 
 	     </div>
 	   </div>
+
+
+
+		 <script>
+		 $( document ).ready(function() {
+
+		 <!--__________________________________________________________ajax logowanie-->
+		 		$('#login').click(function(){
+		 			$.ajax({
+		 				type: "POST",
+		 				url: "zaloguj.php",
+		 				data:	{
+		 						login: $("#log_name").val(),
+		 						pass: $("#log_pass").val()
+		 						},
+		 				success: function(ret) {
+		 					if(ret != "") alert(ret);
+
+		 				},
+		 				error: function() {
+		             alert( "Wystąpił błąd w połączniu :(");
+		         },
+
+		 			});
+		 		});
+		 });
+
+		 </script>

@@ -147,8 +147,6 @@ echo "<button id='".$i."' class='str'>".$i."</button>";
 
 
 }
-echo $sql;
-echo $_POST['ad'];
  ?>
  <script>
  $(document).ready(function(){
@@ -177,6 +175,6 @@ echo $_POST['ad'];
 
 
 $('.text').click(function(){
-  window.location.href='aukcja/Aukcja.php';
+  window.location.href='Aukcja.php';
 })
  </script>

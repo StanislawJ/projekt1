@@ -22,7 +22,7 @@ $bank_nr = $_POST['bank_nr'];
 	$rezult = $connecting->query($sql);
 
 	if($rezult->num_rows > 0)echo"<script>alert('login już jest zajęty')</script>";
-	else if($pass != $pass_rep) echo"<script>alert('hasła rużnią się')</script>";
+	else if($pass != $pass_rep) echo"<script>alert('hasła różnią się')</script>";
 	else
 		{
 			$sql = "SELECT * FROM `users` WHERE `email` LIKE '".$email."'";
