@@ -91,6 +91,14 @@
 	 					telefon: <input type="text" name="phone_nr"/>
 	 				</li>
 
+					<li class="list-group-item">
+						nazwa banku: <input type="text" name="name_bank"/>
+					</li>
+
+					<li class="list-group-item">
+						numer konta bankowego: <input type="text" name="bank_nr"/>
+					</li>
+
 	 				<li class="list-group-item">
 	 					<input type="submit" name="register" value="Rejestruj" id="go_reg"/>
 	 				</li>
@@ -134,12 +142,22 @@
 	   frmvalidator.addValidation("street","alpha","Niepoprawny typ znakow w nazwie ulicy");
 
 	   frmvalidator.addValidation("home_nr","req","Prosze podac nr domu");
-	   frmvalidator.addValidation("home_nr","maxlen=10");
+	   frmvalidator.addValidation("home_nr","maxlen=10", "Maksymalna dlugosc nr domu to 10 znakow");
 	   frmvalidator.addValidation("home_nr","alphanumeric_space","Niepoprawny typ znakow w nr domu");
 
 	   frmvalidator.addValidation("phone_nr","req","Prosze podac nr telefonu");
-	   frmvalidator.addValidation("phone_nr","maxlen=9");
+	   frmvalidator.addValidation("phone_nr","maxlen=9", "Maksymalna dlugosc nr telefonu to 10 znakow");
 	   frmvalidator.addValidation("phone_nr","numeric", "Niepoprawny typ znakow w nr telefonu");
+
+		 frmvalidator.addValidation("name_bank","req","Prosze podac nazwe banku");
+	   frmvalidator.addValidation("name_bank","maxlen=30", "Maksymalna dlugosc nazwy banku to 30 znakow");
+	   frmvalidator.addValidation("name_bank","alphanumeric_space","Niepoprawny typ znakow w nazwie banku");
+
+		 frmvalidator.addValidation("bank_nr","req","Prosze podac numer konta bankowego");
+		 frmvalidator.addValidation("bank_nr","numeric", "Niepoprawny typ znakow w nr konta bankowego");
+		 frmvalidator.addValidation("bank_nr","minlen=26",  "numer konta musi miec 26 cyfr");
+		 frmvalidator.addValidation("bank_nr","maxlen=26",  "numer konta musi miec 26 cyfr");
+
 
 
 	 //]]></script>

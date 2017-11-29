@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 27 Lis 2017, 18:45
+-- Czas generowania: 29 Lis 2017, 18:14
 -- Wersja serwera: 10.1.28-MariaDB
 -- Wersja PHP: 7.1.11
 
@@ -165,18 +165,34 @@ CREATE TABLE `users` (
   `city` varchar(30) COLLATE utf8_polish_ci NOT NULL,
   `street` varchar(30) COLLATE utf8_polish_ci NOT NULL,
   `home` varchar(10) COLLATE utf8_polish_ci NOT NULL,
-  `phone` int(9) NOT NULL
+  `phone` int(9) NOT NULL,
+  `bank` varchar(30) COLLATE utf8_polish_ci NOT NULL,
+  `nrkonta` int(26) NOT NULL,
+  `data_rej` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
 -- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `users` (`ID`, `login`, `pass`, `name`, `lastname`, `email`, `city`, `street`, `home`, `phone`) VALUES
-(1, 'admin', 'admin', '', '', '', '', '', '', 0),
-(2, 'bartosz123', 'bartek123', 'bartosz', 'borkowski', 'bor222@op.pl', 'siedlce', 'długa', 'k/54', 123456789),
-(3, 'rafal', 'rafal', 'rafal', 'lewy', 'lewy@op.pl', 'siedlce', 'view', '11', 123456789),
-(4, 'kamil', 'kamil', 'kamil', 'prawy', 'prawy@op.pl', 'siedlce', 'view', '11', 2147483647);
+INSERT INTO `users` (`ID`, `login`, `pass`, `name`, `lastname`, `email`, `city`, `street`, `home`, `phone`, `bank`, `nrkonta`, `data_rej`) VALUES
+(1, 'admin', 'admin', '', '', '', '', '', '', 0, '', 0, '0000-00-00 00:00:00'),
+(2, 'bartosz123', 'bartek123', 'bartosz', 'borkowski', 'bor222@op.pl', 'siedlce', 'długa', 'k/54', 123456789, '', 0, '0000-00-00 00:00:00'),
+(3, 'rafal', 'rafal', 'rafal', 'lewy', 'lewy@op.pl', 'siedlce', 'view', '11', 123456789, '', 0, '0000-00-00 00:00:00'),
+(4, 'kamil', 'kamil', 'kamil', 'prawy', 'prawy@op.pl', 'siedlce', 'view', '11', 2147483647, '', 0, '0000-00-00 00:00:00'),
+(5, 'jurek12', 'owies12', 'jurek', 'owsiak', 'ow@op.pl', 'siemaszko', 'git', '1', 123, '', 0, '0000-00-00 00:00:00'),
+(6, 'jerzy12', 'owsiak12', 'jurek', 'owies', 'o@.pl', 'siedlce', 'dluga', '12', 123, 'wbs bank slunsku1', 123, '0000-00-00 00:00:00'),
+(7, 'adam', 'malysz', 'malysz', 'malysz', 'am@jut.pl', 'wolyn', 'skocznia', '1', 11111111, 'rajfajzen', 123, '2017-11-29 17:44:36');
+
+--
+-- Wyzwalacze `users`
+--
+DELIMITER $$
+CREATE TRIGGER `rejestracja_data` BEFORE INSERT ON `users` FOR EACH ROW BEGIN
+SET NEW.data_rej = now();
+END
+$$
+DELIMITER ;
 
 --
 -- Indeksy dla zrzutów tabel
@@ -231,7 +247,7 @@ ALTER TABLE `auction`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Ograniczenia dla zrzutów tabel
