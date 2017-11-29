@@ -1,6 +1,4 @@
-
 <!--______________________________________________panel logowania i przyciski-->
-
 	<div class="navbar navbar-inverse" id="log_nav">
       <div class="panel-heading">
         <h4 class="panel-title">

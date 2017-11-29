@@ -1,14 +1,17 @@
+<div id='dane_all'>
+  <?php require_once("dane.php") ?>
+</div>
+
 <?php
 require_once "connect.php";
 $connecting = @new mysqli($host, $db_user, $db_password, $db_name);
 
-$info[0] = "siema";
-
-
-
 
 /*_______________________________________________wyszukiwanie po krutkim opise*/
-if(isset($_POST['sear']))  setcookie('search',"`kr_op` LiKE '%".$_POST['sear']."%'", time() + (86400), "/");
+if(isset($_POST['sear']))
+{
+   setcookie('search',"`kr_op` LiKE '%".$_POST['sear']."%'", time() + (86400), "/");
+}
 else if(!isset($_COOKIE['search'])) $_COOKIE['search'] = "`kr_op` LiKE '%' ";
 
 
@@ -19,12 +22,16 @@ if(isset($_POST['katG']))
 {
    $katG = " and kategoria IN (SELECT pod_kategoria from categories_2 where kategoria LIKE '".$_POST['katG']."')";
    setcookie('katG',$katG , time() + (86400), "/");
-   $info[1] = $_POST['katG'];
+   setcookie('dane1',$_POST['katG'], time() + (86400), "/");
 }
 else  if(!isset($_COOKIE['katG'])) $_COOKIE['katG'] = "";
 
 /*_______________________________________________________________pod kategoria*/
-if(isset($_POST['katU']))   setcookie('katU'," and kategoria LIKE '".$_POST['katU']."'", time() + (86400), "/");
+if(isset($_POST['katU']))
+{
+   setcookie('katU'," and kategoria LIKE '".$_POST['katU']."'", time() + (86400), "/");
+   setcookie('dane2',$_POST['katU'], time() + (86400), "/");
+}
 else  if(!isset($_COOKIE['katU'])) $_COOKIE['katU'] = "";
 
 
@@ -34,8 +41,10 @@ if(isset($_POST['sort_by']))
 {
    if($_POST['sort_by'] == "cenaup") $sort_by = " order by cena asc";
    else if($_POST['sort_by'] == "cenadown") $sort_by = " order by cena desc";
+   else if($_POST['sort_by'] == "%") $sort_by = "";
    else $sort_by = " order by data_zacz";
    setcookie('sort_by',$sort_by, time() + (86400), "/");
+   setcookie('dane3',$_POST['sort_by'], time() + (86400), "/");
 }
 else if(!isset($_COOKIE['sort_by'])) $_COOKIE['sort_by'] = "";
 
@@ -45,6 +54,7 @@ if(isset($_POST['min']))
 {
   if(($_POST['min']) != "") setcookie('min'," and cena >= ".$_POST['min']."" , time() + (86400), "/");
   else setcookie('min',"" , time() + (86400), "/");
+  setcookie('dane4',$_POST['min'], time() + (86400), "/");
 }
 else if(!isset($_COOKIE['min'])) $_COOKIE['min'] = "";
 
@@ -53,6 +63,7 @@ if(isset($_POST['max']))
 {
   if(($_POST['max']) != "") setcookie('max'," and cena <= ".$_POST['max']."" , time() + (86400), "/");
   else setcookie('max',"" , time() + (86400), "/");
+  setcookie('dane5',$_POST['max'], time() + (86400), "/");
 }
 else if(!isset($_COOKIE['max'])) $_COOKIE['max'] = "";
 
@@ -60,19 +71,19 @@ else if(!isset($_COOKIE['max'])) $_COOKIE['max'] = "";
 if(isset($_POST['type']))
 {
   setcookie('type'," and typ LIKE '".$_POST['type']."'", time() + (86400), "/");
+  setcookie('dane6',$_POST['type'], time() + (86400), "/");
 }
 else if(!isset($_COOKIE['type'])) $_COOKIE['type'] = "";
+
+
+
+
 
 
 
 $sql = "SELECT * FROM `auction` WHERE ".$_COOKIE['search']."".$_COOKIE['type']."".$_COOKIE['katU']."".$_COOKIE['katG']."".$_COOKIE['min']."".$_COOKIE['max']."".$_COOKIE['sort_by']."";
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
-
-
-
-if(!isset($_COOKIE['dane'])) setcookie('dane',serialize($info),time()+(86400),"/");
-
 
 /*_______________________________________________________________ilość stron */
 if($quantity%10!=0)
@@ -108,7 +119,7 @@ else
 
 
 
-if($rezult->num_rows == 0) echo"BRAK WYNIKÓW";
+if($rezult->num_rows == 0) echo"<p2>BRAK WYNIKÓW</p2>";
 else
 {
 
@@ -136,7 +147,8 @@ echo "<button id='".$i."' class='str'>".$i."</button>";
 
 
 }
-
+echo $sql;
+echo $_POST['ad'];
  ?>
  <script>
  $(document).ready(function(){
@@ -163,11 +175,8 @@ echo "<button id='".$i."' class='str'>".$i."</button>";
 
 
 
+
 $('.text').click(function(){
   window.location.href='aukcja/Aukcja.php';
-
-
-
-
 })
  </script>

@@ -87,11 +87,12 @@ $('.kat_end').click(function(){
     type: "POST",
     url: "Lista_panel.php",
     data:	{
-        katG: $(this).attr("id"),
+        katG: "%",
         katU: "%",
         min: "",
         max: "",
-        type: "%"
+        type: "%",
+        sort_by: "%"
         },
     success: function(ret) {
       $('#lista').load('Lista_panel.php');

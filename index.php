@@ -27,19 +27,14 @@
 </head>
 <body>
 
-
-
 <div class="container-fluid">
 
 <!--_______________________________________________________wczytywanie paneli-->
 		<?php session_start();
-		if(isset($_SESSION['log']))
-			{
-			}
-		else
-			{
-				require_once('zaloguj_panele.php');
-			}
+
+		if(isset($_SESSION['log']));
+		else require_once('zaloguj_panele.php');
+
 		?>
 
 		<div id="content"  >
@@ -50,12 +45,7 @@
 				</div>
 
 				<div id="kategorie">
-					<?php require("Kategorie_panel.php") ?>
-				</div>
-
-				<div id='dane_all'>
-					siema
-					<?php require_once("dane.php") ?>
+					<?php require_once("Kategorie_panel.php") ?>
 				</div>
 
 				<div id="lista">
