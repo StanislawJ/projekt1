@@ -53,6 +53,11 @@
 					<?php require_once("Kategorie_panel.php") ?>
 				</div>
 
+				<div id='dane_all'>
+					siema
+					<?php require_once("dane.php") ?>
+				</div>
+
 				<div id="lista">
 						<?php require_once("lista_panel.php") ?>
 				</div>

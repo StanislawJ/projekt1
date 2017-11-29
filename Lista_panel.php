@@ -2,6 +2,11 @@
 require_once "connect.php";
 $connecting = @new mysqli($host, $db_user, $db_password, $db_name);
 
+$info[0] = "siema";
+
+
+
+
 /*_______________________________________________wyszukiwanie po krutkim opise*/
 if(isset($_POST['sear']))  setcookie('search',"`kr_op` LiKE '%".$_POST['sear']."%'", time() + (86400), "/");
 else if(!isset($_COOKIE['search'])) $_COOKIE['search'] = "`kr_op` LiKE '%' ";
@@ -62,6 +67,10 @@ else if(!isset($_COOKIE['type'])) $_COOKIE['type'] = "";
 $sql = "SELECT * FROM `auction` WHERE ".$_COOKIE['search']."".$_COOKIE['type']."".$_COOKIE['katU']."".$_COOKIE['katG']."".$_COOKIE['min']."".$_COOKIE['max']."".$_COOKIE['sort_by']."";
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
+
+
+
+setcookie('dane',serialize($info) , time() + (86400), "/");
 
 
 /*_______________________________________________________________ilość stron */

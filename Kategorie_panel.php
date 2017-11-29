@@ -52,10 +52,6 @@ for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
 
 
 
-
-
-
-
   </div>
 </div>
 <h4>Cena (zł)</h4>
