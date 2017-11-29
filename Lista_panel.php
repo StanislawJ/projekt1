@@ -19,6 +19,7 @@ if(isset($_POST['katG']))
 {
    $katG = " and kategoria IN (SELECT pod_kategoria from categories_2 where kategoria LIKE '".$_POST['katG']."')";
    setcookie('katG',$katG , time() + (86400), "/");
+   $info[1] = $_POST['katG'];
 }
 else  if(!isset($_COOKIE['katG'])) $_COOKIE['katG'] = "";
 
@@ -70,7 +71,7 @@ $quantity = $rezult->num_rows;
 
 
 
-setcookie('dane',serialize($info) , time() + (86400), "/");
+if(!isset($_COOKIE['dane'])) setcookie('dane',serialize($info),time()+(86400),"/");
 
 
 /*_______________________________________________________________ilość stron */

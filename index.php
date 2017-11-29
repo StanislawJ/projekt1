@@ -50,7 +50,7 @@
 				</div>
 
 				<div id="kategorie">
-					<?php require_once("Kategorie_panel.php") ?>
+					<?php require("Kategorie_panel.php") ?>
 				</div>
 
 				<div id='dane_all'>
