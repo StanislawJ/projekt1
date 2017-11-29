@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
   <head>
+
     <meta charset="utf-8">
     <title></title>
 
@@ -18,7 +19,7 @@
 
 
 
-    	<script language="JavaScript" src="gen_vdalidatorv4.js" type="text/javascript" xml:space="preserve"></script>
+    	<script language="JavaScript" src="gen_validatorv4.js" type="text/javascript" xml:space="preserve"></script>
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
