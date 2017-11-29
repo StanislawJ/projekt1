@@ -73,6 +73,18 @@ for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
 
 <script>
 
+
+$('.min_max').keyup(function(){
+    var val = $(this).val();
+    if(isNaN(val)){
+         val = val.replace(/[^0-9\.]/g,'');
+         if(val.split('.').length>2)
+             val =val.replace(/\.+$/,"");
+    }
+    $(this).val(val);
+});
+
+
 $('.kat_end').click(function(){
   $('#kategorie').load('Kategorie_panel.php');
   $.ajax({
