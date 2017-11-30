@@ -175,6 +175,19 @@ echo "<button id='".$i."' class='str'>".$i."</button>";
 
 
 $('.text').click(function(){
-  window.location.href='Aukcja.php';
+  $.ajax({
+    type: 'POST',
+    url: 'Aukcja.php',
+    data:	{
+        id: $(this).attr('id')
+        },
+    success: function(ret) {
+        window.location.href='Aukcja.php';
+    },
+    error: function() {
+        alert( 'Wystąpił błąd w połączniu :(');
+    },
+
+  });
 })
  </script>

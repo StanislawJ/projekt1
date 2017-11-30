@@ -18,24 +18,172 @@ body
   background-color: blue;
   min-height: 400px;
   width:100%;
+  text-align: center;
+}
+
+p1
+{
+  font-size: 25px;
+}
+
+p2
+{
+  color: black;
+  font-size: 17px;
+}
+
+p3
+{
+  font-size: 25px;
+  font-weight: 800;
+  color: white;
+}
+
+p4
+{
+  float: left;
+  font-size: 25px;
+  font-weight: 800;
+  color: white;
+}
+
+
+#auk
+{
+  float: left;
+  background-color: blue;
+  height: 400px;
+}
+
+#kr_op
+{
+  background-color: #2020ab;
+  font-size: 15px;
+  float: left;
+  color: white;
+  border: solid white 2px;
+  margin: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 5px 10px 15px black;
+}
+
+#under_KROP
+{
+  float: left;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#price_P
+{
+  position: relative;
+  top:20px;
+  color: black;
+  font-size: 20px;
+  float: right;
+  width: auto;
+  height: auto;
+}
+
+posit
+{
+  position: relative;
+  top: 2px;
+}
+
+p4
+{
+  margin-top:1px;
+  margin-left: 10px;
+  margin-right: 10px;
+  float: left;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+}
+
+#price
+{
+  float: left;
+  background-color: white;
+  border-radius: 20px;
+  width: 150px;
+  height: 25px;
+  box-shadow: 0px 0px 10px 5px black;
+}
+
+.bt
+{
+  float: right;
+  width: 120px;
+  font-size: 15px;
+  margin: 15px;
+  border-radius:4px;
+ color: black;
+ background-color: #e65d11;
+ border:solid white 2px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ transition-duration: 0.4s;
+ cursor: pointer;
+}
+
+
+.bt:hover
+{
+      background-color: #f54007;
+      color: white;
+}
+
+
+#img
+{
+  background-color: lightgrey;
+  width: 200px;
+  min-height: 130px;
+  border: solid 2px;
+  display: inline-block;
+  position: relative;
+  float: left;
 
 }
 
-.dane_aukcji
+
+#icon
+{
+  background-color: lightgrey;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  float: left;
+  transition-duration: 80ms;
+}
+
+
+#infauk
 {
   float: left;
-  background-color: red;
-  width:70%;
+  background-color: white;
   height: 400px;
 }
 
 .dane_osobowe
 {
   float: left;
-  background-color: darkred;
-  width:30%;
+  background-color: white;
   height: 400px;
 }
+
+
 
 .content
 {
@@ -104,4 +252,51 @@ body
 {
 	background-color:#000066;
 	border:solid 1px;
+}
+
+
+
+
+
+
+
+
+#gallery
+{
+  width: 80%;
+  position: relative;
+  margin: auto;
+}
+
+.zd
+{
+  position: relative;
+  float:left;
+  width: 80px;
+  height: 70px;
+  margin: 5px;
+  border: solid white 5px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+#galery_img
+{
+width: 100%;
+height: 100%;
+border: solid black 2px;
+border-radius: 5px;
+}
+
+
+#galery_img:active
+{
+  position: fixed;
+  max-width: 40%;
+  left: 35%;
+  top: 10%;
+  transition-duration: 250ms;
+  z-index: 99;
+  box-shadow: 4px 4px 10px blue;
+  border: solid 2px;
 }

@@ -36,23 +36,29 @@
     if(isset($_SESSION['log']));
     else require_once('zaloguj_panele.php');
 
+    if(isset($_POST['id'])) $_SESSION['id'] = $_POST['id'];
     ?>
 
 
     <div class='daneSP'>
 
-      <div class='dane_osobowe'>
+      <div class='dane_osobowe col-lg-3 col-md-3 col-sm-4 col-xs-12'>
         <?php require_once('aukcja/dane_osobowe.php') ?>
       </div>
 
-      <div class='dane_aukcji'>
-        elo
+      <div id="auk" class='col-lg-6 col-md-6 col-sm-4 col-xs-12'>
+        <?php require_once('aukcja/dane_aukcji.php') ?>
+      </div>
+
+      <div id="infauk" class='col-lg-3 col-md-3 col-sm-4 col-xs-12'>
+        <?php require_once('aukcja/inf_aukcji.php') ?>
       </div>
 
     </div>
 
 
     <div class='content'>
+        <?php require_once('aukcja/content.php') ?>
     </div>
 
 
