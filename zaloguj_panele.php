@@ -180,6 +180,7 @@
 
 		 <!--__________________________________________________________ajax logowanie-->
 		 		$('#login').click(function(){
+					<?php if(!isset($_SESSION['log'])){ ?>
 		 			$.ajax({
 		 				type: "POST",
 		 				url: "zaloguj.php",
@@ -188,6 +189,7 @@
 		 						pass: $("#log_pass").val()
 		 						},
 		 				success: function(ret) {
+							location.reload();
 		 					if(ret != "") alert(ret);
 
 		 				},
@@ -196,6 +198,7 @@
 		         },
 
 		 			});
+					<?php } ?>
 		 		});
 		 });
 

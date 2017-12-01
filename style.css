@@ -5,6 +5,124 @@ body
   min-width: 850px;
 }
 
+#menu_nav
+{
+ margin: 0;
+}
+
+.menu
+{
+  width: 40px;
+  height: 40px;
+  border:0;
+  background-color: #222;
+  background-image: url(tlo/menu.png);
+  background-size: contain;
+  padding: 0;
+}
+
+.menu:hover
+{
+    box-shadow:0px 0px 15px 3px blue;
+}
+
+#Zpanel_ALL
+{
+  background-color: white;
+  float: right;
+  width: 235px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#Zpanel
+{
+  background-color: white;
+  width: auto;
+}
+
+#profile
+{
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  border:0;
+  background-color: white;
+  background-image: url(tlo/profil.png);
+  background-size: contain;
+  padding: 0;
+  margin: 2.5%;
+}
+
+#profile:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+
+#my_auction
+{
+  width: 40px;
+  height: 40px;
+  border:0;
+  border-radius: 5px;
+  background-color: white;
+  background-image: url(tlo/moje_aukcje.png);
+  background-size: contain;
+  padding: 0;
+  margin: 2.5%;
+}
+
+#my_auction:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+#licytuje
+{
+  width: 40px;
+  height: 40px;
+  border:0;
+  border-radius: 5px;
+  background-color: white;
+  background-image: url(tlo/licytuje.png);
+  background-size: contain;
+  padding: 0;
+  margin: 2.5%;
+}
+
+#licytuje:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+#dodaj
+{
+  width: 40px;
+  height: 40px;
+  border:0;
+  border-radius: 5px;
+  background-color: white;
+  background-image: url(tlo/dodaj.png);
+  background-size: contain;
+  padding: 0;
+  margin: 2.5%;
+}
+
+#dodaj:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+
+
+
+
+
+
+
+
+
 
 .button
 {
@@ -313,6 +431,14 @@ color: white;
 {
   width: 40px;
   height: 30px;
+  background-color: #f54007;
+  color: black;
+}
+
+.strA
+{
+  width: 40px;
+  height: 35px;
   background-color: #f54007;
 }
 

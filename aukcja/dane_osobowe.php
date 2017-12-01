@@ -14,24 +14,24 @@ $info = mysqli_fetch_assoc($rezult);
 
     <tbody>
       <tr>
-        <td><p2>imie</p2></td>
-        <td><p2><?php echo $info['name'];?></p2></td>
+        <td><p5>imie</p5></td>
+        <td><p5><?php echo $info['name'];?></p5></td>
       </tr>
       <tr>
-        <td><p2>nazwisko</p2></td>
-        <td><p2><?php echo $info['lastname'];?></p2></td>
+        <td><p5>nazwisko</p5></td>
+        <td><p5><?php echo $info['lastname'];?></p5></td>
       </tr>
       <tr>
-        <td><p2>email</p2></td>
-        <td><p2><?php echo $info['email']; ?></p2></td>
+        <td><p5>email</p5></td>
+        <td><p5><?php echo $info['email']; ?></p5></td>
       </tr>
       <tr>
-        <td><p2>miasto</p2></td>
-        <td><p2><?php echo $info['city']; ?></p2></td>
+        <td><p5>miasto</p5></td>
+        <td><p5><?php echo $info['city']; ?></p5></td>
       </tr>
       <tr>
-        <td><p2>numer tel</p2></td>
-        <td><p2><?php echo $info['phone']; ?></p2></td>
+        <td><p5>numer tel</p5></td>
+        <td><p5><?php echo $info['phone']; ?></p5></td>
       </tr>
     </tbody>
   </table>

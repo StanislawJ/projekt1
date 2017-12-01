@@ -33,7 +33,11 @@
 
     <?php session_start();
 
-    if(isset($_SESSION['log']));
+    if(isset($_SESSION['log']))
+    {
+      echo "siema";
+      
+     }
     else require_once('zaloguj_panele.php');
 
     if(isset($_POST['id'])) $_SESSION['id'] = $_POST['id'];
@@ -58,7 +62,12 @@
 
 
     <div class='content'>
+      <div id="dl_op"  class="col-lg-9 col-md-8 col-sm-12 col-xs-12" >
+        <?php require_once('aukcja/dl_op.php') ?>
+      </div>
+      <div id="Gcontent" class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
         <?php require_once('aukcja/content.php') ?>
+      </div>
     </div>
 
 

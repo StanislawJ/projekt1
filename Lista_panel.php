@@ -142,7 +142,8 @@ else
 
 for($i=1;$i<=$_SESSION['pages'];$i++)
 {
-echo "<button id='".$i."' class='str'>".$i."</button>";
+  if(($_COOKIE['page']/10)==$i) echo "<button id='".$i."' class='strA'>".$i."</button>";
+  else echo "<button id='".$i."' class='str'>".$i."</button>";
 }
 
 

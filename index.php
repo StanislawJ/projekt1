@@ -32,7 +32,7 @@
 <!--_______________________________________________________wczytywanie paneli-->
 		<?php session_start();
 
-		if(isset($_SESSION['log']));
+		if(isset($_SESSION['log']))require_once('profil_panel.php');
 		else require_once('zaloguj_panele.php');
 
 		?>

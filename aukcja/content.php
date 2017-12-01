@@ -1,53 +1,135 @@
-<div id="gallery">
-<table>
+<!-- Sample by Mr. M. - Confederation College - IMD Program -->
 
-<tr>
+<div id="galery">
+<div class="linne">
 
-<td>
-  <div id="zd1" class="zd">
-    <img id="galery_img" class="zd_r" src="images/<?php echo $_SESSION['id']; ?>1.jpg" alt='BRAK ZDJĘCIA' >
-  </div>
-</td>
+<hr>
 
-<td>
-  <div id="zd2" class="zd">
-    <img id="galery_img" class="zd_r" src="images/<?php echo $_SESSION['id']; ?>2.jpg" alt='BRAK ZDJĘCIA' >
-  </div>
-</td>
+<a class="Aimg" href="#" data-toggle="modal" data-target=".pop-up-1">
+<img src="images/<?php echo $_SESSION['id'];?>1.jpg" width="150" class="img-responsive img-rounded center-block" alt="">
+</a>
 
-<td>
-  <div id="zd3" class="zd">
-    <img id="galery_img" class="zd_r" src="images/<?php echo $_SESSION['id']; ?>3.jpg" alt='BRAK ZDJĘCIA' >
-  </div>
-</td>
+<hr>
 
-</tr>
+<a class="Aimg" href="#" data-toggle="modal" data-target=".pop-up-2">
+<img src="images/<?php echo $_SESSION['id'];?>2.jpg" width="150" class="img-responsive img-rounded center-block" alt="">
+</a>
 
-<tr>
-<td>
-  <div id="zd4" class="zd">
-    <img id="galery_img" class="zd_r" src="images/<?php echo $_SESSION['id']; ?>4.jpg" alt='BRAK ZDJĘCIA' >
-  </div>
-</td>
+<hr>
 
-<td>
-  <div id="zd5" class="zd">
-    <img id="galery_img" class="zd_r" src="images/<?php echo $_SESSION['id']; ?>5.jpg" alt='BRAK ZDJĘCIA' >
-  </div>
-</td>
+<a class="Aimg" href="#" data-toggle="modal" data-target=".pop-up-3">
+<img src="images/<?php echo $_SESSION['id'];?>3.jpg" width="150" class="img-responsive img-rounded center-block" alt="">
+</a>
 
-<td>
-  <div id="zd6" class="zd">
-    <img id="galery_img" class="zd_r" src="images/<?php echo $_SESSION['id']; ?>6.jpg" alt='BRAK ZDJĘCIA' >
-  </div>
-</td>
+<hr>
 
-</tr>
+<a class="Aimg" href="#" data-toggle="modal" data-target=".pop-up-4">
+<img src="images/<?php echo $_SESSION['id'];?>4.jpg" width="150" class="img-responsive img-rounded center-block" alt="">
+</a>
 
-</table>
-</div>
+<hr>
+
+<a class="Aimg" href="#" data-toggle="modal" data-target=".pop-up-5">
+<img src="images/<?php echo $_SESSION['id'];?>5.jpg" width="150" class="img-responsive img-rounded center-block" alt="">
+</a>
+
+<hr>
+
+<a class="Aimg" href="#" data-toggle="modal" data-target=".pop-up-6">
+<img src="images/<?php echo $_SESSION['id'];?>6.jpg" width="150" class="img-responsive img-rounded center-block" alt="">
+</a>
+
+<hr>
+
+<!--  Modal content for the mixer image example -->
+  <div class="modal fade pop-up-1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+        <img src="images/<?php echo $_SESSION['id'];?>1.jpg" class="img-responsive img-rounded center-block" alt="">
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal mixer image -->
+
+ <!--  Modal content for the lion image example -->
+  <div class="modal fade pop-up-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel-2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+        <img src="images/<?php echo $_SESSION['id'];?>2.jpg" class="img-responsive img-rounded center-block" alt="">
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal mixer image -->
 
 
-<script>
 
-</script>
+  <div class="modal fade pop-up-3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel-2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+        <img src="images/<?php echo $_SESSION['id'];?>3.jpg" class="img-responsive img-rounded center-block" alt="">
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal mixer image -->
+
+  <div class="modal fade pop-up-4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel-2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+        <img src="images/<?php echo $_SESSION['id'];?>4.jpg" class="img-responsive img-rounded center-block" alt="">
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal mixer image -->
+
+  <div class="modal fade pop-up-5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel-2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+        <img src="images/<?php echo $_SESSION['id'];?>5.jpg" class="img-responsive img-rounded center-block" alt="">
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal mixer image -->
+
+
+  <div class="modal fade pop-up-6" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel-2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+        <img src="images/<?php echo $_SESSION['id'];?>6.jpg" class="img-responsive img-rounded center-block" alt="">
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal mixer image -->
+
+
+</div> <!-- /.row -->
+</div> <!-- /.container -->
