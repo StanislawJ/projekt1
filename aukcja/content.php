@@ -1,5 +1,7 @@
 <!-- Sample by Mr. M. - Confederation College - IMD Program -->
 
+
+
 <div id="galery">
 <div class="linne">
 

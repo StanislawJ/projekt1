@@ -21,7 +21,6 @@
 	if(isset($_SESSION['log']))
 	{
 
-
 	}
 	else
 	{
@@ -37,8 +36,9 @@
 	{
 
 		$table = $rezultat->fetch_array();
-		$_SESSION['username'] = $table['login'];
 		$_SESSION['log'] = 1;
+		$_SESSION['user_id'] = $table['ID'];
+
 
 	}
 	else echo "błędne dane logowania";

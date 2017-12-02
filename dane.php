@@ -1,4 +1,5 @@
 <?php
+if((isset($_COOKIE['dane7'])&&($_COOKIE['dane7']!= "%"))) echo "<div class='all'>MOJE AUKCJE <div class='del' id='del7'></div></div>";
 if((isset($_COOKIE['dane1'])&&($_COOKIE['dane1']!= "%"))) echo "<div class='all'> kategoria: ".$_COOKIE['dane1']."<div class='del' id='del1'></div></div>";
 if((isset($_COOKIE['dane2'])&&($_COOKIE['dane2']!= "%"))) echo "<div class='all'>podkategoria: ".$_COOKIE['dane2']."<div class='del' id='del2'></div></div>";
 if((isset($_COOKIE['dane3'])&&($_COOKIE['dane3']!= "%"))) echo "<div class='all'>sortowanie: ".$_COOKIE['dane3']."<div class='del' id='del3'></div></div>";
@@ -119,6 +120,24 @@ $('.del').click(function(){
           },
         });
       }
+
+    /*_____________________________________________________________moje aukcje*/
+        if($(this).attr('id') == "del7")
+        {
+        $.ajax({
+            type: "POST",
+            url: "Lista_panel.php",
+            data:	{
+                myA: "%",
+                },
+            success: function(ret) {
+              $('#lista').load('Lista_panel.php');
+            },
+            error: function() {
+                alert( "Wystąpił błąd w połączniu :(");
+            },
+          });
+        }
 
 
 

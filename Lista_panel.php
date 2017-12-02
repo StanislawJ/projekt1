@@ -14,7 +14,6 @@ if(isset($_POST['sear']))
 }
 else if(!isset($_COOKIE['search'])) $_COOKIE['search'] = "`kr_op` LiKE '%' ";
 
-
 /*____________________________________________________________kategoria główna*/
 
 
@@ -76,12 +75,15 @@ if(isset($_POST['type']))
 else if(!isset($_COOKIE['type'])) $_COOKIE['type'] = "";
 
 
+if(isset($_POST['myA']))
+{
+  setcookie('myA'," and `ID_SPRZ` LiKE '".$_POST['myA']."'", time() + (86400), "/");
+  setcookie('dane7',$_POST['myA'], time() + (86400), "/");
+}
+else if(!isset($_COOKIE['myA'])) $_COOKIE['myA'] = "";
 
 
-
-
-
-$sql = "SELECT * FROM `auction` WHERE ".$_COOKIE['search']."".$_COOKIE['type']."".$_COOKIE['katU']."".$_COOKIE['katG']."".$_COOKIE['min']."".$_COOKIE['max']."".$_COOKIE['sort_by']."";
+$sql = "SELECT * FROM `auction` WHERE ".$_COOKIE['search']."".$_COOKIE['myA']."".$_COOKIE['type']." and now() < data_zak ".$_COOKIE['katU']."".$_COOKIE['katG']."".$_COOKIE['min']."".$_COOKIE['max']."".$_COOKIE['sort_by']."";
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
 

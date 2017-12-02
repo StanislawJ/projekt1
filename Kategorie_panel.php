@@ -92,7 +92,8 @@ $('.kat_end').click(function(){
         min: "",
         max: "",
         type: "%",
-        sort_by: "%"
+        sort_by: "%",
+        myA: "%"
         },
     success: function(ret) {
       $('#lista').load('Lista_panel.php');
