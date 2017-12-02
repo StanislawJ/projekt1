@@ -3,7 +3,7 @@
       <div class="panel-heading">
         <h4 class="panel-title">
 
-				<div id="menu">
+				<div id="menu1">
 				<div id="logo">AUKCJONER</div>
 
 				<button type="button" class="button2 button" href="#collapse1" data-toggle="collapse">zaloguj</button>
