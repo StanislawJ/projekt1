@@ -50,51 +50,51 @@
 	 				</li>
 
 	 				<li class="list-group-item">
-	 					login: <input type="text" name="log_reg"/>
+	 					login: <input type="text" name="log_reg" data-toggle="login" data-placement="right" title="Login musi zawierac od 6 do 20 znakow alfanumerycznych"/>
 	 				</li>
 
 	 				<li class="list-group-item">
-	 					hasło: <input type="password" name="pass_reg"/>
+	 					hasło: <input type="password" name="pass_reg" data-toggle="haslo" data-placement="right" title="Haslo musi zawierac od 6 do 20 znakow"/>
 	 				</li>
 
 	 				<li class="list-group-item">
-	 					 powtórz hasło: <input type="password" name="pass_reg_repeat"/>
+	 					 powtórz hasło: <input type="password" name="pass_reg_repeat" data-toggle="phaslo" data-placement="right" title="Powtorz haslo"/>
 	 				</li>
 
 	 				<li class="list-group-item">
-	 					imie: <input type="text" name="name"/>
+	 					imie: <input type="text" name="name" data-toggle="imie" data-placement="right" title="Podaj imie"/>
 	 				</li>
 
 	 				<li class="list-group-item">
-	 					nazwisko: <input type="text" name="lastname"/>
+	 					nazwisko: <input type="text" name="lastname" data-toggle="nazwisko" data-placement="right" title="Podaj nazwisko"/>
 	 				</li>
 
 	 				<li class="list-group-item">
-	 					Email: <input type="text" name="email_reg"/>
+	 					Email: <input type="text" name="email_reg" data-toggle="email" data-placement="right" title="Maksymalna dlugosc emaila to 50 znakow"/>
 	 				</li>
 
 	 				<li class="list-group-item">
-	 					miejscowość: <input type="text" name="city"/>
+	 					miejscowość: <input type="text" name="city" data-toggle="miasto" data-placement="right" title="Podaj miejscowosc"/>
 	 				</li>
 
 	 				<li class="list-group-item">
-	 					ulica: <input type="text" name="street"/>
+	 					ulica: <input type="text" name="street" data-toggle="ulica" data-placement="right" title="Podaj ulice"/>
 	 				</li>
 
 	 				<li class="list-group-item">
-	 					nr domu: <input type="text" name="home_nr"/>
+	 					nr domu: <input type="text" name="home_nr" data-toggle="nrdomu" data-placement="right" title="Podaj nr domu"/>
 	 				</li>
 
 	 				<li class="list-group-item">
-	 					telefon: <input type="text" name="phone_nr"/>
+	 					telefon: <input type="text" name="phone_nr" data-toggle="nrtel" data-placement="right" title="Podaj nr telefonu"/>
 	 				</li>
 
 					<li class="list-group-item">
-						nazwa banku: <input type="text" name="name_bank"/>
+						nazwa banku: <input type="text" name="name_bank" data-toggle="bank" data-placement="right" title="Podaj nazwe banku"/>
 					</li>
 
 					<li class="list-group-item">
-						numer konta bankowego: <input type="text" name="bank_nr"/>
+						numer konta bankowego: <input type="text" name="bank_nr" data-toggle="nrkonta" data-placement="right" title="Nr konta musi zawierać 26 cyfr"/>
 					</li>
 
 	 				<li class="list-group-item">
@@ -178,6 +178,21 @@
 		 <script>
 		 $( document ).ready(function() {
 
+		 <!--__________________________________________________________tipy rejestracja-->
+				$('[data-toggle="login"]').tooltip();
+				$('[data-toggle="haslo"]').tooltip();
+				$('[data-toggle="phaslo"]').tooltip();
+				$('[data-toggle="imie"]').tooltip();
+				$('[data-toggle="nazwisko"]').tooltip();
+				$('[data-toggle="email"]').tooltip();
+				$('[data-toggle="miasto"]').tooltip();
+				$('[data-toggle="ulica"]').tooltip();
+				$('[data-toggle="nrdomu"]').tooltip();
+				$('[data-toggle="nrtel"]').tooltip();
+				$('[data-toggle="bank"]').tooltip();
+				$('[data-toggle="nrkonta"]').tooltip();
+		 
+		 
 		 <!--__________________________________________________________ajax logowanie-->
 		 		$('#login').click(function(){
 					<?php if(!isset($_SESSION['log'])){ ?>
