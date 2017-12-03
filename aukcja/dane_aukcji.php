@@ -24,13 +24,33 @@ $info1 = mysqli_fetch_assoc($rezult);
   <div id="img">
     <img id="icon" src="images/<?php echo $info['ID_AUK'] ?>1.jpg" alt='BRAK ZDJĘCIA' >
   </div>
-
   <div id="price_P">
+    <?php if($info['typ'] == "klasyczna"){ ?>
       <p4> CENA </p4>
     <div id='price'>
       <posit ><div id="PP"><?php echo $info['cena']; ?></div></posit>
-      <div id="ilo">ilość <?php echo $info1['ilosc']; ?><input type="text" id="ilosc" value="1" /></div>
+      <div id="ilo">ilość <?php echo $info1['ilosc']; ?><input type="number" id="ilosc" min="1" max="<?php echo $info1['ilosc']; ?>" value="1" /></div>
     </div>
+  <?php } else {?>
+    <p4> CENA </p4>
+  <div id='price'>
+    <posit ><div id="PP"><?php echo $info['cena']; ?></div></posit>
+    <select id="selected1" class="mini">
+      <?php
+        if($info['przesylka_kurierska'] != 0) echo "<option class='wyb' value='".$info['przesylka_kurierska']."'>przesylka_kurierska</option>";
+        if($info['przesylka_kurierska_pobraniowa'] != 0) echo "<option class='wyb' value='".$info['przesylka_kurierska_pobraniowa']."'>przesylka_kurierska_pobraniowa</option>";
+        if($info['list_ekonomiczny'] != 0) echo "<option class='wyb' value='".$info['list_ekonomiczny']."'>list_ekonomiczny</option>";
+        if($info['list_polecony'] != 0) echo "<option value='".$info['list_polecony']."'>list_polecony</option>";
+        if($info['odbior_wlasny'] != 0) echo "<option value='".$info['odbior_wlasny']."'>odbior_wlasny</option>";
+       ?>
+    </select>
+    <input type="number" id="ilosc" min="<?php echo $info['cena']+1 ?>" value="<?php echo $info['cena']+1?>" />
+  </div>
+
+  <?php } ?>
+
+
+
     <br>
       <?php
         if($info['typ'] == "licytacja") echo"<button id='bid' class='bt'>LICYTUJ</button>";
@@ -64,6 +84,7 @@ if(isset($_SESSION['log']))
       </select>
       <button id="dd">dalej</button><br>
       <a hidden="hidden" id="kostA">CENA<div id="kostB"></div></a>
+      <button id='buy1' hidden="hidden"  class='buy'>KUP TERAZ</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -72,26 +93,53 @@ if(isset($_SESSION['log']))
 <script>
 
 $('#buy').click(function(){
-  $('#iii').html($('#ilosc').val());
+  $('#iii').html(parseInt($('#ilosc').val()));
 });
 $('#dd').click(function(){
+  if($( "#selected option:selected").text() == 'odbior_wlasny') var dost=0;
+  else dost = parseFloat($("select#selected").val());
   $('#kostA').show();
-  $('#kostB').html($('#ilosc').val()*<?php echo $info['cena'];?>+parseFloat($("select#selected").val()))
+  $('.buy').show();
+  $('#kostB').html(parseInt($('#ilosc').val())*<?php echo $info['cena'];?>+dost)
 });
 
-$('##').click(function(){
-  $.ajax({
-    type: 'POST',
-    url: 'aukcja/kup_teraz.php',
-    data:	{
-        id_auk: <?php echo $info['ID_AUK'];?>
-        },
-    success: function(ret) {
-      alert(ret);
-    },
-    error: function() {
-        alert( 'Wystąpił błąd w połączniu :(');
-    },
-  });
+$('#buy1').click(function(){
+$.ajax({
+  type: "POST",
+  url: "aukcja/kup_teraz.php",
+  data:	{
+      dostawa: $("#selected option:selected").text(),
+      ilosc: parseInt($('#ilosc').val()),
+      id_auk: <?php echo $info['ID_AUK']?>
+      },
+  success: function(ret) {
+    alert(ret);
+    location.reload();
+  },
+  error: function() {
+      alert( "Wystąpił błąd w połączniu :(");
+  },
+
+});
+});
+
+$('#bid').click(function(){
+$.ajax({
+  type: "POST",
+  url: "aukcja/licytacja.php",
+  data:	{
+      dostawa: $("#selected1 option:selected").text(),
+      cena: parseInt($('#ilosc').val()),
+      id_auk: <?php echo $info['ID_AUK']?>
+      },
+  success: function(ret) {
+    alert(ret);
+    location.reload();
+  },
+  error: function() {
+      alert( "Wystąpił błąd w połączniu :(");
+  },
+
+});
 });
 </script>

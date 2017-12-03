@@ -8,7 +8,13 @@ body
 
 
 
-
+.mini
+{
+  position: relative;
+  right: 20px;
+  font-size: 12px;
+  width:180px;
+}
 
 
 
@@ -200,7 +206,7 @@ p4
 p5
 {
   color: black;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 
@@ -315,6 +321,27 @@ p4
       color: white;
 }
 
+.buy
+{
+  float: right;
+  width: 120px;
+  font-size: 15px;
+  border-radius:4px;
+ color: black;
+ background-color: #e65d11;
+ border:solid white 2px;
+ text-align: center;
+ text-decoration: none;
+ transition-duration: 0.4s;
+ cursor: pointer;
+}
+
+
+.buy:hover
+{
+      background-color: #f54007;
+      color: white;
+}
 
 #img
 {
