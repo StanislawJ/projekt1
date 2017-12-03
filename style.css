@@ -37,7 +37,6 @@ body
   width: 40px;
   height: 40px;
   border:0;
-
   background-color: #222;
   background-image: url(tlo/menu.png);
   background-size: contain;
@@ -69,15 +68,16 @@ body
 
 #profile
 {
+  float: right;
   width: 40px;
   height: 40px;
-  border-radius: 5px;
   border:0;
-  background-color: white;
+  background-color: #222;
   background-image: url(tlo/profil.png);
   background-size: contain;
   padding: 0;
-  margin: 2.5%;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #profile:hover
@@ -88,15 +88,17 @@ body
 
 #my_auction
 {
+  float: left;
   width: 40px;
   height: 40px;
+  margin: 1.5px;
+  margin-left: 3px;
   border:0;
   border-radius: 5px;
-  background-color: white;
+  background-color: #222;
   background-image: url(tlo/moje_aukcje.png);
   background-size: contain;
   padding: 0;
-  margin: 2.5%;
 }
 
 #my_auction:hover
@@ -106,15 +108,16 @@ body
 
 #licytuje
 {
+  float: right;
   width: 40px;
   height: 40px;
   border:0;
-  border-radius: 5px;
-  background-color: white;
+  background-color: #222;
   background-image: url(tlo/licytuje.png);
   background-size: contain;
   padding: 0;
-  margin: 2.5%;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #licytuje:hover
@@ -152,14 +155,15 @@ body
 
 .button
 {
-     border-radius:4px;
+  float: right;
+    border-radius:4px;
     color: white;
     padding: 8px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 2px 1px;
+    font-size: 14px;
+    margin: 2px 5px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
@@ -179,6 +183,28 @@ body
 	font-weight: 500;
 	border: 2px solid white;
 }
+
+
+#login {
+    background-color: #ec3f08e3;
+    border: none;
+    color: black;
+    padding: 4px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+
+#login:hover {
+    background-color: #ff3e00;
+    color: white;
+}
+
 
 #menu1
 {
@@ -599,6 +625,19 @@ p2
 
 }
 
+#log_nav
+{
+  margin:0;
+}
+
+#log
+{
+  background-color: white;
+  padding: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: solid blue 1px;
+}
 
 #collapse2
 {

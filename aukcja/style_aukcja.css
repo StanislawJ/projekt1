@@ -7,6 +7,161 @@ body
 }
 
 
+
+.mini
+{
+  position: relative;
+  right: 20px;
+  font-size: 12px;
+  width:180px;
+}
+
+
+
+
+#menu_nav
+{
+ margin: 0;
+ padding: 5px;
+}
+
+.logout
+{
+  float: right;
+  width: 40px;
+  height: 40px;
+  border:0;
+  margin-left: 5px;
+  margin-right: 10px;
+  background-color: #222;
+  background-image: url(../tlo/wyloguj.png);
+  background-size: contain;
+  padding: 0;
+}
+
+.logout:hover
+{
+    box-shadow:0px 0px 15px 3px blue;
+}
+
+
+.menu
+{
+  float: right;
+  width: 40px;
+  height: 40px;
+  border:0;
+  background-color: #222;
+  background-image: url(../tlo/menu.png);
+  background-size: contain;
+  padding: 0;
+}
+
+.menu:hover
+{
+    box-shadow:0px 0px 15px 3px blue;
+}
+
+#Zpanel_ALL
+{
+  background-color: white;
+  float: right;
+  width: 235px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+}
+
+#Zpanel
+{
+  background-color: white;
+  width: auto;
+}
+
+#profile
+{
+  float: right;
+  width: 40px;
+  height: 40px;
+  border:0;
+  background-color: #222;
+  background-image: url(../tlo/profil.png);
+  background-size: contain;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#profile:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+
+#my_auction
+{
+  width: 40px;
+  height: 40px;
+  border:0;
+  border-radius: 5px;
+  background-color: white;
+  background-image: url(../tlo/moje_aukcje.png);
+  background-size: contain;
+  padding: 0;
+  margin: 2.5%;
+}
+
+#my_auction:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+#licytuje
+{
+  float: right;
+  width: 40px;
+  height: 40px;
+  border:0;
+  background-color: #222;
+  background-image: url(../tlo/licytuje.png);
+  background-size: contain;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#licytuje:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+#dodaj
+{
+  width: 40px;
+  height: 40px;
+  border:0;
+  border-radius: 5px;
+  background-color: white;
+  background-image: url(../tlo/dodaj.png);
+  background-size: contain;
+  padding: 0;
+  margin: 2.5%;
+}
+
+#dodaj:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+
+
+
+
+
+
+
 #container
 {
   background-color: lightgreen;
@@ -19,6 +174,7 @@ body
   min-height: 400px;
   width:100%;
   text-align: center;
+  margin-top: 10px;
 }
 
 p1
@@ -50,7 +206,7 @@ p4
 p5
 {
   color: black;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 
@@ -98,6 +254,27 @@ posit
   top: 2px;
 }
 
+#ilosc
+{
+  width: 150px;
+  font-size: 15px;
+  float: right;
+}
+
+#iii
+{
+  width: 150px;
+  font-size: 15px;
+  margin: auto;
+}
+
+#ilo
+{
+  width: auto;
+  font-size: 15px;
+  float: left;
+}
+
 p4
 {
   margin-top:1px;
@@ -125,6 +302,7 @@ p4
   width: 120px;
   font-size: 15px;
   margin: 15px;
+  margin-top: 55px;
   border-radius:4px;
  color: black;
  background-color: #e65d11;
@@ -143,6 +321,27 @@ p4
       color: white;
 }
 
+.buy
+{
+  float: right;
+  width: 120px;
+  font-size: 15px;
+  border-radius:4px;
+ color: black;
+ background-color: #e65d11;
+ border:solid white 2px;
+ text-align: center;
+ text-decoration: none;
+ transition-duration: 0.4s;
+ cursor: pointer;
+}
+
+
+.buy:hover
+{
+      background-color: #f54007;
+      color: white;
+}
 
 #img
 {
@@ -229,16 +428,31 @@ p4
   width:100%;
 }
 
+#log_nav
+{
+  margin:0;
+}
+
+#log
+{
+  background-color: white;
+  padding: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: solid blue 1px;
+}
+
 .button
 {
+  float: right;
      border-radius:4px;
     color: white;
-    padding: 8px 20px;
+    padding: 6px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 2px 1px;
+    font-size: 14px;
+    margin: 2px 5px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
@@ -257,6 +471,26 @@ p4
     color: white;
 	font-weight: 500;
 	border: 2px solid white;
+}
+
+#login {
+    background-color: #ec3f08e3;
+    border: none;
+    color: black;
+    padding: 4px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+
+#login:hover {
+    background-color: #ff3e00;
+    color: white;
 }
 
 #menu
@@ -306,6 +540,12 @@ p4
   background-color: white;
   color: black;
   font-size: 15px;
+}
+
+.DO1
+{
+  border:solid black 2px;
+  color: white;
 }
 
 #Gcontent

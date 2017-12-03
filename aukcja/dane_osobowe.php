@@ -33,5 +33,19 @@ $info = mysqli_fetch_assoc($rezult);
         <td><p5>numer tel</p5></td>
         <td><p5><?php echo $info['phone']; ?></p5></td>
       </tr>
+      <?php if(isset($_SESSION['log'])){ ?>
+      <tr>
+        <td><p5>ulica</p5></td>
+        <td><p5><?php echo $info['street']; ?></p5></td>
+      </tr>
+      <tr>
+        <td><p5>numer domu</p5></td>
+        <td><p5><?php echo $info['home']; ?></p5></td>
+      </tr>
+      <tr>
+        <td><p5>numer konta</p5></td>
+        <td><p5><?php echo $info['nrkonta']; ?></p5></td>
+      </tr>
+    <?php  }?>
     </tbody>
   </table>

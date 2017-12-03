@@ -1,30 +1,23 @@
 <!--______________________________________________panel logowania i przyciski-->
 	<div class="navbar navbar-inverse" id="log_nav">
       <div class="panel-heading">
-        <h4 class="panel-title">
-
 				<div id="menu1">
 				<div id="logo">AUKCJONER</div>
-
 				<button type="button" class="button2 button" href="#collapse1" data-toggle="collapse">zaloguj</button>
 				<button type="button" class="button2 button" href="#myModal" data-toggle="modal">zarejestruj</button>
 				</div>
-		</h4>
-      </div>
-      <div id="collapse1" class="panel-collapse collapse">
-        <ul class="list-group">
-          <li class="list-group-item">
-			<div id="log">
-			<form method="post">
-				login: <input type="text" name="log"  id="log_name" autofocus/>
-				hasło: <input type="password" name="pass" id="log_pass"/>
-				<input type="submit" id="login"/>
-			</form>
-			</div>
-		  </li>
-        </ul>
-      </div>
     </div>
+	</div>
+
+	<div id="collapse1" class="panel-collapse collapse">
+	<div id="log">
+	<form method="post">
+		login: <input type="text" name="log"  id="log_name" autofocus/>
+		hasło: <input type="password" name="pass" id="log_pass"/>
+		<input type="submit" id="login"/>
+	</form>
+	</div>
+	</div>
 
 <!--__________________________________________________rejestracja i walidacja-->
 
