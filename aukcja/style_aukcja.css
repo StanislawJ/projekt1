@@ -18,7 +18,6 @@ body
 
 
 
-
 #menu_nav
 {
  margin: 0;
@@ -102,18 +101,59 @@ body
 
 #my_auction
 {
+  float: right;
   width: 40px;
   height: 40px;
   border:0;
-  border-radius: 5px;
-  background-color: white;
+  background-color: #222;
   background-image: url(../tlo/moje_aukcje.png);
   background-size: contain;
   padding: 0;
-  margin: 2.5%;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #my_auction:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+#licyt
+{
+  display: none;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border:0;
+  background-color: #222;
+  background-image: url(../tlo/licytuje.png);
+  background-size: contain;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#licyt:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+#add
+{
+  display: none;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border:0;
+  background-color: #222;
+  background-image: url(../tlo/dodaj.png);
+  background-size: contain;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#add:hover
 {
     box-shadow:0px 0px 15px 2px blue;
 }

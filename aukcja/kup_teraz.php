@@ -26,7 +26,7 @@ if($info['ID_SPRZ'] == $_SESSION['user_id']) echo "jest to twoja aukcja";
 else if($ilosc > $info1['ilosc']) echo "ilość przekracza zasoby";
 else
 {
-  $sql = "INSERT INTO `sale` (`ID_AUK`, `ID`, `sztuki`, `cena`, `dostawa`) VALUES ('".$info['ID_AUK']."', '".$_SESSION['user_id']."', '".$ilosc."', '".$koszt."', '".$dostawa."')";
+  $sql = "INSERT INTO `sale` (`ID_AUK`, `ID`, `sztuki`, `cena`, `dostawa` , `typ`) VALUES ('".$info['ID_AUK']."', '".$_SESSION['user_id']."', '".$ilosc."', '".$koszt."', '".$dostawa."', '".$info['typ']."')";
   $rezult = $connecting->query($sql);
   $il = $info1['ilosc']-$ilosc;
 

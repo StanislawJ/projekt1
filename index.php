@@ -43,14 +43,15 @@
 				<div class="search_back">
 					<?php require_once('search_panel.php') ?>
 				</div>
-
+				<div id="boxform">
 				<div id="kategorie">
 					<?php require_once("Kategorie_panel.php") ?>
 				</div>
 
 				<div id="lista">
-						<?php require_once("lista_panel.php") ?>
+					<?php require_once("lista_panel.php") ?>
 				</div>
+			</div>
 
 			</div>
 		</div>

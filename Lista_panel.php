@@ -41,7 +41,7 @@ if(isset($_POST['sort_by']))
    if($_POST['sort_by'] == "cenaup") $sort_by = " order by cena asc";
    else if($_POST['sort_by'] == "cenadown") $sort_by = " order by cena desc";
    else if($_POST['sort_by'] == "%") $sort_by = "";
-   else $sort_by = " order by data_zacz";
+   else $sort_by = " order by data_zacz desc";
    setcookie('sort_by',$sort_by, time() + (86400), "/");
    setcookie('dane3',$_POST['sort_by'], time() + (86400), "/");
 }

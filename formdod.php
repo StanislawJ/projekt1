@@ -32,7 +32,8 @@ echo $m.'<br>';
 echo $n.'<br>';
 echo $o.'<br>';
 */
-$conn = new mysqli('localhost', 'root', '', 'aukcjoner');
+require_once "connect.php";
+$conn = @new mysqli($host, $db_user, $db_password, $db_name);
 $query="SELECT max(ID_AUK)+1 as lastid from auction";
 $result = mysqli_query($conn,$query);
 while($row = mysqli_fetch_assoc($result)){
@@ -51,7 +52,7 @@ $query4 = "INSERT INTO product (`ilosc`,`kolor`,`stan`,`producent`) VALUES ('$l'
 $result4 = mysqli_query($conn,$query4);
 
 
-
+header('location: index.php')
 
 
 

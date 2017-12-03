@@ -25,7 +25,7 @@ $info1 = mysqli_fetch_assoc($rezult);
     <img id="icon" src="images/<?php echo $info['ID_AUK'] ?>1.jpg" alt='BRAK ZDJĘCIA' >
   </div>
   <div id="price_P">
-    <?php if($info['typ'] == "klasyczna"){ ?>
+    <?php if($info['typ'] != "licytacja"){ ?>
       <p4> CENA </p4>
     <div id='price'>
       <posit ><div id="PP"><?php echo $info['cena']; ?></div></posit>

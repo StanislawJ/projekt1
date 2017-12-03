@@ -30,6 +30,8 @@ $koszt = $cena + $info[$dostawa];
 
   $sql = "INSERT INTO `history` (`ID_AUK`, `ID_KUP`, `cena`, `cean_i_dostawa` , `dostawa`) VALUES ('".$auk."', '".$_SESSION['user_id']."', '".$cena."', '".$koszt."' , '".$dostawa."')";
   $rezult = $connecting->query($sql);
+
+  echo "zalicytowales";
 }
 
 

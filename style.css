@@ -88,23 +88,61 @@ body
 
 #my_auction
 {
-  float: left;
+  float: right;
   width: 40px;
   height: 40px;
-  margin: 1.5px;
-  margin-left: 3px;
   border:0;
-  border-radius: 5px;
   background-color: #222;
   background-image: url(tlo/moje_aukcje.png);
   background-size: contain;
   padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #my_auction:hover
 {
     box-shadow:0px 0px 15px 2px blue;
 }
+
+#licyt
+{
+  float: right;
+  width: 40px;
+  height: 40px;
+  border:0;
+  background-color: #222;
+  background-image: url(tlo/licytuje.png);
+  background-size: contain;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#licyt:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+#add
+{
+  float: right;
+  width: 40px;
+  height: 40px;
+  border:0;
+  background-color: #222;
+  background-image: url(tlo/dodaj.png);
+  background-size: contain;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#add:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
 
 #licytuje
 {
@@ -651,4 +689,90 @@ p2
 {
 	background-color:#000066;
 	border:solid 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#bar
+{
+background-color:#5fbbde;
+width:0px;
+height:12px;
+}
+#barbox
+{
+float:right;
+height:16px;
+background-color:#FFFFFF;
+width:100px;
+border:solid 2px #000;
+margin-right:3px;
+-webkit-border-radius:5px;-moz-border-radius:5px;
+}
+#count
+{
+float:right; margin-right:8px;
+font-family:'Georgia', Times New Roman, Times, serif;
+font-size:16px;
+font-weight:bold;
+color:#666666
+}
+#contentbox
+{
+width:80%; height:50px;
+border:solid 2px #006699;
+font-family:Arial, Helvetica, sans-serif;
+font-size:14px;
+}
+
+#bar2
+{
+background-color:#5fbbde;
+width:0px;
+height:12px;
+}
+#barbox2
+{
+float:right;
+height:16px;
+background-color:#FFFFFF;
+width:100px;
+border:solid 2px #000;
+margin-right:3px;
+-webkit-border-radius:5px;-moz-border-radius:5px;
+}
+#count2
+{
+float:right; margin-right:8px;
+font-family:'Georgia', Times New Roman, Times, serif;
+font-size:16px;
+font-weight:bold;
+color:#666666
+}
+#contentbox2
+{
+width:80%; height:150px;
+border:solid 2px #006699;
+font-family:Arial, Helvetica, sans-serif;
+font-size:14px;
+}
+
+#tlostr
+{
+  background-color: white;
 }

@@ -79,18 +79,24 @@ border:solid 2px #006699;
 font-family:Arial, Helvetica, sans-serif;
 font-size:14px;
 }
+
+#tlostr
+{
+  background-color: white
+}
+
 </style>
 
 
     	<script language="JavaScript" src="gen_validatorv4.js" type="text/javascript" xml:space="preserve"></script>
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<style>
 
-</style>
 
     	<title>Aukcjoner</title></head><body>
+        <div id="tlostr">
 
-<?php $conn = new mysqli('localhost', 'root', '', 'aukcjoner'); ?>
+<?php require_once "connect.php";
+$conn = @new mysqli($host, $db_user, $db_password, $db_name); ?>
 <table class="table table-hover">
   <form action="formdod.php" method="post" onsubmit='return confirm(&quot Czy na pewno chcesz dodac?&quot);' >
 <tr><td colspan="3"> <h3>INFORMACJE O AUKCJI</h3></tr>
@@ -116,7 +122,7 @@ font-size:14px;
           echo ('<option value="'.$row['pod_kategoria'].'">');
           echo '<column>'.$row['pod_kategoria'].'<column>';
           echo "----";
-          echo '<column>'.$row['kategoria'].'<column>';
+          echo '<column >'.$row['kategoria'].'<column>';
           echo '</option>';
 
       }
@@ -157,6 +163,9 @@ font-size:14px;
   <tr> <td colspan="3"><input type=submit class="btn btn-success" value="Dodaj"/></td></tr>
   </form>
   </table>
+
+</div>
+
   <script type="text/javascript" src="http://ajax.googleapis.com/
   ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
@@ -165,13 +174,14 @@ font-size:14px;
   {$('.ilo').val("").prop("disabled", false);
   $('.min2').show().attr("required", "true");
 
-    $('#select').mouseleave(function(){
+    $('#select').click(function(){
       if($( "#select option:selected" ).text() == 'holenderska')
       {$('.min2').show().attr("required", "true");
       $('.ilo').val("").prop("disabled", false);
       }
       else if($( "#select option:selected" ).text() == 'licytacja')
       {
+        $('.min2').hide().val("").removeAttr("required", "false");
         $('.ilo').val("1").prop("disabled", true);
       }
       else
@@ -270,5 +280,6 @@ font-size:14px;
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+
 </body>
 </html>
