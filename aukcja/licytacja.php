@@ -34,13 +34,10 @@ $koszt = $cena + $info[$dostawa];
   echo "zalicytowales";
 }
 
-
-
-
-
-
-
-
-
 }
+
+else {
+  echo "musisz się zlogować";
+}
+
 ?>

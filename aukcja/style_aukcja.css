@@ -101,6 +101,7 @@ body
 
 #my_auction
 {
+  display: none;
   float: right;
   width: 40px;
   height: 40px;
@@ -247,6 +248,31 @@ p5
 {
   color: black;
   font-size: 15px;
+}
+
+p6
+{
+  color:#e20000;
+  font-weight: 600;
+}
+
+user
+{
+  float: right;
+  color: #5fbbde;
+  font-size: 16px;
+}
+
+#win
+{
+  font-size: 20px;
+  height: 30px;
+  float: left;
+  margin-left: 5%;
+  margin-right: 5px;
+  color: black;
+  border-bottom:solid 2px #f54007;
+
 }
 
 

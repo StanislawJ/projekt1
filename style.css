@@ -629,6 +629,17 @@ img {
   float: left;
 }
 
+#win
+{
+  height: 30px;
+  float: left;
+  margin-left: 5%;
+  margin-right: 5px;
+  color: #f54007;
+  border-bottom:solid 2px #f54007;
+
+}
+
 #data
 {
   float: right;
@@ -646,6 +657,19 @@ p2
   font-family: arial;
   color: black;
   font-weight: 600;
+}
+
+p6
+{
+  color:#e20000;
+  font-weight: 600;
+}
+
+user
+{
+  float: right;
+  color: #5fbbde;
+  font-size: 16px;
 }
 
 #reg

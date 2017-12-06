@@ -2,6 +2,9 @@
 
 require_once "connect.php";
 $connecting = @new mysqli($host, $db_user, $db_password, $db_name);
+$connecting -> query("SET NAMES utf8");
+$connecting -> query("SET CHARACTER SET utf8");
+$connecting -> query("SET collation_connection = utf8_general_ci");
 $sql = "SELECT * FROM `auction` WHERE ID_AUK LIKE '".$_SESSION['id']."'";
 $rezult = $connecting->query($sql);
 
@@ -11,6 +14,24 @@ $sql = "SELECT * FROM `product` WHERE ID_PRO IN (SELECT ID_PRO from auction wher
 $rezult = $connecting->query($sql);
 
 $info1 = mysqli_fetch_assoc($rezult);
+
+
+
+$sql = "SELECT * FROM users as c inner join (select ID_KUP from history where ID_AUK = ".$_SESSION['id']." order by cena desc limit 1 ) as c2 on c.ID = c2.ID_KUP";
+$rezult = $connecting->query($sql);
+
+$info2 = mysqli_fetch_assoc($rezult);
+
+
+
+if(isset($_SESSION['user_id']))
+{
+$sql = "SELECT * FROM `users` WHERE  `ID` like '".$_SESSION['user_id']."'";
+$rezult = $connecting->query($sql);
+$us = mysqli_fetch_assoc($rezult);
+}
+
+
 
  ?>
 
@@ -24,6 +45,16 @@ $info1 = mysqli_fetch_assoc($rezult);
   <div id="img">
     <img id="icon" src="images/<?php echo $info['ID_AUK'] ?>1.jpg" alt='BRAK ZDJĘCIA' >
   </div>
+
+  <?php
+  if($info2['login'] != NULL){
+    if((isset($us['login'])) && $us['login'] == $info2['login']) echo"<div id='win'>Aktualnie prowadzisz - <p6>TY</p6></div>";
+    else echo"<div id='win'>Aktualnie prowadzi - ".$info2['login']."</div>";
+  }
+  ?>
+
+
+
   <div id="price_P">
     <?php if($info['typ'] != "licytacja"){ ?>
       <p4> CENA </p4>
@@ -31,6 +62,10 @@ $info1 = mysqli_fetch_assoc($rezult);
       <posit ><div id="PP"><?php echo $info['cena']; ?></div></posit>
       <div id="ilo">ilość <?php echo $info1['ilosc']; ?><input type="number" id="ilosc" min="1" max="<?php echo $info1['ilosc']; ?>" value="1" /></div>
     </div>
+
+
+
+
   <?php } else {?>
     <p4> CENA </p4>
   <div id='price'>
@@ -93,6 +128,9 @@ if(isset($_SESSION['log']))
 <script>
 
 $('#buy').click(function(){
+  <?php if(!isset($_SESSION['log'])) {?>
+    alert("musisz się zalogować");
+    <?php } ?>
   $('#iii').html(parseInt($('#ilosc').val()));
 });
 $('#dd').click(function(){
@@ -100,7 +138,9 @@ $('#dd').click(function(){
   else dost = parseFloat($("select#selected").val());
   $('#kostA').show();
   $('.buy').show();
-  $('#kostB').html(parseInt($('#ilosc').val())*<?php echo $info['cena'];?>+dost)
+  $('#kostB').html(parseInt($('#ilosc').val())*<?php echo $info['cena'];?>+dost);
+
+
 });
 
 $('#buy1').click(function(){
