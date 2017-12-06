@@ -98,7 +98,7 @@ font-size:14px;
 <?php require_once "connect.php";
 $conn = @new mysqli($host, $db_user, $db_password, $db_name); ?>
 <table class="table table-hover">
-  <form action="formdod.php" method="post" onsubmit='return confirm(&quot Czy na pewno chcesz dodac?&quot);' >
+  <form action="formdod.php" method="post" enctype="multipart/form-data"  name="myform" id="myform" onsubmit='return confirm(&quot Czy na pewno chcesz dodac?&quot);' >
 <tr><td colspan="3"> <h3>INFORMACJE O AUKCJI</h3></tr>
     <tr> <th scope="row">1</th> <td>Typ aukcji:</td><td>     <?php
       $query = "SELECT * FROM `typy`";
@@ -146,18 +146,32 @@ $conn = @new mysqli($host, $db_user, $db_password, $db_name); ?>
 <tr> <th scope="row">6</th> <td>Cena minimalna <br>(w przypadku aukcji holenderskiej):</td><td> <input type="text" class="min2" hidden="hidden"  name="cenamin" placeholder="Podaj cene"> </td></tr>
 
 <tr><td colspan="3"> <h3>WYBIERZ FORMY DOSTAWY</h3></tr>
-<tr> <th scope="row">7</th> <td> Przesylka kurierska</td><td> <input type="checkbox" id="p1" class="ch1"> <input type="text" class="min" id="i1" hidden="hidden" name="d1" placeholder="Podaj cene"> </td></tr>
-<tr> <th scope="row">8</th> <td>Przesylka kurierska<br>pobraniowa</td><td><input type="checkbox" id="p2" class="ch2"> <input type="text" class="min" id="i2" hidden="hidden" name="d2" placeholder="Podaj cene"> </td></tr>
-<tr> <th scope="row">9</th> <td>List ekonomiczny</td><td> <input type="checkbox" id="p3" class="ch3"> <input type="text" class="min" id="i3" hidden="hidden" name="d3" placeholder="Podaj cene"> </td></tr>
-<tr> <th scope="row">10</th> <td>List polecony</td><td> <input type="checkbox" id="p4" class="ch4"> <input type="text" class="min" id="i4" hidden="hidden" name="d4" placeholder="Podaj cene"> </td></tr>
-<tr> <th scope="row">11</th> <td>Odbior wlasny</td><td> <input type="checkbox" id="p5" class="ch5"> <input type="text" class="min" id="i5" hidden="hidden" name="d5" placeholder="Podaj cene"> </td></tr>
+<tr> <th scope="row">7</th> <td> Przesylka kurierska</td><td>
+<input type="checkbox" name='features[]' id='features_item_0' class="ch1"> <input type="text" class="min" id="i1" hidden="hidden" name="d1" placeholder="Podaj cene"> </td></tr>
+<tr> <th scope="row">8</th> <td>Przesylka kurierska<br>pobraniowa</td><td>
+<input type="checkbox" name='features[]' id='features_item_1' class="ch2"> <input type="text" class="min" id="i2" hidden="hidden" name="d2" placeholder="Podaj cene"> </td></tr>
+<tr> <th scope="row">9</th> <td>List ekonomiczny</td><td>
+<input type="checkbox" name='features[]' id='features_item_2' class="ch3"> <input type="text" class="min" id="i3" hidden="hidden" name="d3" placeholder="Podaj cene"> </td></tr>
+<tr> <th scope="row">10</th> <td>List polecony</td><td>
+<input type="checkbox" iname='features[]' id='features_item_3' class="ch4"> <input type="text" class="min" id="i4" hidden="hidden" name="d4" placeholder="Podaj cene"> </td></tr>
+<tr> <th scope="row">11</th> <td>Odbior wlasny</td><td>
+<input type="checkbox" name='features[]' id='features_item_4' class="ch5"> <input type="text" class="min" id="i5" hidden="hidden" name="d5" placeholder="Podaj cene">  </td></tr>
 <tr><td colspan="3"> <h3>INFORMACJE O PRODUKCIE</h3></tr>
-<tr> <th scope="row">12</th> <td>Ilosc:</td><td> <input type="number" min="1" class="ilo" step="1" disabled=false  name="ilosc" placeholder="Podaj ilosc"> </td></tr>
+<tr> <th scope="row">12</th> <td>Ilosc:</td><td> <input type="number" min="1" class="ilo" step="1" name="ilosc" placeholder="Podaj ilosc"> </td></tr>
 <tr> <th scope="row">13</th> <td>Kolor:</td><td> <input type="text" maxlength="30"  name="kolor" required placeholder="Podaj  kolor"> </td></tr>
 <tr> <th scope="row">14</th> <td>Producent:</td><td> <input type="text" maxlength="30" name="producent" required  placeholder="Podaj producenta"> </td></tr>
 <tr> <th scope="row">15</th> <td>Stan:</td><td> <select name="stan">
     <option>nowy</option>
     <option>uzywany</option></select>  </td></tr>
+<tr> <th scope="row">16</th> <td>Dodaj zdjecie:
+    <input type="file" name="fileToUpload0"  id="fileToUpload0">
+    <input type="file" name="fileToUpload1" id="fileToUpload1" disabled>
+    <input type="file" name="fileToUpload2" id="fileToUpload2" disabled>
+    <input type="file" name="fileToUpload3" id="fileToUpload3" disabled>
+    <input type="file" name="fileToUpload4" id="fileToUpload4" disabled>
+    <input type="file" name="fileToUpload5" id="fileToUpload5" disabled>
+    <div id="myform_errorloc" class="error_strings"></div>
+    </td><td>
 
 
   <tr> <td colspan="3"><input type=submit class="btn btn-success" value="Dodaj"/></td></tr>
@@ -170,23 +184,94 @@ $conn = @new mysqli($host, $db_user, $db_password, $db_name); ?>
   ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
   <script type="text/javascript">
+
   $(document).ready(function()
-  {$('.ilo').val("").prop("disabled", false);
+  {
+    $('.ilo').val("1");
   $('.min2').show().attr("required", "true");
+  $("#i1").hide().val("-1");
+  $("#i2").hide().val("-1");
+  $("#i3").hide().val("-1");
+  $("#i4").hide().val("-1");
+
+  $("#fileToUpload0").on('change',function(){  //pierwszy
+    if($("#fileToUpload0").val() != ""  ){
+     $("#fileToUpload1").prop("disabled", false);
+     }
+  else {
+    $("#fileToUpload1").prop("disabled", true);
+    $("#fileToUpload1").val("");
+    $("#fileToUpload2").prop("disabled", true);
+    $("#fileToUpload2").val("");
+    $("#fileToUpload3").prop("disabled", true);
+    $("#fileToUpload3").val("");
+    $("#fileToUpload4").prop("disabled", true);
+    $("#fileToUpload4").val("");
+    $("#fileToUpload5").prop("disabled", true);
+    $("#fileToUpload5").val("");
+    }     });
+
+    $("#fileToUpload1").on('change',function(){   //drugi
+      if($("#fileToUpload1").val() != ""  ){
+       $("#fileToUpload2").prop("disabled", false);
+       }
+    else {
+      $("#fileToUpload2").prop("disabled", true);
+      $("#fileToUpload2").val("");
+      $("#fileToUpload3").prop("disabled", true);
+      $("#fileToUpload3").val("");
+      $("#fileToUpload4").prop("disabled", true);
+      $("#fileToUpload4").val("");
+      $("#fileToUpload5").prop("disabled", true);
+      $("#fileToUpload5").val("");
+      }     });
+
+    $("#fileToUpload2").on('change',function(){   //trzeci
+      if($("#fileToUpload2").val() != ""  ){
+        $("#fileToUpload3").prop("disabled", false);
+        }
+      else {
+        $("#fileToUpload3").prop("disabled", true);
+        $("#fileToUpload3").val("");
+        $("#fileToUpload4").prop("disabled", true);
+        $("#fileToUpload4").val("");
+        $("#fileToUpload5").prop("disabled", true);
+        $("#fileToUpload5").val("");
+        }     });
+
+    $("#fileToUpload3").on('change',function(){   //czwarty
+        if($("#fileToUpload3").val() != ""  ){
+         $("#fileToUpload4").prop("disabled", false);
+         }
+      else {
+        $("#fileToUpload4").prop("disabled", true);
+        $("#fileToUpload4").val("");
+        $("#fileToUpload5").prop("disabled", true);
+        $("#fileToUpload5").val("");
+        }     });
+
+      $("#fileToUpload4").on('change',function(){   //piaty
+          if($("#fileToUpload4").val() != ""  ){
+           $("#fileToUpload5").prop("disabled", false);
+           }
+        else {
+          $("#fileToUpload5").prop("disabled", true);
+          $("#fileToUpload5").val("");
+          }     });
 
     $('#select').click(function(){
       if($( "#select option:selected" ).text() == 'holenderska')
       {$('.min2').show().attr("required", "true");
-      $('.ilo').val("").prop("disabled", false);
+      $('.ilo').val("1").removeAttr("readonly") ;
       }
       else if($( "#select option:selected" ).text() == 'licytacja')
       {
+        $('.ilo').val("1").attr("readonly", "true");
         $('.min2').hide().val("").removeAttr("required", "false");
-        $('.ilo').val("1").prop("disabled", true);
       }
       else
       {$('.min2').hide().val("").removeAttr("required", "false");
-        $('.ilo').val("").prop("disabled", false);
+        $('.ilo').val("1").removeAttr("readonly" , "true");
       }
     })
 
@@ -195,27 +280,27 @@ $conn = @new mysqli($host, $db_user, $db_password, $db_name); ?>
       else  $('.ilo').val("").removeAttr("disabled").atrr("required", "true");
     })*/
 
-    $('#p1').click(function(){
-    if($(".ch1").is(':checked'))  $("#i1").show().attr("required", "true");
-    else   $("#i1").hide().val("").removeAttr("required", "false");
+    $('#features_item_0').click(function(){
+    if($(".ch1").is(':checked'))  $("#i1").show().val("").attr("required", "true");
+    else   $("#i1").hide().val("-1").removeAttr("required", "false");
     })
 
-    $('#p2').click(function(){
-    if($(".ch2").is(':checked'))  $("#i2").show().attr("required", "true");
-    else   $("#i2").hide().val("").removeAttr("required", "false");
+    $('#features_item_1').click(function(){
+    if($(".ch2").is(':checked'))  $("#i2").show().val("").attr("required", "true");
+    else   $("#i2").hide().val("-1").removeAttr("required", "false");
     })
 
-    $('#p3').click(function(){
-    if($(".ch3").is(':checked'))  $("#i3").show().attr("required", "true");
-    else   $("#i3").hide().val("").removeAttr("required", "false");
+    $('#features_item_2').click(function(){
+    if($(".ch3").is(':checked'))  $("#i3").show().val("").attr("required", "true");
+    else   $("#i3").hide().val("-1").removeAttr("required", "false");
     })
 
-    $('#p4').click(function(){
-    if($(".ch4").is(':checked'))  $("#i4").show().attr("required", "true");
-    else   $("#i4").hide().val("").removeAttr("required", "false");
+    $('#features_item_3').click(function(){
+    if($(".ch4").is(':checked'))  $("#i4").show().val("").attr("required", "true");
+    else   $("#i4").hide().val("-1").removeAttr("required", "false");
     })
 
-    $('#p5').click(function(){
+    $('#features_item_4').click(function(){
     if($(".ch5").is(':checked'))  $("#i5").val("1");
     else   $("#i5").val("0");
     })
@@ -277,9 +362,28 @@ $conn = @new mysqli($host, $db_user, $db_password, $db_name); ?>
        });
   });
   </script>
+  <script language="JavaScript" type="text/javascript"
+      xml:space="preserve">//<![CDATA[
+    var frmvalidator  = new Validator("myform");
+    frmvalidator.EnableOnPageErrorDisplaySingleBox();
+    frmvalidator.EnableMsgsTogether();
+
+
+    frmvalidator.addValidation("fileToUpload0","file_extn=jpg;jpeg;png","Dopuszczalne formaty plikow to JPG i PNG");
+    frmvalidator.addValidation("fileToUpload1","file_extn=jpg;jpeg;png","Dopuszczalne formaty plikow to JPG i PNG");
+    frmvalidator.addValidation("fileToUpload2","file_extn=jpg;jpeg;png","Dopuszczalne formaty plikow to JPG i PNG");
+    frmvalidator.addValidation("fileToUpload3","file_extn=jpg;jpeg;png","Dopuszczalne formaty plikow to JPG i PNG");
+    frmvalidator.addValidation("fileToUpload4","file_extn=jpg;jpeg;png","Dopuszczalne formaty plikow to JPG i PNG");
+    frmvalidator.addValidation("fileToUpload5","file_extn=jpg;jpeg;png","Dopuszczalne formaty plikow to JPG i PNG");
+    frmvalidator.addValidation("fileToUpload0","req_file","Wybierz minimum jedno zdjecie");
+
+    frmvalidator.addValidation("features[]","selmin=1","Wybierz minimum jednego dostawce");
+
+
+
+  //]]></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
-
-</body>
-</html>
+  </body>
+  </html>
