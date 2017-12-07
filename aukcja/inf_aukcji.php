@@ -6,11 +6,11 @@ $connecting -> query("SET NAMES utf8");
 $connecting -> query("SET CHARACTER SET utf8");
 $connecting -> query("SET collation_connection = utf8_general_ci");
 
-$sql = "SELECT * FROM `auction` WHERE ID_AUK LIKE '".$_SESSION['id']."'";
+$sql = "SELECT * FROM `auction` WHERE ID_AUK LIKE '".$ID."'";
 $rezult = $connecting->query($sql);
 $info = mysqli_fetch_assoc($rezult);
 
-$sql_2 = "SELECT * FROM `categories_2` WHERE pod_kategoria IN (SELECT kategoria FROM auction where ID_AUK LIKE '".$_SESSION['id']."')";
+$sql_2 = "SELECT * FROM `categories_2` WHERE pod_kategoria IN (SELECT kategoria FROM auction where ID_AUK LIKE '".$ID."')";
 $rezult_2 = $connecting->query($sql_2);
 $info2 = mysqli_fetch_assoc($rezult_2);
  ?>
@@ -49,7 +49,7 @@ $info2 = mysqli_fetch_assoc($rezult_2);
         $rezult = $connecting->query($sql);
           for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
           {
-            if($tab['przesylka_kurierska'] != 0)
+            if($tab['przesylka_kurierska'] >= 0)
             {
              echo  "<tr>";
              echo  "<td><p2>kurier</p2></td>";
@@ -57,7 +57,7 @@ $info2 = mysqli_fetch_assoc($rezult_2);
              echo  "</tr>";
             }
 
-            if($tab['przesylka_kurierska_pobraniowa'] != 0)
+            if($tab['przesylka_kurierska_pobraniowa'] >= 0)
             {
              echo  "<tr>";
              echo  "<td><p2>kurier-pobraniowa</p2></td>";
@@ -65,14 +65,14 @@ $info2 = mysqli_fetch_assoc($rezult_2);
              echo  "</tr>";
             }
 
-            if($tab['list_ekonomiczny'] != 0)
+            if($tab['list_ekonomiczny'] >= 0)
             {
              echo  "<tr>";
              echo  "<td><p2>list-ekonomiczny</p2></td>";
              echo  "<td><p2>".$tab['list_ekonomiczny']."</p2></td>";
              echo  "</tr>";
             }
-            if($tab['list_polecony'] != 0)
+            if($tab['list_polecony'] >= 0)
             {
              echo  "<tr>";
              echo  "<td><p2>list-polecony</p2></td>";

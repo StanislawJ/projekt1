@@ -5,12 +5,12 @@ $connecting = @new mysqli($host, $db_user, $db_password, $db_name);
 $connecting -> query("SET NAMES utf8");
 $connecting -> query("SET CHARACTER SET utf8");
 $connecting -> query("SET collation_connection = utf8_general_ci");
-$sql = "SELECT * FROM `auction` WHERE ID_AUK LIKE '".$_SESSION['id']."'";
+$sql = "SELECT * FROM `auction` WHERE ID_AUK LIKE '".$ID."'";
 $rezult = $connecting->query($sql);
 
 $info = mysqli_fetch_assoc($rezult);
 
-$sql = "SELECT * FROM `product` WHERE ID_PRO IN (SELECT ID_PRO from auction where ID_AUK LIKE ".$_SESSION['id'].")";
+$sql = "SELECT * FROM `product` WHERE ID_PRO IN (SELECT ID_PRO from auction where ID_AUK LIKE ".$ID.")";
 $rezult = $connecting->query($sql);
 
 $info1 = mysqli_fetch_assoc($rezult);

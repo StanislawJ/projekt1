@@ -24,7 +24,6 @@ $username = mysqli_fetch_assoc($rezult);
       <button id="licyt" data-toggle="licyt" data-placement="bottom" title="moje licytacje" > </button>
       <user><?php echo "zalogowany - ".$username['login']."" ?></user>
       </div>
-
   </div>
 
 

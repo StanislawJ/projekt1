@@ -5,19 +5,19 @@ $connecting = @new mysqli($host, $db_user, $db_password, $db_name);
 $connecting -> query("SET NAMES utf8");
 $connecting -> query("SET CHARACTER SET utf8");
 $connecting -> query("SET collation_connection = utf8_general_ci");
-$sql = "SELECT * FROM `auction` WHERE ID_AUK LIKE '".$_SESSION['id']."'";
+$sql = "SELECT * FROM `auction` WHERE ID_AUK LIKE '".$ID."'";
 $rezult = $connecting->query($sql);
 
 $info = mysqli_fetch_assoc($rezult);
 
-$sql = "SELECT * FROM `product` WHERE ID_PRO IN (SELECT ID_PRO from auction where ID_AUK LIKE ".$_SESSION['id'].")";
+$sql = "SELECT * FROM `product` WHERE ID_PRO IN (SELECT ID_PRO from auction where ID_AUK LIKE ".$ID.")";
 $rezult = $connecting->query($sql);
 
 $info1 = mysqli_fetch_assoc($rezult);
 
 
 
-$sql = "SELECT * FROM users as c inner join (select ID_KUP from history where ID_AUK = ".$_SESSION['id']." order by cena desc limit 1 ) as c2 on c.ID = c2.ID_KUP";
+$sql = "SELECT * FROM users as c inner join (select ID_KUP from history where ID_AUK = ".$ID." order by cena desc limit 1 ) as c2 on c.ID = c2.ID_KUP";
 $rezult = $connecting->query($sql);
 
 $info2 = mysqli_fetch_assoc($rezult);
@@ -72,10 +72,10 @@ $us = mysqli_fetch_assoc($rezult);
     <posit ><div id="PP"><?php echo $info['cena']; ?></div></posit>
     <select id="selected1" class="mini">
       <?php
-        if($info['przesylka_kurierska'] != 0) echo "<option class='wyb' value='".$info['przesylka_kurierska']."'>przesylka_kurierska</option>";
-        if($info['przesylka_kurierska_pobraniowa'] != 0) echo "<option class='wyb' value='".$info['przesylka_kurierska_pobraniowa']."'>przesylka_kurierska_pobraniowa</option>";
-        if($info['list_ekonomiczny'] != 0) echo "<option class='wyb' value='".$info['list_ekonomiczny']."'>list_ekonomiczny</option>";
-        if($info['list_polecony'] != 0) echo "<option value='".$info['list_polecony']."'>list_polecony</option>";
+        if($info['przesylka_kurierska'] >= 0) echo "<option class='wyb' value='".$info['przesylka_kurierska']."'>przesylka_kurierska</option>";
+        if($info['przesylka_kurierska_pobraniowa'] >= 0) echo "<option class='wyb' value='".$info['przesylka_kurierska_pobraniowa']."'>przesylka_kurierska_pobraniowa</option>";
+        if($info['list_ekonomiczny'] >= 0) echo "<option class='wyb' value='".$info['list_ekonomiczny']."'>list_ekonomiczny</option>";
+        if($info['list_polecony'] >= 0) echo "<option value='".$info['list_polecony']."'>list_polecony</option>";
         if($info['odbior_wlasny'] != 0) echo "<option value='".$info['odbior_wlasny']."'>odbior_wlasny</option>";
        ?>
     </select>
@@ -110,10 +110,10 @@ if(isset($_SESSION['log']))
       <div id="ii">ilość - <a id="iii"></a></div><br>
       <select id="selected">
         <?php
-          if($info['przesylka_kurierska'] != 0) echo "<option class='wyb' value='".$info['przesylka_kurierska']."'>przesylka_kurierska</option>";
-          if($info['przesylka_kurierska_pobraniowa'] != 0) echo "<option class='wyb' value='".$info['przesylka_kurierska_pobraniowa']."'>przesylka_kurierska_pobraniowa</option>";
-          if($info['list_ekonomiczny'] != 0) echo "<option class='wyb' value='".$info['list_ekonomiczny']."'>list_ekonomiczny</option>";
-          if($info['list_polecony'] != 0) echo "<option value='".$info['list_polecony']."'>list_polecony</option>";
+          if($info['przesylka_kurierska'] >= 0) echo "<option class='wyb' value='".$info['przesylka_kurierska']."'>przesylka_kurierska</option>";
+          if($info['przesylka_kurierska_pobraniowa'] >= 0) echo "<option class='wyb' value='".$info['przesylka_kurierska_pobraniowa']."'>przesylka_kurierska_pobraniowa</option>";
+          if($info['list_ekonomiczny'] >= 0) echo "<option class='wyb' value='".$info['list_ekonomiczny']."'>list_ekonomiczny</option>";
+          if($info['list_polecony'] >= 0) echo "<option value='".$info['list_polecony']."'>list_polecony</option>";
           if($info['odbior_wlasny'] != 0) echo "<option value='".$info['odbior_wlasny']."'>odbior_wlasny</option>";
          ?>
       </select>

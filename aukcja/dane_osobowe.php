@@ -5,10 +5,16 @@ $connecting = @new mysqli($host, $db_user, $db_password, $db_name);
 $connecting -> query("SET NAMES utf8");
 $connecting -> query("SET CHARACTER SET utf8");
 $connecting -> query("SET collation_connection = utf8_general_ci");
-$sql = "SELECT * FROM `users` WHERE id IN (SELECT ID_SPRZ FROM auction where ID_AUK LIKE '".$_SESSION['id']."')";
+$sql = "SELECT * FROM `users` WHERE id IN (SELECT ID_SPRZ FROM auction where ID_AUK LIKE '".$ID."')";
 $rezult = $connecting->query($sql);
 
 $info = mysqli_fetch_assoc($rezult);
+
+
+$sql = "SELECT * FROM `auction` WHERE ID_AUK LIKE '".$ID."'";
+$rezult = $connecting->query($sql);
+$infoW = mysqli_fetch_assoc($rezult);
+
 ?>
 
 
@@ -50,5 +56,71 @@ $info = mysqli_fetch_assoc($rezult);
         <td><p5><?php echo $info['nrkonta']; ?></p5></td>
       </tr>
     <?php  }?>
+
+
+
     </tbody>
   </table>
+  <?php if(isset($_SESSION['log'])){ ?>
+    <button id='wiad' data-toggle='modal' data-target='.pop-up-wiad' class='wiad'></button>
+  <?php  }?>
+
+  <div id="pok_wiad" class="modal fade pop-up-wiad" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel-2" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+
+          <form>
+
+            <div class="input-group">
+              <span class="input-group-addon">tytuł aukcji</span>
+              <input id="msg_tytuł" type="text" readonly class="form-control" name="msg" value="<?php echo $infoW['kr_op'] ?>" placeholder="Additional Info">
+            </div>
+
+            <div class="input-group">
+              <span class="input-group-addon">temat</span>
+              <input id="msg_temat" type="text" class="form-control" name="msg" placeholder="Additional Info">
+            </div>
+
+          <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea id="msg_text" class="form-control" rows="5" id="comment"></textarea>
+          </div>
+        </form>
+        <button id='send' data-toggle='modal' data-dismiss="modal" aria-hidden="true"  class='send'></button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal mixer image -->
+
+
+  <script>
+
+  $('#send').click(function(){
+
+    $.ajax({
+      type: "POST",
+      url: "aukcja/wysylanie_wiad.php",
+      data:	{
+          temat: $("#msg_temat").val() ,
+          text: $("#msg_text").val() ,
+          id_auk: <?php echo $infoW['ID_AUK']?>
+          },
+      success: function(ret) {
+        alert(ret);
+        $("#msg_temat").val('');
+        $("#msg_text").val('');
+      },
+      error: function() {
+          alert( "Wystąpił błąd w połączniu :(");
+      },
+    });
+  })
+
+
+
+  </script>

@@ -197,6 +197,56 @@ body
 }
 
 
+#wiad
+{
+
+  float: right;
+  width: 40px;
+  height: 40px;
+  border:0;
+  background-color: white;
+  background-image: url(../tlo/wiad.png);
+  background-size: contain;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#wiad:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+#send
+{
+  position: relative;
+  float: right;
+  width: 50px;
+  height: 50px;
+  border:0;
+  border-radius: 100px;
+  background-color: white;
+  background-image: url(../tlo/send.png);
+  background-size: contain;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+  bottom:8px;
+}
+
+#send:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+
+
+.input-group
+{
+  margin-top: 5px;
+}
+
+
 
 
 

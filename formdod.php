@@ -34,8 +34,15 @@ echo $o.'<br>';
 */
 require_once "connect.php";
 $conn = @new mysqli($host, $db_user, $db_password, $db_name);
+$conn -> query("SET NAMES utf8");
+$conn -> query("SET CHARACTER SET utf8");
+$conn -> query("SET collation_connection = utf8_general_ci");
 $query="SELECT max(ID_AUK)+1 as lastid from auction";
 $result = mysqli_query($conn,$query);
+
+session_start();
+
+
 while($row = mysqli_fetch_assoc($result)){
   $idauk= $row['lastid']; //id aukcji
   }
@@ -45,7 +52,7 @@ while($row = mysqli_fetch_assoc($result)){
   while($row = mysqli_fetch_assoc($result2)){
   $idpro= $row['lastpro']; //id produktu
   }
-  $query3 = "INSERT INTO auction (`ID_PRO`,`typ`,`kategoria`,`kr_op`,`dl_op`,`cena`,`cena_min`,`przesylka_kurierska`,`przesylka_kurierska_pobraniowa`,`list_ekonomiczny`,`list_polecony`,`odbior_wlasny`) VALUES ('$idpro', '$a','$b','$c','$d','$e','$f','$g','$h','$i','$j','$k')";
+  $query3 = "INSERT INTO auction (`ID_SPRZ`,`ID_PRO`,`typ`,`kategoria`,`kr_op`,`dl_op`,`cena`,`cena_min`,`przesylka_kurierska`,`przesylka_kurierska_pobraniowa`,`list_ekonomiczny`,`list_polecony`,`odbior_wlasny`) VALUES ('".$_SESSION['user_id']."','$idpro', '$a','$b','$c','$d','$e','$f','$g','$h','$i','$j','$k')";
   $result3 = mysqli_query($conn,$query3);
 
   $query4 = "INSERT INTO product (`ilosc`,`kolor`,`stan`,`producent`) VALUES ('$l', '$m','$o','$n')";

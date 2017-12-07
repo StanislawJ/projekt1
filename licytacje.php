@@ -13,7 +13,7 @@ $us = mysqli_fetch_assoc($rezult);
 }
 
 
-$sql = "SELECT * FROM `auction` WHERE data_zak > now() and `ID_AUK` in (select ID_AUK from history WHERE `ID_KUP` like '".$_SESSION['user_id']."' )";
+$sql = "SELECT * FROM `auction` WHERE data_zak > now() and `ID_AUK` in (select ID_AUK from history WHERE `ID_KUP` like '".$_SESSION['user_id']."' ) order by data_zacz desc";
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
 
@@ -77,7 +77,8 @@ else
 
           echo"<div class='item' id='".$tab['ID_AUK']."'>";
           echo"<div id='img'><img id='icon' src='images/".$tab['ID_AUK']."1.jpg' alt='BRAK ZDJĘCIA'></div>";
-          echo"<div class='text' id='".$tab['ID_AUK']."'>".$tab['kr_op']."</div>";
+          echo"<form class='idd' method='GET' action='Aukcja.php' ><div class='text'>".$tab['kr_op']."</div>";
+          echo"<input type='text' name='goid' value='".$tab['ID_AUK']."'  readonly hidden /></form>";
           echo"<div id='dane'>";
           echo"<div id='cost'><p1>".$tab['cena'].".zł</p1> - aukcja ".$tab["typ"]."</div>";
 
@@ -124,20 +125,8 @@ for($i=1;$i<=$_SESSION['pages'];$i++)
 
 
 
-$('.text').click(function(){
-  $.ajax({
-    type: 'POST',
-    url: 'Aukcja.php',
-    data:	{
-        id: $(this).attr('id')
-        },
-    success: function(ret) {
-        window.location.href='Aukcja.php';
-    },
-    error: function() {
-        alert( 'Wystąpił błąd w połączniu :(');
-    },
+$('.idd').click(function(){
+  $(this).submit();
 
-  });
 })
  </script>

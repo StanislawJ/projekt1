@@ -36,7 +36,7 @@
     if(isset($_SESSION['log'])) require_once('profil_panel.php');
     else require_once('zaloguj_panele.php');
 
-    if(isset($_POST['id'])) $_SESSION['id'] = $_POST['id'];
+    if(isset($_GET['goid'])) $ID = $_GET['goid'];
     ?>
 
 
