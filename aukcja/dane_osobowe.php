@@ -55,15 +55,17 @@ $infoW = mysqli_fetch_assoc($rezult);
         <td><p5>numer konta</p5></td>
         <td><p5><?php echo $info['nrkonta']; ?></p5></td>
       </tr>
+      <tr>
+        <td><p5><b>login</b></p5></td>
+        <td><p5><b><?php echo $info['login']; ?></b></p5></td>
+      </tr>
     <?php  }?>
 
 
 
     </tbody>
   </table>
-  <?php if(isset($_SESSION['log'])){ ?>
-    <button id='wiad' data-toggle='modal' data-target='.pop-up-wiad' class='wiad'></button>
-  <?php  }?>
+
 
   <div id="pok_wiad" class="modal fade pop-up-wiad" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel-2" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -98,29 +100,4 @@ $infoW = mysqli_fetch_assoc($rezult);
   </div><!-- /.modal mixer image -->
 
 
-  <script>
-
-  $('#send').click(function(){
-
-    $.ajax({
-      type: "POST",
-      url: "aukcja/wysylanie_wiad.php",
-      data:	{
-          temat: $("#msg_temat").val() ,
-          text: $("#msg_text").val() ,
-          id_auk: <?php echo $infoW['ID_AUK']?>
-          },
-      success: function(ret) {
-        alert(ret);
-        $("#msg_temat").val('');
-        $("#msg_text").val('');
-      },
-      error: function() {
-          alert( "Wystąpił błąd w połączniu :(");
-      },
-    });
-  })
-
-
-
-  </script>
+  

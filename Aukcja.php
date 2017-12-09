@@ -42,15 +42,15 @@
 
     <div class='daneSP'>
 
-      <div class='dane_osobowe col-lg-3 col-md-3 col-sm-4 col-xs-12'>
+      <div class='dane_osobowe col-lg-3 col-md-3 col-sm-12 col-xs-12'>
         <?php require_once('aukcja/dane_osobowe.php') ?>
       </div>
 
-      <div id="auk" class='col-lg-6 col-md-6 col-sm-4 col-xs-12'>
+      <div id="auk" class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
         <?php require_once('aukcja/dane_aukcji.php') ?>
       </div>
 
-      <div id="infauk" class='col-lg-3 col-md-3 col-sm-4 col-xs-12'>
+      <div id="infauk" class='col-lg-3 col-md-3 col-sm-12 col-xs-12'>
         <?php require_once('aukcja/inf_aukcji.php') ?>
       </div>
 

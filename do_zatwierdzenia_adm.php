@@ -1,4 +1,5 @@
 
+<div>
 <?php
 session_start();
 
@@ -13,7 +14,7 @@ $us = mysqli_fetch_assoc($rezult);
 }
 
 
-$sql = "SELECT * FROM `auction` WHERE data_zak > now() and `ID_AUK` in (select ID_AUK from history WHERE `ID_KUP` like '".$_SESSION['user_id']."' ) order by data_zacz desc";
+$sql = "SELECT * FROM `kosz` WHERE do_zatwierdzenia = 1 order by data desc";
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
 
@@ -59,15 +60,6 @@ else
 
   for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
       {
-        $sql = "SELECT * FROM users as c inner join (select ID_KUP from history where ID_AUK = ".$tab['ID_AUK']." order by cena desc limit 1 ) as c2 on c.ID = c2.ID_KUP";
-        $rezult1 = $connecting->query($sql);
-
-        $info1 = mysqli_fetch_assoc($rezult1);
-        $info1['login'];
-
-        $sql = "SELECT * FROM users as c inner join (select ID_KUP from history where ID_AUK = ".$tab['ID_AUK']." order by cena desc limit 1 ) as c2 on c.ID = c2.ID_KUP";
-        $rezult1 = $connecting->query($sql);
-        $info1 = mysqli_fetch_assoc($rezult1);
 
 
         if(($k<$_COOKIE['page'])&&($k>=($_COOKIE['page']-10)))
@@ -75,19 +67,13 @@ else
 
 
 
-          echo"<div class='item' id='".$tab['ID_AUK']."'>";
-          echo"<div id='img'><img id='icon' src='images/".$tab['ID_AUK']."1.jpg' alt='BRAK ZDJĘCIA'></div>";
-          echo"<form class='idd' method='GET' action='Aukcja.php' ><div class='text'>".$tab['kr_op']."</div>";
-          echo"<input type='text' name='goid' value='".$tab['ID_AUK']."'  readonly hidden /></form>";
-          echo"<div id='dane'>";
-          echo"<div id='cost'><p1>".$tab['cena'].".zł</p1> - aukcja ".$tab["typ"]."</div>";
-
-          if($info1['login'] != NULL){
-            if((isset($us['login'])) && $us['login'] == $info1['login']) echo"<div id='win'><p1>Aktualnie prowadzisz - <p6>TY</p6></p1></div>";
-            else echo"<div id='win'><p1>Aktualnie prowadzi - ".$info1['login']."</p1></div>";
-          }
-
-          echo"<div id='data'>KONIEC:  ".$tab['data_zak']."</div>";
+          echo"<div class='item' id='".$tab['id_auk']."'>";
+          echo"<div id='img'><img id='icon' src='images/".$tab['id_auk']."1.jpg' alt='BRAK ZDJĘCIA'></div>";
+          echo"<form class='idd' method='GET' action='Aukcja.php' ><div class='text_adm'>".$tab['kr_op']."</div>";
+          echo"<input type='text' name='goid' value='".$tab['id_auk']."'  readonly hidden /></form>";
+          echo"<div id='adm_option'><button id='".$tab['id_kosz']."' class='cancle_adm ADM'>anuluj</button><button id='".$tab['id_kosz']."' class='accept_adm ADM'>Potwierdź</button></div>";
+          echo"<div id='dane_panel_adm'>";
+          echo"<div id='opcje_adm'><table id='opcjetb'><td>cena zamówienia-".$tab['cena']."</td><td>ilość-".$tab['ilosc']." </td><td>rodzaj dostawy-".$tab['dostawa']."</td><td>data-".$tab['data']."</td></table></div>";
           echo"</div></div>";
         }
       }
@@ -101,18 +87,19 @@ for($i=1;$i<=$_SESSION['pages'];$i++)
 
 }
  ?>
+</div>
  <script>
  $(document).ready(function(){
  $('.str').click(function(){
 
    $.ajax({
      type: 'POST',
-     url: 'Lista_panel.php',
+     url: 'do_zatwierdzenia_adm.php',
      data:	{
          nr: $(this).attr('id')*10
          },
      success: function(ret) {
-       $('#lista').html(ret);
+       $('#dane_adm').html(ret);
                 $('html, body').animate({scrollTop: 0}, 400);
      },
      error: function() {
@@ -129,4 +116,50 @@ $('.idd').click(function(){
   $(this).submit();
 
 })
+
+
+
+$('.accept_adm').click(function(){
+  var r = confirm("potwierdzić zakup ?");
+  if (r == true) {
+  $.ajax({
+    type: "POST",
+    url: "potwierdz_adm.php",
+    data:	{
+        nrac: $(this).attr('id')
+        },
+    success: function(ret) {
+      alert(ret);
+      $('#dane_adm').load('do_zatwierdzenia_adm.php');
+    },
+    error: function() {
+        alert( "Wystąpił błąd w połączniu :(");
+    },
+  });
+}
+})
+
+
+$('.cancle_adm').click(function(){
+  var r = confirm("anulować zakup ?");
+  if (r == true) {
+  $.ajax({
+    type: "POST",
+    url: "anuluj_adm.php",
+    data:	{
+        nr: $(this).attr('id')
+        },
+    success: function(ret) {
+      alert(ret);
+      $('#dane_adm').load('do_zatwierdzenia_adm.php');
+    },
+    error: function() {
+        alert( "Wystąpił błąd w połączniu :(");
+    },
+  });
+}
+})
+
+
+
  </script>

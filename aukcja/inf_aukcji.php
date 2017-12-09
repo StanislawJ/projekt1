@@ -87,12 +87,81 @@ $info2 = mysqli_fetch_assoc($rezult_2);
              echo  "</tr>";
             }
 
-
-
-
           }
         ?>
 
     </tbody>
   </table>
+  <?php if(isset($_SESSION['log'])){ ?>
+    <button id='wiad' data-toggle='modal' data-target='.pop-up-wiad' class='wiad'></button>
+<?php if($info['typ'] != "licytacja"){ ?>
+    <div id='kosz_inf'>
+    <button id='kosz'  class='kosz'></button>
+    <select id="select" class='select'>
+      <?php
+        if($info['przesylka_kurierska'] >= 0) echo "<option class='wyb' value='".$info['przesylka_kurierska']."'>przesylka_kurierska</option>";
+        if($info['przesylka_kurierska_pobraniowa'] >= 0) echo "<option class='wyb' value='".$info['przesylka_kurierska_pobraniowa']."'>przesylka_kurierska_pobraniowa</option>";
+        if($info['list_ekonomiczny'] >= 0) echo "<option class='wyb' value='".$info['list_ekonomiczny']."'>list_ekonomiczny</option>";
+        if($info['list_polecony'] >= 0) echo "<option value='".$info['list_polecony']."'>list_polecony</option>";
+        if($info['odbior_wlasny'] != 0) echo "<option value='".$info['odbior_wlasny']."'>odbior_wlasny</option>";
+       ?>
+    </select>
+  <?php  }}?>
 </div>
+</div>
+
+
+
+<script>
+
+$('#send').click(function(){
+
+  $.ajax({
+    type: "POST",
+    url: "aukcja/wysylanie_wiad.php",
+    data:	{
+        temat: $("#msg_temat").val() ,
+        text: $("#msg_text").val() ,
+        id_auk: <?php echo $infoW['ID_AUK']?>
+        },
+    success: function(ret) {
+      alert(ret);
+      $("#msg_temat").val('');
+      $("#msg_text").val('');
+    },
+    error: function() {
+        alert( "Wystąpił błąd w połączniu :(");
+    },
+  });
+})
+
+
+$('#kosz').click(function(){
+  var r = confirm("Upewnij się że została wybrana opcja dostawy przy ikonie kosza oraz podałeś ilość zmówienia");
+  if (r == true) {
+    $.ajax({
+      type: "POST",
+      url: "aukcja/kosz_dodaj.php",
+      data:	{
+          dostawa: $("#select option:selected").text(),
+          ilosc: parseInt($('#ilosc').val()),
+          id_auk: <?php echo $info['ID_AUK']?>
+          },
+      success: function(ret) {
+        alert(ret);
+        location.reload();
+      },
+      error: function() {
+          alert( "Wystąpił błąd w połączniu :(");
+      },
+
+    });
+
+  }
+
+})
+
+
+
+
+</script>

@@ -159,6 +159,26 @@ body
     box-shadow:0px 0px 15px 2px blue;
 }
 
+.wiad1
+{
+  display: none;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border:0;
+  background-color: #222;
+  background-image: url(tlo/wiadomosci.png);
+  background-size: contain;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.wiad1:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
 #licytuje
 {
   float: right;
@@ -200,7 +220,7 @@ body
 #wiad
 {
 
-  float: right;
+  float: left;
   width: 40px;
   height: 40px;
   border:0;
@@ -238,6 +258,79 @@ body
 {
     box-shadow:0px 0px 15px 2px blue;
 }
+
+
+#kosz
+{
+
+  float: left;
+  width: 40px;
+  height: 40px;
+  border:0;
+  border-radius: 100%;
+  background-color: white;
+  background-image: url(../tlo/koszDodaj.png);
+  background-size: contain;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#kosz:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+#koszyk
+{
+  display: none;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border:0;
+  background-color: #222;
+  background-image: url(tlo/kosz.png);
+  background-size: contain;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#koszyk:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#kosz_inf
+{
+  border: solid black 1px;
+  border-radius: 5px;
+  float: left;
+
+}
+
+
+.select
+{
+  width: 100px;
+  margin: 0;
+  float: left;
+}
+
+
+
 
 
 

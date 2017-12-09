@@ -3,22 +3,26 @@ session_start();
 
 require_once "connect.php";
 $connecting = @new mysqli($host, $db_user, $db_password, $db_name);
+$connecting -> query("SET NAMES utf8");
+$connecting -> query("SET CHARACTER SET utf8");
+$connecting -> query("SET collation_connection = utf8_general_ci");
 
 $sql = "SELECT * FROM `users` WHERE ID LIKE '".$_SESSION['user_id']."'";
 $rezult = $connecting->query($sql);
 $infoK = mysqli_fetch_assoc($rezult);
 
-$sql = "SELECT * FROM `message` WHERE login_kup LIKE '".$infoK['login']."'";
+$sql = "SELECT * FROM `message` WHERE login_sprz LIKE '".$infoK['login']."' order by data_wysl desc";
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
 
+echo "<h1 class='fff'> odebrane <h1>";
 
 
 for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
     {
 
         echo"<div data-toggle='modal' data-target='.pop-up-wiadom' class='item_wiad' id='".$tab['ID_MESS']."'>";
-        echo'<div id="WW" class="input-group"><span class="input-group-addon">DO :</span><input id="msg1" type="text" class="form-control" name="msg" value="'.$tab['login_sprz'].'" readonly placeholder="..."></div>';
+        echo'<div id="WW" class="input-group"><span class="input-group-addon">OD :</span><input id="msg1" type="text" class="form-control" name="msg" value="'.$tab['login_kup'].'" readonly placeholder="..."></div>';
         echo'<div id="WW" class="input-group"><span class="input-group-addon">TEMAT :</span><input id="msg2" type="text" class="form-control" name="msg" value="'.$tab['temat'].'" readonly placeholder="..."></div>';
         echo'<div id="WW" class="input-group"><span class="input-group-addon">DATA WYSŁANIA :</span><input id="msg3" type="text" class="form-control" value="'.$tab['data_wysl'].'" name="msg" readonly placeholder="..."></div>';
         echo'</span><input id="msg4" type="hidden" class="form-control" value="'.$tab['tytul_auk'].'" name="msg" readonly placeholder="...">';
@@ -32,6 +36,8 @@ for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
 
 ?>
 
+
+
 <div class="modal fade pop-up-wiadom" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel-2" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -43,7 +49,7 @@ for($k=0;$tab = mysqli_fetch_assoc($rezult);$k++)
 
 
         <div id='WW' class="input-group">
-            <span class="input-group-addon">DO :</span>
+            <span class="input-group-addon">OD :</span>
             <input id="msg11" type="text" class="form-control" name="msg" readonly placeholder="...">
         </div>
 

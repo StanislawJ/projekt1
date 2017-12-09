@@ -30,9 +30,7 @@
 </div>
 
 <div id='text_wiad'>
-  <div id='text_WW'>
-    <?php require_once('lista_wiad.php') ?>
-  </div>
+    <?php require_once('lista_wiad_odebrane.php') ?>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
