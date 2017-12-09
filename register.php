@@ -45,7 +45,7 @@ $zablokowany = true;
 						    return strtoupper($out);
 						}
 						$key= genKey($name, $lastname, $email);
-						$subject = "Wlasnie zarejestrowales sie na stronie: "."http://siemaeniu1441.cba.pl/ "."\n"."Aby sie zalogowac potwierdz email klikajac w link > > "." "."http://siemaeniu1441.cba.pl/n4.php?key=".$key."\n"."Jesli nie logowales sie na tej stronie to pomin ta wiadomosc"."/powierdzenie.php?key=".$key;
+						$subject = "Wlasnie zarejestrowales sie na stronie: "."http://siemaeniu1441.cba.pl/ "."\n"."Aby sie zalogowac potwierdz email klikajac w link > > "." "."http://siemaeniu1441.cba.pl/n4.php?key=".$key."\n"."Jesli nie logowales sie na tej stronie to pomin ta wiadomosc"."\n"."Wersja na localhost >>>   index.php?key=".$key;
 
 						if( mail($email,"Potwierdzenie Emaila" ,$subject) )
 								{

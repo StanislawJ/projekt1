@@ -26,6 +26,9 @@
 
 </head>
 <body>
+<?php
+require_once('wymysl.php');
+ ?>
 
 <div class="container-fluid">
 
@@ -64,9 +67,7 @@
     {
         require_once('register.php');
     }
-
 ?>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
