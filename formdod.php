@@ -112,7 +112,7 @@ while($row = mysqli_fetch_assoc($result)){
   }
 
 
-//header('location: index.php')
+header('location: index.php')
 
 
 

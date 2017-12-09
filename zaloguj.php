@@ -30,6 +30,7 @@
 
 	$sql = "SELECT * FROM `users` WHERE login LIKE '$log' AND pass LIKE '$pass'";
 	$rezultat = $connecting->query($sql);
+	$rezultat2 = $connecting->query($sql);
 
 
 	if($rezultat->num_rows > 0)
@@ -39,11 +40,14 @@
 		$block = $row['zablokowany'];
 		}
 
-		if ($block <1 )
+		if ($block < 1 )
 			{
-			$table = $rezultat->fetch_array();
+				if($rezultat2->num_rows > 0)
+				{
+			$table = $rezultat2->fetch_array();
 			$_SESSION['log'] = 1;
 			$_SESSION['user_id'] = $table['ID'];
+				}
 			}
 		else {
 			echo "niepotwierdzony email";
