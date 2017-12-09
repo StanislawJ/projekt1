@@ -34,10 +34,20 @@
 
 	if($rezultat->num_rows > 0)
 	{
+		while($row = mysqli_fetch_assoc($rezultat))
+		{
+		$block = $row['zablokowany'];
+		}
 
-		$table = $rezultat->fetch_array();
-		$_SESSION['log'] = 1;
-		$_SESSION['user_id'] = $table['ID'];
+		if ($block <1 )
+			{
+			$table = $rezultat->fetch_array();
+			$_SESSION['log'] = 1;
+			$_SESSION['user_id'] = $table['ID'];
+			}
+		else {
+			echo "niepotwierdzony email";
+		}
 
 
 	}

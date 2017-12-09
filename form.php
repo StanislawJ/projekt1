@@ -1,20 +1,15 @@
+<?php session_start();
+if(isset($_SESSION['log'])){ ?>
 <html lang="pl">
   <head>
-
     <meta charset="utf-8">
     <title></title>
-
     <!ikona przy nazwie strony>
     	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
     	<meta charset="utf-8"/>
     	<meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 <style>
 #bar
 {
@@ -80,9 +75,14 @@ font-family:Arial, Helvetica, sans-serif;
 font-size:14px;
 }
 
-#tlostr
+.naglowek
 {
-  background-color: white
+color : #ff5400;
+}
+tr{
+  background-color: #e2e2e285 ;
+  color: black;
+  font: italic bold 18px Georgia, serif;
 }
 
 </style>
@@ -98,8 +98,8 @@ font-size:14px;
 <?php require_once "connect.php";
 $conn = @new mysqli($host, $db_user, $db_password, $db_name); ?>
 <table class="table table-hover">
-  <form action="formdod.php" method="post" enctype="multipart/form-data"  name="myform" id="myform" onsubmit='return confirm(&quot Czy na pewno chcesz dodac?&quot);' >
-<tr><td colspan="3"> <h3>INFORMACJE O AUKCJI</h3></tr>
+  <form action="formdod.php" method="post" enctype="multipart/form-data"  name="myform" id="myform" >
+<tr class="naglowek"><td colspan="3"> <h3>INFORMACJE O AUKCJI</h3></tr>
     <tr> <th scope="row">1</th> <td>Typ aukcji:</td><td>     <?php
       $query = "SELECT * FROM `typy`";
       $result = mysqli_query($conn,$query);
@@ -145,7 +145,7 @@ $conn = @new mysqli($host, $db_user, $db_password, $db_name); ?>
 <tr> <th scope="row">5</th> <td>Cena :</td><td> <input type="text" class="min" min=0 name="cena" required placeholder="Podaj cene"> </td></tr>
 <tr> <th scope="row">6</th> <td>Cena minimalna <br>(w przypadku aukcji holenderskiej):</td><td> <input type="text" class="min2" hidden="hidden"  name="cenamin" placeholder="Podaj cene"> </td></tr>
 
-<tr><td colspan="3"> <h3>WYBIERZ FORMY DOSTAWY</h3></tr>
+<tr class="naglowek"><td colspan="3"> <h3>WYBIERZ FORMY DOSTAWY</h3></tr>
 <tr> <th scope="row">7</th> <td> Przesylka kurierska</td><td>
 <input type="checkbox" name='features[]' id='features_item_0' class="ch1"> <input type="text" class="min" id="i1" hidden="hidden" name="d1" placeholder="Podaj cene"> </td></tr>
 <tr> <th scope="row">8</th> <td>Przesylka kurierska<br>pobraniowa</td><td>
@@ -156,10 +156,10 @@ $conn = @new mysqli($host, $db_user, $db_password, $db_name); ?>
 <input type="checkbox" iname='features[]' id='features_item_3' class="ch4"> <input type="text" class="min" id="i4" hidden="hidden" name="d4" placeholder="Podaj cene"> </td></tr>
 <tr> <th scope="row">11</th> <td>Odbior wlasny</td><td>
 <input type="checkbox" name='features[]' id='features_item_4' class="ch5"> <input type="text" class="min" id="i5" hidden="hidden" name="d5" placeholder="Podaj cene">  </td></tr>
-<tr><td colspan="3"> <h3>INFORMACJE O PRODUKCIE</h3></tr>
+<tr class="naglowek"><td colspan="3"> <h3>INFORMACJE O PRODUKCIE</h3></tr>
 <tr> <th scope="row">12</th> <td>Ilosc:</td><td> <input type="number" min="1" class="ilo" step="1" name="ilosc" placeholder="Podaj ilosc"> </td></tr>
-<tr> <th scope="row">13</th> <td>Kolor:</td><td> <input type="text" maxlength="30"  name="kolor" required placeholder="Podaj  kolor"> </td></tr>
-<tr> <th scope="row">14</th> <td>Producent:</td><td> <input type="text" maxlength="30" name="producent" required  placeholder="Podaj producenta"> </td></tr>
+<tr> <th scope="row">13</th> <td>Kolor:</td><td> <input type="text" maxlength="30" id="kolorproduktu" name="kolor" required placeholder="Podaj  kolor"> </td></tr>
+<tr> <th scope="row">14</th> <td>Producent:</td><td> <input type="text" maxlength="30" id="producentt" name="producent" required  placeholder="Podaj producenta"> </td></tr>
 <tr> <th scope="row">15</th> <td>Stan:</td><td> <select name="stan">
     <option>nowy</option>
     <option>uzywany</option></select>  </td></tr>
@@ -170,18 +170,15 @@ $conn = @new mysqli($host, $db_user, $db_password, $db_name); ?>
     <input type="file" name="fileToUpload3" id="fileToUpload3" disabled>
     <input type="file" name="fileToUpload4" id="fileToUpload4" disabled>
     <input type="file" name="fileToUpload5" id="fileToUpload5" disabled>
-    <div id="myform_errorloc" class="error_strings"></div>
     </td><td>
-
-
-  <tr> <td colspan="3"><input type=submit class="btn btn-success" value="Dodaj"/></td></tr>
-  </form>
-  </table>
+      <tr> <th> <td colspan="3"> <div id="myform_errorloc" class="error_strings"></div></td> </th></tr>
+  <tr> <td colspan="3"><input type="submit" class="btn btn-success" value="Dodaj" />
+  </form><a href="index.php"><input type="submit" class="btn btn-danger" onClick='return confirm(&quot Czy na pewno chcesz anulowac?&quot);' value="Anuluj"></a></td></tr>
+  </td></tr></table>
 
 </div>
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/
-  ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
   <script type="text/javascript">
 
@@ -193,6 +190,7 @@ $conn = @new mysqli($host, $db_user, $db_password, $db_name); ?>
   $("#i2").hide().val("-1");
   $("#i3").hide().val("-1");
   $("#i4").hide().val("-1");
+
 
   $("#fileToUpload0").on('change',function(){  //pierwszy
     if($("#fileToUpload0").val() != ""  ){
@@ -378,6 +376,8 @@ $conn = @new mysqli($host, $db_user, $db_password, $db_name); ?>
     frmvalidator.addValidation("fileToUpload0","req_file","Wybierz minimum jedno zdjecie");
 
     frmvalidator.addValidation("features[]","selmin=1","Wybierz minimum jednego dostawce");
+    frmvalidator.addValidation("kolorproduktu","alphabetic_space","Tylko litery w polu 'Kolor'");
+    frmvalidator.addValidation("producentt","alphabetic_space","Tylko litery w polu 'Producent'");
 
 
 
@@ -387,3 +387,8 @@ $conn = @new mysqli($host, $db_user, $db_password, $db_name); ?>
   <script src="js/bootstrap.min.js"></script>
   </body>
   </html>
+<?php }
+//select auction.ID_AUK, auction.ID_SPRZ, auction.ID_PRO, auction.typ, auction.kategoria, auction.kr_op, auction.dl_op, auction.cena as cena_produktu, sale.sztuki,sale.dostawa, sale.cena as cena_do_zaplaty
+//FROM `sale` inner join auction on sale.ID_AUK = auction.ID_AUK where ID  = 1
+else header("location: index.php");
+?>
