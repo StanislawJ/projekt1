@@ -1,5 +1,7 @@
 
 <?php
+if(isset($_GET['key']))
+{
 $key = $_GET['key'];
 if ($_GET['key'])
 {	$conn = new mysqli('localhost', 'root', '', 'aukcjoner');
@@ -25,3 +27,5 @@ document.getElementById("znikajacy").style.display="none";
 }
 setTimeout("ukryj()",4000);
 </script>
+
+<?php }?>

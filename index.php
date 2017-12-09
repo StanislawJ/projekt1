@@ -27,7 +27,7 @@
 </head>
 <body>
 <?php
-require_once('wymysl.php');
+require_once('potw.php');
  ?>
 
 <div class="container-fluid">
