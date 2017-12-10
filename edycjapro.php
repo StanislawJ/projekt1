@@ -55,8 +55,8 @@ if(isset($_SESSION['log'])){ ?>
             <tr> <th scope="row">2</th> <td>Zmien haslo:</td><td>
               <input type="checkbox" id="zmiana" class="ch1" />
               <br>
-              <input type="text" id="i1" hidden="hidden" pattern=".{6,20}" title="od 6 do 20 znakow" name="d1" placeholder="Podaj nowe haslo">
-              <input type="text" class="minn"  id="i2" hidden="hidden" pattern=".{6,20}" title="od 6 do 20 znakow" name="d2" placeholder="Powtorz haslo">
+              <input type="password" id="i1" hidden="hidden" pattern=".{6,20}" title="od 6 do 20 znakow" name="d1" placeholder="Podaj nowe haslo">
+              <input type="password" class="minn"  id="i2" hidden="hidden" pattern=".{6,20}" title="od 6 do 20 znakow" name="d2" placeholder="Powtorz haslo">
             </td></tr>
             <tr> <th scope="row">3</th> <td>Imie:</td><td> <input type="text" name="imie" required value=<?php echo $c ?> > </td></tr>
             <tr> <th scope="row">4</th> <td>Nazwisko:</td><td> <input type="text" name="nazwisko" required value=<?php echo $d ?> > </td></tr>
@@ -152,8 +152,8 @@ if(isset($_SESSION['log'])){ ?>
 
        frmvalidator.addValidation("nrko","req","Prosze podac numer konta bankowego");
        frmvalidator.addValidation("nrko","numeric", "Niepoprawny typ znakow w nr konta bankowego");
-       frmvalidator.addValidation("nrko","minlen=2",  "numer konta musi miec 26 cyfr");
-       frmvalidator.addValidation("nrko","maxlen=2",  "numer konta musi miec 26 cyfr");
+       frmvalidator.addValidation("nrko","minlen=26",  "numer konta musi miec 26 cyfr");
+       frmvalidator.addValidation("nrko","maxlen=26",  "numer konta musi miec 26 cyfr");
        //]]></script>
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

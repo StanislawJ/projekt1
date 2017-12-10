@@ -100,4 +100,7 @@ $infoW = mysqli_fetch_assoc($rezult);
   </div><!-- /.modal mixer image -->
 
 
-  
+  <?php
+   mysqli_free_result($rezult);
+   mysqli_close($connecting);
+   ?>

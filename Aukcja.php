@@ -82,3 +82,7 @@
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
+<?php
+ mysqli_free_result($rezult);
+ mysqli_close($connecting);
+ ?>

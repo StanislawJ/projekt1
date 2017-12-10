@@ -2,7 +2,7 @@
 	<div class="navbar navbar-inverse" id="log_nav">
       <div class="panel-heading">
 				<div id="menu1">
-				<div id="logo">AUKCJONER</div>
+				<a href="index.php"><div id="logo">AUKCJONER</div></a>
 				<button type="button" class="button2 button" href="#collapse1" data-toggle="collapse">zaloguj</button>
 				<button type="button" class="button2 button" href="#myModal" data-toggle="modal">zarejestruj</button>
 				</div>
@@ -184,8 +184,8 @@
 				$('[data-toggle="nrtel"]').tooltip();
 				$('[data-toggle="bank"]').tooltip();
 				$('[data-toggle="nrkonta"]').tooltip();
-		 
-		 
+
+
 		 <!--__________________________________________________________ajax logowanie-->
 		 		$('#login').click(function(){
 					<?php if(!isset($_SESSION['log'])){ ?>

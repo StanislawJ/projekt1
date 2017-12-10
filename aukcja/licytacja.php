@@ -41,3 +41,7 @@ else {
 }
 
 ?>
+<?php
+ mysqli_free_result($rezult);
+ mysqli_close($connecting);
+ ?>

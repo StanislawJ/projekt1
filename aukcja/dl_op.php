@@ -28,3 +28,7 @@ kolor - <?php echo $info1['kolor']; ?><br>
 stan - <?php echo $info1['stan']; ?><br>
 producent - <?php echo $info1['producent']; ?><br>
 </div>
+<?php
+ mysqli_free_result($rezult);
+ mysqli_close($connecting);
+ ?>
