@@ -81,6 +81,7 @@ body
 
 #profile
 {
+  display: none;
   float: right;
   width: 40px;
   height: 40px;
@@ -323,7 +324,25 @@ body
     box-shadow:0px 0px 15px 2px blue;
 }
 
+#kupione
+{
+  display: none;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border:0;
+  background-color: #222;
+  background-image: url(tlo/kupione.png);
+  background-size: contain;
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+}
 
+#kupione:hover
+{
+    box-shadow:0px 0px 15px 2px blue;
+}
 
 
 

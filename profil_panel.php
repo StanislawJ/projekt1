@@ -16,7 +16,7 @@ $username = mysqli_fetch_assoc($rezult);
       <a href="index.php"><div id="logo">AUKCJONER</div></a>
 
 
-
+      <span id='men_icon'>
     <form action="wyloguj.php" method="POST"><input type="submit" value=" " data-toggle="logout" data-placement="bottom" title="Wyloguj" class="logout"/></form>
         <?php if($username['pozwolenie'] == true) {?><button id="profile" class data-toggle="konto" data-placement="bottom" title="Administracja"></button> <?php } ?>
       <button id="sett" data-toggle="sett" data-placement="bottom" title="Ustawienia" > </button>
@@ -25,7 +25,9 @@ $username = mysqli_fetch_assoc($rezult);
       <button id="licyt" data-toggle="licyt" data-placement="bottom" title="moje licytacje" > </button>
       <button id="koszyk" class="koszyk" data-toggle="koszyk" data-placement="bottom" title="Twój koszyk" > </button>
       <button id="wiad" class="wiad1" data-toggle="wiad" data-placement="bottom" title="Wiadomości" > </button>
+      <button id="kupione" class="kupione" data-toggle="kupione" data-placement="bottom" title="kupione" > </button>
       <user><?php echo "zalogowany - ".$username['login']."" ?></user>
+    </span>
       </div>
   </div>
 
@@ -43,6 +45,7 @@ $username = mysqli_fetch_assoc($rezult);
            $('[data-toggle="wiad"]').tooltip();
            $('[data-toggle="koszyk"]').tooltip();
            $('[data-toggle="sett"]').tooltip();
+           $('[data-toggle="kupione"]').tooltip();
 
 
            $('#my_auction').click(function(){
@@ -91,6 +94,10 @@ $username = mysqli_fetch_assoc($rezult);
 
            $('#profile').click(function(){
               $('#box').load('administracja.php');
+           })
+
+           $('#kupione').click(function(){
+              $('#box').load('kupione.php');
            })
 });
 </script>
