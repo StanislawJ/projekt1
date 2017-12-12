@@ -77,12 +77,14 @@ font-size:14px;
 
 .naglowek
 {
-color : #ff5400;
+  font-weight:bold;
+color : black;
+
 }
 tr{
-  background-color: #e2e2e285 ;
+  background-color: white ;
   color: black;
-  font: italic bold 18px Georgia, serif;
+
 }
 
 </style>
