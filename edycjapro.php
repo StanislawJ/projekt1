@@ -14,7 +14,7 @@ if(isset($_SESSION['log'])){ ?>
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <style>
       #table1{
-      background-color:DodgerBlue ;
+      background-color:white ;
       text-align:center;
       color:black;
       }
