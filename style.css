@@ -1,6 +1,6 @@
 body
 {
-  background-image: url(tlo/tlo.jpg);
+
   background-attachment: fixed;
   min-width: 850px;
 }
@@ -491,9 +491,9 @@ color:black;
 
 .dalej {
   border-radius: 2px;
-  background-color: #f54007;
+  background-color: #ff5a00;
   border: none;
-  color: black;
+  color: white;
   text-align: center;
   font-size: 12px;
   padding: 10px;
@@ -521,6 +521,8 @@ color:black;
 
 .dalej:hover span {
   padding-right: 25px;
+  color:black;
+  font-weight: 600;
 }
 
 .dalej:hover span:after {
@@ -529,14 +531,14 @@ color:black;
 }
 
 .kat_end {
-    background-color: #f54007;
+    background-color: #ff5a00;
     border: none;
-    color: black;
+    color: white;
     padding: 8px 16px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 15px;
+    font-size: 17px;
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
@@ -545,8 +547,9 @@ color:black;
 
 
 .kat_end:hover {
-    background-color: #882304;
-    color: white;
+
+    font-weight: 600;
+    color:black;
 }
 
 .in_search
@@ -609,7 +612,7 @@ color:black;
 #content
 {
   float: left;
-	background-color: rgba(0,0,0,0.6);
+	background-color: white;
 	border-radius:5px;
 	border-style:solid;
 	margin-top:25px;
@@ -622,14 +625,15 @@ color:black;
 #kategorie
 {
 float:left;
+border: solid grey 2px;
 border-radius:5px;
-background-color:#082975;
+background-color:white;
 width:20%;
 height: 500px;
 margin: 1%;
 margin-right: 0.5%;
 overflow: hidden;
-color: white;
+color: black;
 }
 
 #dane_all
