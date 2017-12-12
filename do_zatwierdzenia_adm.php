@@ -73,7 +73,7 @@ else
           echo"<input type='text' name='goid' value='".$tab['id_auk']."'  readonly hidden /></form>";
           echo"<div id='adm_option'><button id='".$tab['id_kosz']."' class='cancle_adm ADM'>anuluj</button><button id='".$tab['id_kosz']."' class='accept_adm ADM'>Potwierdź</button></div>";
           echo"<div id='dane_panel_adm'>";
-          echo"<div id='opcje_adm'><table id='opcjetb'><td>cena zamówienia-".$tab['cena']."</td><td>ilość-".$tab['ilosc']." </td><td>rodzaj dostawy-".$tab['dostawa']."</td><td>data-".$tab['data']."</td></table></div>";
+          echo"<div id='opcje_adm'><table id='opcjetA'><td>cena zamówienia-".$tab['cena']."</td><td>ilość-".$tab['ilosc']." </td><td>rodzaj dostawy-".$tab['dostawa']."</td><td>data-".$tab['data']."</td></table></div>";
           echo"</div></div>";
         }
       }

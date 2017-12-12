@@ -101,6 +101,5 @@ $infoW = mysqli_fetch_assoc($rezult);
 
 
   <?php
-   mysqli_free_result($rezult);
-   mysqli_close($connecting);
+
    ?>

@@ -72,7 +72,7 @@ else
           echo"<form class='idd' method='GET' action='Aukcja.php' ><div class='text'>".$tab['kr_op']."</div>";
           echo"<input type='text' name='goid' value='".$tab['id_auk']."'  readonly hidden /></form>";
           echo"<div id='dane'>";
-          echo"<div id='opcje'><table id='opcjetb'><td>cena zamówienia-".$tab['cena']."</td><td>ilość-".$tab['ilosc']." </td><td>rodzaj dostawy-".$tab['dostawa']."</td><td>data-".$tab['data']."</td></table></div><button id='".$tab['id_kosz']."' class='cancle'>anuluj</button>";
+          echo"<div id='opcjeA'><table id='opcjetA'><td>cena zamówienia-".$tab['cena']."</td><td>ilość-".$tab['ilosc']." </td><td>rodzaj dostawy-".$tab['dostawa']."</td><td>data-".$tab['data']."</td></table></div><button id='".$tab['id_kosz']."' class='cancle'>anuluj</button>";
           echo"</div></div>";
         }
       }

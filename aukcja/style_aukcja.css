@@ -1,6 +1,5 @@
 body
 {
-  background-image: url('../tlo/tlo_aukcja.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -22,6 +21,8 @@ body
 {
  margin: 0;
  padding: 5px;
+ background-color: white;
+ border:0;
 }
 
 .logout
@@ -32,7 +33,7 @@ body
   border:0;
   margin-left: 5px;
   margin-right: 10px;
-  background-color: #222;
+  background-color: white;
   background-image: url(../tlo/wyloguj.png);
   background-size: contain;
   padding: 0;
@@ -463,16 +464,16 @@ user
 #auk
 {
   float: left;
-  background-color: blue;
+  background-color: #dcdcdc;
   height: 400px;
 }
 
 #kr_op
 {
-  background-color: #2020ab;
+  background-color: #ffffff;
   font-size: 15px;
   float: left;
-  color: white;
+  color: black;
   border: solid white 2px;
   margin: 5px;
   padding-left: 10px;
@@ -681,6 +682,8 @@ p4
 #log_nav
 {
   margin:0;
+  background-color: white;
+  border: 0;
 }
 
 #log
@@ -689,7 +692,7 @@ p4
   padding: 10px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  border: solid blue 1px;
+  border-top: solid black 1px;
 }
 
 .button
@@ -710,15 +713,16 @@ p4
 }
 
 .button2 {
-    background-color: #000066;
+    background-color: #ff5a00;
     color: white;
 	font-weight: 500;
 }
 
 .button2:hover {
 
-	background-color: #0000cc;
-    color: white;
+	background-color: #ff5a00;
+  color: white;
+  font-weight: 600;
 	font-weight: 500;
 	border: 2px solid white;
 }
@@ -752,7 +756,8 @@ p4
 {
 	float:left;
 	font-size:30px;
-	color: #0000e6;
+	color: #ff5a00;
+  font-weight: 800;
 }
 
 #log
@@ -776,13 +781,13 @@ p4
 
 #dl_op
 {
-  background-color: #0c1296;
+  background-color: #d6d6d6;
   height: 500px;
 }
 
 .DO
 {
-  border: solid black 3px;
+  border: solid black 1px;
   padding: 15px;
   height: 70%;
   margin: auto;
@@ -794,13 +799,12 @@ p4
 
 .DO1
 {
-  border:solid black 2px;
-  color: white;
+  color: black;
 }
 
 #Gcontent
 {
-  background-color: #000bff99;
+  background-color: white;
   height: 500px;
 }
 
@@ -814,7 +818,6 @@ p4
   overflow-y: auto;
   padding-bottom: 10px;
   border-radius: 5px;
-  border: solid blue 4px;
 }
 
 .modal-body img

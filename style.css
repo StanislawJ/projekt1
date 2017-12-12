@@ -271,7 +271,7 @@ body
   height: 30px;
   font-size: 15px;
   color: black;
-  width: 90%;
+  width: 100%;
 }
 
 #opcje table
@@ -281,12 +281,10 @@ body
 
 #opcjetb td
 {
-  border-left: solid blue 2px;
-  border-right: solid blue 2px;
-  height: 100%;
   height: 30px;
   padding-right: 10px;
   padding-left: 5px;
+  width:33%;
 }
 
 .cancle
@@ -983,7 +981,7 @@ font-size:14px;
 
 #panel_wiad
 {
-  background-color: blue;
+  background-color: #b9b9b9;
   width: 100%;
   height: 50px;
 }
@@ -1104,7 +1102,7 @@ font-size:14px;
   margin-bottom: 10px;
   height:50px;
   background-color: white;
-  border: solid blue 1px;
+
 }
 
 #dane_adm
@@ -1128,19 +1126,19 @@ font-size:14px;
   font-size: 17px;
   width: calc(90% - 200px);
   height: 100px;
-  background-color: #4d4dff;
+  background-color: white;
   overflow: hidden;
   text-align: center;
 }
 
 .text_adm:hover{
-  box-shadow: 0px 0px 15px blue;
+  box-shadow: 0px 0px 15px black;
 }
 
 #adm_option
 {
   position: relative;
-  background-color: #1500d8;
+  background-color: #e6e6de;
   float: left;
   width: calc(10%);
   height: 100px;
@@ -1162,12 +1160,27 @@ font-size:14px;
 
 #opcjetb td
 {
-  border-left: solid blue 2px;
-  border-right: solid blue 2px;
+  border-left: solid black 2px;
+  border-right: solid black 2px;
   height: 100%;
   height: 30px;
   padding-right: 10px;
   padding-left: 5px;
+}
+
+#opcjetA td
+{
+  border-left: solid black 2px;
+  border-right: solid black 2px;
+  height: 30px;
+  padding-right: 10px;
+  padding-left: 5px;
+}
+
+#opcjeA
+{
+  width:90%;
+  float: left;
 }
 
 
@@ -1185,7 +1198,7 @@ font-size:14px;
 
 .ADM:hover
 {
-    box-shadow:0px 0px 15px 2px blue;
+    box-shadow:0px 0px 15px 2px black;
 }
 
 
@@ -1199,41 +1212,64 @@ font-size:14px;
 #do_spr
 {
   float: left;
-  background-color: black;
+  background-color: #ff5a00;
   width:40%;
   height:40px;
   margin: 4px;
+  border-radius: 5px;
 }
 
+#do_spr:hover
+{
+    box-shadow:0px 0px 15px 3px black;
+}
 
 #pod_kat
 {
   float: right;
-  background-color: blue;
+  background-color: #ff5a00;
   width: 40%;
   height:40px;
   margin: 4px;
+  border-radius: 5px;
 }
 
+#pod_kat:hover
+{
+    box-shadow:0px 0px 15px 3px black;
+}
 
 #kupione_teraz
 {
   float: left;
-  background-color: white;
-  width:40%;
+  background-color: #ff5a00;
+  border-radius: 3px;
+  width: 20%;
   height:36px;
   margin: 6px;
   margin: 6px;
   color:black;
   font-size: 25px;
 }
+
+#kupione_teraz:hover
+{
+    box-shadow:0px 0px 15px 3px black;
+}
+
 #kupione_licytacja
 {
   float: right;
-  background-color: white;
-  width: 40%;
+  background-color: #ff5a00;
+  border-radius: 3px;
+  width: 20%;
   height:40px;
   margin: 4px;
   color:black;
   font-size: 25px;
+}
+
+#kupione_licytacja:hover
+{
+    box-shadow:0px 0px 15px 3px black;
 }

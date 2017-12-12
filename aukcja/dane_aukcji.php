@@ -10,7 +10,7 @@ $rezult = $connecting->query($sql);
 
 $info = mysqli_fetch_assoc($rezult);
 
-$sql = "SELECT * FROM `product` WHERE ID_PRO IN (SELECT ID_PRO from auction where ID_AUK LIKE ".$ID.")";
+$sql = "SELECT  * FROM `product` WHERE ID_PRO IN (SELECT ID_PRO from auction where ID_AUK LIKE ".$ID.")";
 $rezult = $connecting->query($sql);
 
 $info1 = mysqli_fetch_assoc($rezult);
@@ -184,6 +184,4 @@ $.ajax({
 });
 </script>
 <?php
- mysqli_free_result($rezult);
- mysqli_close($connecting);
  ?>
