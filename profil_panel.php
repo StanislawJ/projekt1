@@ -97,7 +97,7 @@ $username = mysqli_fetch_assoc($rezult);
            })
 
            $('#kupione').click(function(){
-              $('#box').load('kupione.php');
+              $('#box').load('kupione_all.php');
            })
 });
 </script>

@@ -14,7 +14,7 @@ $us = mysqli_fetch_assoc($rezult);
 }
 
 
-$sql = "SELECT * from history WHERE cena in (SELECT max(cena) from history group by ID_AUK) and ID_KUP LIKE ".$_SESSION['user_id']."";
+$sql = "SELECT * from history WHERE cena in (SELECT max(cena) from history group by ID_AUK) and ID_AUK in (select ID_AUK from auction where now() > data_zak ) and ID_KUP LIKE ".$_SESSION['user_id']."";
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
 
@@ -98,12 +98,12 @@ for($i=1;$i<=$_SESSION['pages'];$i++)
 
    $.ajax({
      type: 'POST',
-     url: 'moj_koszyk.php',
+     url: 'kupione.php',
      data:	{
          nr: $(this).attr('id')*10
          },
      success: function(ret) {
-       $('#box').html(ret);
+       $('#kup_dane').html(ret);
                 $('html, body').animate({scrollTop: 0}, 400);
      },
      error: function() {

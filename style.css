@@ -1203,3 +1203,26 @@ font-size:14px;
   height:40px;
   margin: 4px;
 }
+
+
+#kupione_teraz
+{
+  float: left;
+  background-color: white;
+  width:40%;
+  height:36px;
+  margin: 6px;
+  margin: 6px;
+  color:black;
+  font-size: 25px;
+}
+#kupione_licytacja
+{
+  float: right;
+  background-color: white;
+  width: 40%;
+  height:40px;
+  margin: 4px;
+  color:black;
+  font-size: 25px;
+}

@@ -13,7 +13,7 @@ $us = mysqli_fetch_assoc($rezult);
 }
 
 
-$sql = "SELECT * from history WHERE cena in (SELECT max(cena) from history group by ID_AUK) and ID_KUP LIKE ".$_SESSION['user_id']."";
+$sql = "SELECT * from sale WHERE ID LIKE ".$_SESSION['user_id']."";
 $rezult = $connecting->query($sql);
 $quantity = $rezult->num_rows;
 
@@ -76,7 +76,7 @@ else
           echo"<form class='idd' method='GET' action='Aukcja.php' ><div class='text'>".$info['kr_op']."</div>";
           echo"<input type='text' name='goid' value='".$tab['ID_AUK']."'  readonly hidden /></form>";
           echo"<div id='dane'>";
-          echo"<div id='opcje'><table id='opcjetb'><td>cena z dostawą-".$tab['cean_i_dostawa']."</td><td>rodzaj dostawy-".$tab['dostawa']."</td></table></div>";
+          echo"<div id='opcje'><table id='opcjetb'><td>cena z dostawą-".$tab['cena']."</td><td>rodzaj dostawy-".$tab['dostawa']."</td><td>rodzaj dostawy-".$tab['sztuki']."</td></table></div>";
           echo"</div></div>";
         }
       }
@@ -97,12 +97,12 @@ for($i=1;$i<=$_SESSION['pages'];$i++)
 
    $.ajax({
      type: 'POST',
-     url: 'moj_koszyk.php',
+     url: 'kupione_kup_teraz.php',
      data:	{
          nr: $(this).attr('id')*10
          },
      success: function(ret) {
-       $('#box').html(ret);
+       $('#kup_dane').html(ret);
                 $('html, body').animate({scrollTop: 0}, 400);
      },
      error: function() {
