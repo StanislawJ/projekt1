@@ -106,8 +106,9 @@ if(isset($_SESSION['log']))
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
       </div>
       <div class="modal-body">
+        <b>TYTUŁ:</b>
       <?php echo $info['kr_op'] ?><br>
-      <div id="ii">ilość - <a id="iii"></a></div><br>
+      <div id="ii"><b>ILOŚĆ:</b> <a id="iii"></a></div><br>
       <select id="selected">
         <?php
           if($info['przesylka_kurierska'] >= 0) echo "<option class='wyb' value='".$info['przesylka_kurierska']."'>przesylka_kurierska</option>";
@@ -118,7 +119,7 @@ if(isset($_SESSION['log']))
          ?>
       </select>
       <button id="dd">dalej</button><br>
-      <a hidden="hidden" id="kostA">CENA<div id="kostB"></div></a>
+      <p hidden="hidden" id="kostA">CENA<div id="kostB"></div></p>
       <button id='buy1' hidden="hidden"  class='buy'>KUP TERAZ</button>
       </div>
     </div><!-- /.modal-content -->
